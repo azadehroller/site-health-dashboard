@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>roller.software — Website Health &amp; Performance </title>
+<title>roller.software — Website Health &amp; Performance</title>
 <style>
   :root{
-    /* ROLLER blue ramp (Website Library)  */
+    /* ROLLER blue ramp (Website Library) */
     --blue-10:#011840; --blue-20:#032663; --blue-30:#033180; --blue-40:#074DC5;
     --blue-50:#0960F6; --blue-60:#3A80F8; --blue-70:#6BA0FA; --blue-80:#9DBFFB;
     --blue-90:#CEDFFD; --blue-95:#EBF2FE; --blue-99:#F5F8FF; --white:#FFFFFF;
@@ -155,7 +155,10 @@
   .metric-head .m-name{font-size:12.5px;font-weight:800;color:var(--muted);letter-spacing:.2px}
   .metric-head .m-name b{color:var(--ink)}
   .m-value{font-size:30px;font-weight:800;letter-spacing:-1.2px;margin:10px 0 4px}
-  .m-value.good{color:var(--good)} .m-value.warn{color:var(--warn)} .m-value.bad{color:var(--bad)}
+  .m-value.good{color:var(--good)} .m-value.warn{color:var(--warn)} .m-value.bad{color:var(--bad)} .m-value.nodata{color:var(--faint)}
+  .substat{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px} .substat b{color:var(--ink);font-weight:800}
+  .freshness-live{color:var(--good)!important} .freshness-stale{color:var(--warn)!important}
+  .status-chip.attn{background:rgba(245,166,35,.16);border-color:rgba(245,166,35,.5)} .status-chip.attn .dot{background:var(--warn-line);box-shadow:0 0 0 4px rgba(245,166,35,.25)}
   .track{position:relative;height:7px;border-radius:4px;margin-top:12px;display:flex;overflow:hidden;gap:2px}
   .track span{height:100%}
   .track .s-good{background:var(--good-line)} .track .s-warn{background:var(--warn-line)} .track .s-bad{background:var(--bad-line)}
@@ -243,7 +246,7 @@
         <h1>The website is a revenue engine. This is the state of the engine.</h1>
         <p class="sub">A single view of whether the site is healthy, on-brand, and protecting revenue — backed by continuous monitoring across the buying journey. Reviewed on a daily, weekly and quarterly rhythm.</p>
       </div>
-      <span class="status-chip"><span class="dot"></span> Overall: Operational</span>
+      <span class="status-chip" id="overall-chip"><span class="dot"></span> <span id="overall-text">Overall: Operational</span></span>
     </div>
 
     <div class="pillars" id="summary">
@@ -280,11 +283,13 @@
       <div class="cad-head">
         <span class="cad-badge">Daily</span>
         <span class="cad-title">Site Operation — revenue-critical</span>
-        <span class="cad-note">Automated · Slack alert on failure</span>
+        <span class="cad-note" id="daily-freshness">Automated · Slack alert on failure</span>
       </div>
       <div class="grid g3">
         <div class="card reveal">
-          <div class="c-top"><h4>Lead Pipeline</h4><span class="pill ok"><span class="dot"></span>Operational</span></div>
+          <div class="c-top"><h4>Lead Pipeline</h4><span class="pill ok" id="p-forms"><span class="dot"></span>Healthy</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-forms">51</span><span class="metric-unit">forms active &amp; healthy</span></div>
+          <div class="substat" id="s-forms">54 monitor points · 3 Checkly checks</div>
           <p class="c-desc">Every lead form submits correctly and the lead reaches the CRM. Tracking fires and respects cookie consent.</p>
           <ul class="checklist">
             <li><span class="tick">✓</span>Key forms submit (Get Started, gated content, demo request)</li>
@@ -294,7 +299,9 @@
           <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
         </div>
         <div class="card reveal">
-          <div class="c-top"><h4>Paid Campaign</h4><span class="pill ok"><span class="dot"></span>Operational</span></div>
+          <div class="c-top"><h4>Paid Campaign</h4><span class="pill ok" id="p-paid"><span class="dot"></span>Healthy</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-paid">59</span><span class="metric-unit">paid LPs active &amp; healthy</span></div>
+          <div class="substat" id="s-paid">103 monitor points · 4 checks · 846 sessions (24h)</div>
           <p class="c-desc">Paid landing pages load and their forms and CTAs work, so ad spend converts and isn't wasted.</p>
           <ul class="checklist">
             <li><span class="tick">✓</span>Paid LP pages, forms and CTAs load and work</li>
@@ -304,7 +311,9 @@
           <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
         </div>
         <div class="card reveal">
-          <div class="c-top"><h4>Revenue-Critical Journeys</h4><span class="pill ok"><span class="dot"></span>Operational</span></div>
+          <div class="c-top"><h4>Revenue-Critical Journeys</h4><span class="pill ok" id="p-rev"><span class="dot"></span>Healthy</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-rev">9</span><span class="metric-unit">journeys active &amp; healthy</span></div>
+          <div class="substat" id="s-rev">192 user sessions (24h)</div>
           <p class="c-desc">The full journeys that drive revenue work end to end — demo request, contact sales, pricing, lead routing and CRM.</p>
           <ul class="checklist">
             <li><span class="tick">✓</span>Each journey works step to step (page → form → submit → confirm)</li>
@@ -399,8 +408,8 @@
       <div class="perf-bar">
         <span class="lead"><span class="mark" style="width:20px;height:20px;border-radius:6px;background:var(--blue-50);display:inline-grid;place-items:center;color:#fff;font-size:11px;font-weight:900">R</span> roller.software</span>
         <div class="toggle" role="tablist">
-          <button id="tab-desktop" class="active" onclick="setDevice('desktop')" role="tab">🖥 Desktop</button>
-          <button id="tab-mobile" onclick="setDevice('mobile')" role="tab">📱 Mobile</button>
+          <button id="tab-live" class="active" onclick="setSource('live')" role="tab">⚡ Live · Sentry 24h</button>
+          <button id="tab-snap" onclick="setSource('snapshot')" role="tab">📸 Snapshot · 25 Jun</button>
         </div>
       </div>
 
@@ -413,7 +422,7 @@
 
       <div class="cwv-note">
         <span style="color:var(--blue-50);font-weight:900">ℹ</span>
-        <span id="cwv-context">LCP = how fast the main content appears · INP = how responsive the page feels to taps/clicks · CLS = how much the layout shifts. Green / amber / red follow Google's own thresholds.</span>
+        <span id="cwv-context">LCP = how fast the main content appears · INP = how responsive the page feels to taps/clicks · CLS = how much the layout shifts. Green / amber / red follow Google's own thresholds.</span><span id="apdex-note" style="color:var(--ink);font-weight:700"></span>
       </div>
     </div>
   </div>
@@ -494,73 +503,157 @@
   <div class="wrap">
     <div class="sources">
       <b>Website Health &amp; Performance</b> · roller.software &nbsp;|&nbsp; Prepared by Web / Marketing.<br>
-      Sources: Health Assurance Plan &amp; Health Dashboard (Notion) · Core Web Vitals field data from Google PageSpeed Insights / CrUX, 25 Jun 2026 · Website Library design tokens.
-      Daily counters populate live from Checkly &amp; Sentry; weekly &amp; quarterly figures reflect the latest recorded cycle.
+      Sources: daily journey, session &amp; Checkly figures read live on load from the ROLLER Site Health feed (Checkly + Sentry) · Core Web Vitals from Sentry field data (24h), with a PageSpeed / CrUX snapshot from 25 Jun 2026 · framing from the Health Assurance Plan (Notion) · Website Library design tokens.
+      Weekly &amp; quarterly figures reflect the latest recorded cycle. If the live feed can't be reached, the dashboard shows the last-known values and says so.
     </div>
     <div><b>Cadence:</b> Daily · Weekly · Quarterly</div>
   </div>
 </footer>
 
 <script>
-  /* ---------- Core Web Vitals data (from PageSpeed, 25 Jun 2026) ---------- */
-  const CWV = {
-    desktop:{
-      passed:true,
-      verdict:"All three primary vitals in the good range for desktop visitors.",
-      metrics:[
-        {key:"LCP", name:"Largest Contentful Paint", val:"1.8", unit:"s", rating:"good", pct:36, seg:[62.5,25,12.5], labels:["0","2.5s","4.0s+"]},
-        {key:"INP", name:"Interaction to Next Paint", val:"73", unit:"ms", rating:"good", pct:15, seg:[40,20,40], labels:["0","200ms","500ms+"]},
-        {key:"CLS", name:"Cumulative Layout Shift", val:"0.06", unit:"", rating:"good", pct:24, seg:[40,20,40], labels:["0","0.10","0.25+"]},
-        {key:"FCP", name:"First Contentful Paint", val:"1.7", unit:"s", rating:"good", pct:47, seg:[60,25,15], labels:["0","1.8s","3.0s+"]},
-        {key:"TTFB",name:"Time to First Byte", val:"1.4", unit:"s", rating:"warn", pct:54, seg:[31,39,30], labels:["0","0.8s","1.8s+"]}
-      ]
-    },
-    mobile:{
-      passed:false,
-      verdict:"Assessment failed — Largest Contentful Paint sits just outside the good range. It's the lever for mobile.",
-      metrics:[
-        {key:"LCP", name:"Largest Contentful Paint", val:"2.5", unit:"s", rating:"warn", pct:63, seg:[62.5,25,12.5], labels:["0","2.5s","4.0s+"]},
-        {key:"INP", name:"Interaction to Next Paint", val:"126", unit:"ms", rating:"good", pct:25, seg:[40,20,40], labels:["0","200ms","500ms+"]},
-        {key:"CLS", name:"Cumulative Layout Shift", val:"0", unit:"", rating:"good", pct:6, seg:[40,20,40], labels:["0","0.10","0.25+"]},
-        {key:"FCP", name:"First Contentful Paint", val:"2.3", unit:"s", rating:"warn", pct:66, seg:[60,25,15], labels:["0","1.8s","3.0s+"]},
-        {key:"TTFB",name:"Time to First Byte", val:"1.7", unit:"s", rating:"warn", pct:72, seg:[31,39,30], labels:["0","0.8s","1.8s+"]}
-      ]
-    }
+  /* ============================================================
+     LIVE DATA — reads the ROLLER Site Health feed on every load.
+     Falls back to the last-known values below if the feed can't be
+     reached (offline, CORS, or inside a sandboxed preview).
+     ============================================================ */
+  const FEED_URL = "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1&format=text";
+
+  // Last-known snapshot (captured 2026-07-05) — shown if the live fetch fails.
+  const FALLBACK = {
+    generated:"2026-07-05T21:38:22.312Z", date:"2026-07-06",
+    forms:{n:51,healthy:true}, paid:{n:59,healthy:true,sessions:846}, revenue:{n:9,healthy:true,sessions:192},
+    formsPoints:54, formsChecks:3, paidPoints:103, paidChecks:4,
+    checkly:{pass:10,total:10},
+    cwv:{LCP:2216,FCP:2018,CLS:0.079,INP:null,TTFB:1230,apdex:0.74,failRate:17.8,samples:2765}
   };
 
-  function renderCWV(device){
-    const d = CWV[device];
-    const primary = d.metrics.slice(0,3); // LCP, INP, CLS are the graded three
-    const grid = document.getElementById('cwv-grid');
-    // show all 5: 3 primary on top row, FCP + TTFB below
-    grid.innerHTML = d.metrics.map(m=>{
+  /* ---------- Core Web Vitals geometry ---------- */
+  const SEG ={LCP:[62.5,25,12.5],INP:[40,20,40],CLS:[40,20,40],FCP:[60,25,15],TTFB:[31,39,30]};
+  const LAB ={LCP:["0","2.5s","4.0s+"],INP:["0","200ms","500ms+"],CLS:["0","0.10","0.25+"],FCP:["0","1.8s","3.0s+"],TTFB:["0","0.8s","1.8s+"]};
+  const NAME={LCP:"Largest Contentful Paint",INP:"Interaction to Next Paint",CLS:"Cumulative Layout Shift",FCP:"First Contentful Paint",TTFB:"Time to First Byte"};
+  const BND ={LCP:[2500,4000],INP:[200,500],CLS:[0.1,0.25],FCP:[1800,3000],TTFB:[800,1800]};
+
+  function rate(k,v){ if(v==null) return "nodata"; const b=BND[k]; return v<=b[0]?"good":v<=b[1]?"warn":"bad"; }
+  function pctOf(k,v){ if(v==null) return null; const s=SEG[k],b=BND[k];
+    if(v<=b[0]) return v/b[0]*s[0];
+    if(v<=b[1]) return s[0]+(v-b[0])/(b[1]-b[0])*s[1];
+    return s[0]+s[1]+Math.min((v-b[1])/b[1],1)*s[2]; }
+  function disp(k,v){ if(v==null) return {val:"—",unit:""};
+    if(k==="CLS") return {val:(Math.round(v*1000)/1000).toString(),unit:""};
+    if(k==="INP") return {val:String(Math.round(v)),unit:"ms"};
+    const s=v/1000; return {val:s.toFixed(s<10?1:0),unit:"s"}; }
+  function metric(k,v){ const d=disp(k,v); return {key:k,name:NAME[k],val:d.val,unit:d.unit,rating:rate(k,v),pct:pctOf(k,v),seg:SEG[k],labels:LAB[k]}; }
+
+  // Snapshot tab = PageSpeed / CrUX desktop field data (25 Jun 2026)
+  const SNAPSHOT = { passed:true,
+    verdict:"PageSpeed / CrUX field data · desktop · 25 Jun 2026 — all three primary vitals in the good range.",
+    metrics:[metric("LCP",1800),metric("INP",73),metric("CLS",0.06),metric("FCP",1700),metric("TTFB",1400)] };
+
+  let LIVE = buildLive(FALLBACK);
+  function buildLive(d){
+    const c=d.cwv||{};
+    const graded=[["LCP",c.LCP],["INP",c.INP],["CLS",c.CLS]];
+    const bad=graded.filter(([k,v])=>v!=null&&rate(k,v)==="bad").length;
+    const missing=graded.filter(([k,v])=>v==null).length;
+    let verdict="Real-user field data from Sentry · site-wide · last 24h. ";
+    verdict += bad>0 ? "One or more core vitals need attention." : missing>0 ? "LCP and CLS in range; INP awaiting enough samples." : "All three core vitals in the good range.";
+    return { passed:bad===0, verdict,
+      metrics:[metric("LCP",c.LCP),metric("INP",c.INP),metric("CLS",c.CLS),metric("FCP",c.FCP),metric("TTFB",c.TTFB)],
+      apdex:c.apdex, failRate:c.failRate, samples:c.samples };
+  }
+
+  function renderCWV(src){
+    const d = src==="live" ? LIVE : SNAPSHOT;
+    document.getElementById('cwv-grid').innerHTML = d.metrics.map(m=>{
       const [g,w,b]=m.seg;
+      const marker = m.pct==null ? '' : `<div class="marker" style="left:${m.pct}%"></div>`;
       return `<div class="cell">
         <div class="metric-head"><span class="m-name"><b>${m.key}</b> · ${m.name}</span></div>
         <div class="m-value ${m.rating}">${m.val}${m.unit?('<span style="font-size:16px;font-weight:700"> '+m.unit+'</span>'):''}</div>
-        <div class="track">
-          <span class="s-good" style="width:${g}%"></span>
-          <span class="s-warn" style="width:${w}%"></span>
-          <span class="s-bad" style="width:${b}%"></span>
-          <div class="marker" style="left:${m.pct}%"></div>
-        </div>
+        <div class="track"><span class="s-good" style="width:${g}%"></span><span class="s-warn" style="width:${w}%"></span><span class="s-bad" style="width:${b}%"></span>${marker}</div>
         <div class="thresh"><span>${m.labels[0]}</span><span>${m.labels[1]}</span><span>${m.labels[2]}</span></div>
       </div>`;
     }).join('');
-
-    const v = document.getElementById('verdict');
-    v.className = 'verdict '+(d.passed?'pass':'fail');
-    document.querySelector('#verdict .v-icon').textContent = d.passed?'✓':'!';
-    document.getElementById('verdict-title').textContent = 'Core Web Vitals: '+(d.passed?'Passed':'Needs improvement');
-    document.getElementById('verdict-sub').textContent = d.verdict;
+    const v=document.getElementById('verdict');
+    v.className='verdict '+(d.passed?'pass':'fail');
+    document.querySelector('#verdict .v-icon').textContent=d.passed?'✓':'!';
+    document.getElementById('verdict-title').textContent='Core Web Vitals: '+(d.passed?'Good':'Needs improvement');
+    document.getElementById('verdict-sub').textContent=d.verdict;
+    const apx=document.getElementById('apdex-note');
+    if(apx) apx.textContent = (src==="live" && LIVE.apdex!=null) ? ` Site Apdex ${LIVE.apdex} · failure rate ${LIVE.failRate}% · ${LIVE.samples} pageload samples (24h).` : "";
   }
 
-  function setDevice(device){
-    document.getElementById('tab-desktop').classList.toggle('active', device==='desktop');
-    document.getElementById('tab-mobile').classList.toggle('active', device==='mobile');
-    renderCWV(device);
+  let CURRENT_SRC="live";
+  function setSource(src){ CURRENT_SRC=src;
+    document.getElementById('tab-live').classList.toggle('active',src==="live");
+    document.getElementById('tab-snap').classList.toggle('active',src==="snapshot");
+    renderCWV(src); }
+
+  /* ---------- Parse the plain-text daily report ---------- */
+  function parseReport(t){
+    const g=(re,i=1)=>{const m=t.match(re);return m?parseFloat(m[i]):null;};
+    const cwvLine=(t.match(/Core Web Vitals \(p75[^\n]*/)||[""])[0];
+    const cv=(re)=>{const m=cwvLine.match(re);return m?parseFloat(m[1]):null;};
+    const inpM=cwvLine.match(/INP\s*(—|\d+)/); const inp=(inpM&&inpM[1]!=="—")?parseFloat(inpM[1]):null;
+    return {
+      generated:(t.match(/Generated:\s*([0-9T:.\-Z]+)/)||[])[1]||null,
+      date:(t.match(/Date:\s*([\d-]+)/)||[])[1]||null,
+      forms:{n:g(/Forms:\s*(\d+),/), healthy:/Forms:\s*\d+,\s*active & healthy/.test(t)},
+      paid:{n:g(/LP running paid campaign:\s*(\d+),/), healthy:/paid campaign:\s*\d+,\s*active & healthy/.test(t), sessions:g(/LP running paid campaign:[^\n]*?·\s*(\d+) user sessions/)},
+      revenue:{n:g(/Revenue-critical journey:\s*(\d+),/), healthy:/Revenue-critical journey:\s*\d+,\s*active & healthy/.test(t), sessions:g(/Revenue-critical journey:[^\n]*?·\s*(\d+) user sessions/)},
+      formsPoints:g(/Forms:[^\n]*\((\d+) monitor points/), formsChecks:g(/Forms:[^\n]*monitor points across (\d+) checks/),
+      paidPoints:g(/paid campaign:[^\n]*\((\d+) monitor points/), paidChecks:g(/paid campaign:[^\n]*monitor points across (\d+) checks/),
+      checkly:{pass:g(/(\d+)\/\d+ checks passing/), total:g(/\d+\/(\d+) checks passing/)},
+      cwv:{ LCP:cv(/LCP\s*(\d+)\s*ms/), FCP:cv(/FCP\s*(\d+)\s*ms/), CLS:(cwvLine.match(/CLS\s*([\d.]+)/)||[])[1]!=null?parseFloat(cwvLine.match(/CLS\s*([\d.]+)/)[1]):null,
+            INP:inp, TTFB:cv(/TTFB\s*(\d+)\s*ms/),
+            apdex:g(/Site Apdex[^:]*:\s*([\d.]+)/), failRate:g(/failure rate\s*([\d.]+)%/), samples:g(/(\d+) pageload samples/) }
+    };
   }
-  renderCWV('desktop');
+
+  /* ---------- Apply data to the DOM ---------- */
+  function fmtTime(iso){ if(!iso) return "unknown"; try{ return new Date(iso).toLocaleString(undefined,{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}); }catch(e){ return iso; } }
+  function setText(id,v){ const e=document.getElementById(id); if(e&&v!=null&&!Number.isNaN(v)) e.textContent=v; }
+  function setPill(id,healthy){ const el=document.getElementById(id); if(!el) return;
+    el.className='pill '+(healthy?'ok':'bad'); el.innerHTML='<span class="dot"></span>'+(healthy?'Healthy':'Attention'); }
+
+  function applyData(d, live){
+    setText('n-forms', d.forms&&d.forms.n); setText('n-paid', d.paid&&d.paid.n); setText('n-rev', d.revenue&&d.revenue.n);
+    if(d.formsPoints!=null) setText('s-forms', `${d.formsPoints} monitor points · ${d.formsChecks} Checkly checks`);
+    if(d.paid) setText('s-paid', `${d.paidPoints} monitor points · ${d.paidChecks} checks · ${d.paid.sessions??'—'} sessions (24h)`);
+    if(d.revenue) setText('s-rev', `${d.revenue.sessions??'—'} user sessions (24h)`);
+    setPill('p-forms', d.forms&&d.forms.healthy); setPill('p-paid', d.paid&&d.paid.healthy); setPill('p-rev', d.revenue&&d.revenue.healthy);
+
+    const allHealthy = d.forms&&d.forms.healthy && d.paid&&d.paid.healthy && d.revenue&&d.revenue.healthy;
+    const checklyOk  = d.checkly && d.checkly.pass!=null && d.checkly.pass===d.checkly.total;
+    const chip=document.getElementById('overall-chip');
+    setText('overall-text', 'Overall: '+((allHealthy&&checklyOk)?'Operational':'Attention needed'));
+    if(chip) chip.classList.toggle('attn', !(allHealthy&&checklyOk));
+
+    const fresh=document.getElementById('daily-freshness');
+    if(fresh){
+      const ck = d.checkly&&d.checkly.total ? `Checkly ${d.checkly.pass}/${d.checkly.total} passing` : '';
+      fresh.className = 'cad-note '+(live?'freshness-live':'freshness-stale');
+      fresh.textContent = live ? `● Live · updated ${fmtTime(d.generated)} · ${ck}`
+                               : `● Showing last known (${fmtTime(d.generated)}) — live refresh unavailable · ${ck}`;
+    }
+    LIVE = buildLive(d);
+    if(CURRENT_SRC==="live") renderCWV("live");
+  }
+
+  async function loadLive(){
+    applyData(FALLBACK, false);        // paint last-known immediately
+    renderCWV(CURRENT_SRC);
+    try{
+      const res = await fetch(FEED_URL, {cache:'no-store'});
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      const data = parseReport(await res.text());
+      if(data.forms.n==null) throw new Error('could not parse feed');
+      applyData(data, true);
+    }catch(e){
+      console.warn('Live feed unavailable — showing last-known values.', e.message);
+    }
+  }
+  loadLive();
 
   /* ---------- Scroll reveal ---------- */
   const io = new IntersectionObserver((entries)=>{
