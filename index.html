@@ -6,77 +6,40 @@
 <title>roller.software — Website Health &amp; Performance</title>
 <style>
   :root{
-    /* ROLLER blue ramp (Website Library) */
     --blue-10:#011840; --blue-20:#032663; --blue-30:#033180; --blue-40:#074DC5;
     --blue-50:#0960F6; --blue-60:#3A80F8; --blue-70:#6BA0FA; --blue-80:#9DBFFB;
     --blue-90:#CEDFFD; --blue-95:#EBF2FE; --blue-99:#F5F8FF; --white:#FFFFFF;
-    /* Functional status colours (accessible on white) */
     --good:#0B7A43; --good-soft:#E7F8EF; --good-line:#18F273;
     --warn:#9A5A00; --warn-soft:#FFF2DE; --warn-line:#F5A623;
     --bad:#C11414;  --bad-soft:#FCEBEB;  --bad-line:#FF290C;
-    /* Text tints — strictly Blue 10 at opacity, per brand */
-    --ink:var(--blue-10);
-    --muted:rgba(1,24,64,.62);
-    --faint:rgba(1,24,64,.42);
-    --hair:#D7E3FB;
-    --shadow:0 1px 2px rgba(1,24,64,.06), 0 8px 24px rgba(1,24,64,.06);
-    --radius:18px;
-    --font:"Proxima Nova","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --ink:var(--blue-10); --muted:rgba(1,24,64,.62); --faint:rgba(1,24,64,.42);
+    --hair:#D7E3FB; --shadow:0 1px 2px rgba(1,24,64,.06), 0 8px 24px rgba(1,24,64,.06);
+    --radius:18px; --font:"Proxima Nova","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:var(--font);
-    color:var(--ink);
-    background:var(--blue-99);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
+  body{font-family:var(--font);color:var(--ink);background:var(--blue-99);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  /* ---------- Top bar ---------- */
-  .topbar{
-    position:sticky;top:0;z-index:50;
-    background:rgba(245,248,255,.86);
-    backdrop-filter:saturate(140%) blur(10px);
-    border-bottom:1px solid var(--hair);
-  }
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(245,248,255,.86);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--hair)}
   .topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px}
-  .brand .mark{
-    width:26px;height:26px;border-radius:7px;background:var(--blue-50);
-    display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;
-  }
+  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--blue-50);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px}
   .brand small{font-weight:600;color:var(--muted);font-size:12px;letter-spacing:0}
   .topbar nav{margin-left:auto;display:flex;gap:6px}
-  .topbar nav a{
-    text-decoration:none;color:var(--muted);font-weight:600;font-size:13.5px;
-    padding:7px 12px;border-radius:9px;transition:background .15s,color .15s;
-  }
+  .topbar nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:13.5px;padding:7px 12px;border-radius:9px;transition:background .15s,color .15s}
   .topbar nav a:hover{background:var(--blue-95);color:var(--blue-30)}
-  .btn-print{
-    border:1px solid var(--blue-90);background:#fff;color:var(--blue-30);
-    font-family:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:9px;cursor:pointer;
-  }
+  .btn-print{border:1px solid var(--blue-90);background:#fff;color:var(--blue-30);font-family:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:9px;cursor:pointer}
   .btn-print:hover{background:var(--blue-95)}
 
-  /* ---------- Hero / exec summary ---------- */
   .hero{background:var(--blue-10);color:#fff;padding:44px 0 40px}
-  .hero .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
-    color:var(--blue-80);margin-bottom:14px;
-  }
+  .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-80);margin-bottom:14px}
   .hero h1{font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-1.4px;font-weight:800;max-width:20ch}
   .hero .sub{color:rgba(255,255,255,.72);font-size:16px;margin-top:14px;max-width:60ch}
   .hero-top{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between}
-  .status-chip{
-    display:inline-flex;align-items:center;gap:10px;
-    background:rgba(24,242,115,.14);border:1px solid rgba(24,242,115,.4);
-    color:#EAFFF3;border-radius:999px;padding:9px 16px 9px 12px;font-weight:700;font-size:14px;white-space:nowrap;
-  }
+  .status-chip{display:inline-flex;align-items:center;gap:10px;background:rgba(24,242,115,.14);border:1px solid rgba(24,242,115,.4);color:#EAFFF3;border-radius:999px;padding:9px 16px 9px 12px;font-weight:700;font-size:14px;white-space:nowrap}
   .status-chip .dot{width:10px;height:10px;border-radius:50%;background:var(--good-line);box-shadow:0 0 0 4px rgba(24,242,115,.25)}
+  .status-chip.attn{background:rgba(245,166,35,.16);border-color:rgba(245,166,35,.5)} .status-chip.attn .dot{background:var(--warn-line);box-shadow:0 0 0 4px rgba(245,166,35,.25)}
 
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
   .pillar{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 18px 16px}
@@ -85,31 +48,22 @@
   .pillar p{color:rgba(255,255,255,.68);font-size:13px;margin-top:8px}
   .pillar .p-state{margin-top:12px;font-size:12.5px;font-weight:700;color:#fff;display:flex;align-items:center;gap:7px}
 
-  /* ---------- Sections ---------- */
   section{padding:48px 0}
   .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
   .sec-kicker{font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-50)}
   h2{font-size:26px;letter-spacing:-.8px;font-weight:800}
   .sec-desc{color:var(--muted);font-size:15px;max-width:66ch;margin-top:10px}
 
-  /* Cadence spine */
   .cadence + .cadence{margin-top:34px}
   .cad-head{display:flex;align-items:center;gap:14px;margin:0 0 16px}
-  .cad-badge{
-    display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:12px;letter-spacing:1px;
-    text-transform:uppercase;color:#fff;background:var(--blue-30);padding:6px 12px;border-radius:8px;
-  }
+  .cad-badge{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--blue-30);padding:6px 12px;border-radius:8px}
   .cad-head .cad-title{font-weight:800;font-size:17px;letter-spacing:-.3px}
   .cad-head .cad-note{color:var(--faint);font-size:13px;margin-left:auto;display:flex;align-items:center;gap:6px}
+  .freshness-live{color:var(--good)!important} .freshness-stale{color:var(--warn)!important}
 
   .grid{display:grid;gap:16px}
   .g3{grid-template-columns:repeat(3,1fr)}
-  .g2{grid-template-columns:repeat(2,1fr)}
-
-  .card{
-    background:#fff;border:1px solid var(--hair);border-radius:var(--radius);
-    padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;
-  }
+  .card{background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
   .card .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
   .card h4{font-size:15.5px;font-weight:800;letter-spacing:-.2px}
   .card .c-desc{color:var(--muted);font-size:13.5px;margin-top:8px}
@@ -123,25 +77,22 @@
   .metric-row{display:flex;align-items:flex-end;gap:10px;margin-top:14px}
   .metric-num{font-size:40px;font-weight:800;letter-spacing:-2px;line-height:1}
   .metric-unit{font-size:13px;color:var(--muted);font-weight:700;padding-bottom:5px}
+  .substat{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px} .substat b{color:var(--ink);font-weight:800}
+  .awaiting .metric-num{color:var(--faint)}
 
   .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--blue-95)}
   .tool{font-size:11px;font-weight:800;letter-spacing:.3px;color:var(--blue-30);background:var(--blue-95);padding:4px 9px;border-radius:7px}
   .tool.ghost{background:#fff;border:1px dashed var(--blue-80);color:var(--faint)}
-
   .checklist{margin-top:14px;display:flex;flex-direction:column;gap:8px}
   .checklist li{list-style:none;display:flex;gap:9px;font-size:13px;color:var(--muted);align-items:flex-start}
   .checklist li .tick{color:var(--good);font-weight:900;flex:0 0 auto;margin-top:1px}
 
-  /* ---------- Performance panel ---------- */
   .perf-shell{background:#fff;border:1px solid var(--hair);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
   .perf-bar{display:flex;align-items:center;gap:16px;padding:18px 22px;border-bottom:1px solid var(--blue-95);flex-wrap:wrap}
   .perf-bar .lead{font-weight:800;font-size:15px;display:flex;align-items:center;gap:10px}
-  .toggle{margin-left:auto;display:inline-flex;background:var(--blue-95);border-radius:10px;padding:4px}
-  .toggle button{
-    font-family:inherit;border:0;background:transparent;color:var(--muted);font-weight:800;font-size:13px;
-    padding:8px 18px;border-radius:7px;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:7px;
-  }
-  .toggle button.active{background:#fff;color:var(--blue-30);box-shadow:0 1px 3px rgba(1,24,64,.12)}
+  .live-badge{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:var(--good-soft);color:var(--good);font-weight:800;font-size:13px;padding:8px 14px;border-radius:10px}
+  .live-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--good-line)}
+  .live-badge.stale{background:var(--warn-soft);color:var(--warn)} .live-badge.stale .dot{background:var(--warn-line)}
   .verdict{display:flex;align-items:center;gap:12px;padding:22px;background:var(--blue-99);border-bottom:1px solid var(--blue-95)}
   .verdict .v-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex:0 0 auto}
   .verdict.pass .v-icon{background:var(--good-soft)} .verdict.fail .v-icon{background:var(--warn-soft)}
@@ -156,9 +107,6 @@
   .metric-head .m-name b{color:var(--ink)}
   .m-value{font-size:30px;font-weight:800;letter-spacing:-1.2px;margin:10px 0 4px}
   .m-value.good{color:var(--good)} .m-value.warn{color:var(--warn)} .m-value.bad{color:var(--bad)} .m-value.nodata{color:var(--faint)}
-  .substat{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px} .substat b{color:var(--ink);font-weight:800}
-  .freshness-live{color:var(--good)!important} .freshness-stale{color:var(--warn)!important}
-  .status-chip.attn{background:rgba(245,166,35,.16);border-color:rgba(245,166,35,.5)} .status-chip.attn .dot{background:var(--warn-line);box-shadow:0 0 0 4px rgba(245,166,35,.25)}
   .track{position:relative;height:7px;border-radius:4px;margin-top:12px;display:flex;overflow:hidden;gap:2px}
   .track span{height:100%}
   .track .s-good{background:var(--good-line)} .track .s-warn{background:var(--warn-line)} .track .s-bad{background:var(--bad-line)}
@@ -166,7 +114,15 @@
   .thresh{display:flex;justify-content:space-between;font-size:10.5px;color:var(--faint);font-weight:700;margin-top:7px}
   .cwv-note{padding:16px 22px;font-size:12.5px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
 
-  /* ---------- Stack ---------- */
+  .subhead{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:18px 22px 4px;border-top:1px solid var(--blue-95)}
+  .pagelist{display:flex;flex-direction:column}
+  .pagerow{display:grid;grid-template-columns:1fr auto auto auto;gap:16px;align-items:center;padding:11px 22px;border-bottom:1px solid var(--blue-95);font-size:13px}
+  .pagerow:last-child{border-bottom:0}
+  .pagerow .pp{font-weight:700;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--blue-30);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pagerow .mv{font-weight:800;font-variant-numeric:tabular-nums;text-align:right;min-width:64px}
+  .pagerow .mv small{color:var(--muted);font-weight:600;font-size:11px}
+  .pagerow .mv.good{color:var(--good)} .pagerow .mv.warn{color:var(--warn)} .pagerow .mv.bad{color:var(--bad)}
+
   .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .stack-card{background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
   .stack-card .s-name{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
@@ -177,108 +133,75 @@
   .stack-card li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue-50);margin-top:7px;flex:0 0 auto}
   .layerbadge{font-size:10.5px;font-weight:800;letter-spacing:.3px;padding:3px 8px;border-radius:6px;background:var(--blue-95);color:var(--blue-40)}
 
-  /* ---------- Roadmap ---------- */
   .road{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   .road-item{display:flex;gap:14px;background:#fff;border:1px solid var(--hair);border-radius:14px;padding:16px 18px}
   .road-item .r-state{font-size:10.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:4px 9px;border-radius:6px;height:fit-content;white-space:nowrap;flex:0 0 auto}
-  .r-state.prog{background:var(--warn-soft);color:var(--warn)}
-  .r-state.explore{background:var(--blue-95);color:var(--blue-40)}
+  .r-state.prog{background:var(--warn-soft);color:var(--warn)} .r-state.explore{background:var(--blue-95);color:var(--blue-40)}
   .road-item h5{font-size:14.5px;font-weight:800;letter-spacing:-.2px}
   .road-item p{font-size:13px;color:var(--muted);margin-top:5px}
 
-  /* ---------- Footer ---------- */
   footer{background:var(--blue-10);color:rgba(255,255,255,.6);padding:32px 0;margin-top:8px;font-size:12.5px}
   footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
   footer b{color:#fff}
   footer .sources{max-width:70ch;line-height:1.7}
 
-  /* reveal */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
   .reveal.in{opacity:1;transform:none}
-
-  @media (max-width:900px){
-    .pillars,.g3,.cwv,.stack-grid,.road{grid-template-columns:1fr}
-    .g2{grid-template-columns:1fr}
-    .cwv .cell{border-right:0}
-    .topbar nav{display:none}
-  }
+  @media (max-width:900px){.pillars,.g3,.cwv,.stack-grid,.road{grid-template-columns:1fr}.cwv .cell{border-right:0}.topbar nav{display:none}.pagerow{grid-template-columns:1fr auto auto}}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-
-  @media print{
-    .topbar,.btn-print,.toggle{display:none}
-    body{background:#fff}
-    .hero,footer{background:#fff;color:var(--ink)}
-    .hero .sub,.hero .eyebrow,.pillar p,.pillar .p-state{color:var(--muted)}
-    .pillar{border-color:var(--hair)}
-    .card,.perf-shell,.stack-card,.road-item{box-shadow:none;break-inside:avoid}
-    section{padding:22px 0}
-    #perf-mobile{display:block !important}
-  }
+  @media print{.topbar,.btn-print{display:none}body{background:#fff}.hero,footer{background:#fff;color:var(--ink)}.hero .sub,.hero .eyebrow,.pillar p,.pillar .p-state{color:var(--muted)}.pillar{border-color:var(--hair)}.card,.perf-shell,.stack-card,.road-item{box-shadow:none;break-inside:avoid}section{padding:22px 0}}
 </style>
 </head>
 <body>
 
-<!-- ===================== TOP BAR ===================== -->
 <header class="topbar">
   <div class="wrap">
-    <div class="brand">
-      <span class="mark">R</span>
-      <span>ROLLER <small>· Website Ops</small></span>
-    </div>
+    <div class="brand"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></div>
     <nav>
-      <a href="#summary">Summary</a>
-      <a href="#daily">Daily</a>
-      <a href="#weekly">Weekly</a>
-      <a href="#quarterly">Quarterly</a>
-      <a href="#performance">Performance</a>
-      <a href="#stack">Monitoring</a>
+      <a href="#daily">Daily</a><a href="#weekly">Weekly</a><a href="#performance">Performance</a>
+      <a href="#enhancements">Enhancements</a><a href="#stack">Monitoring</a>
     </nav>
     <button class="btn-print" onclick="window.print()">Print / PDF</button>
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
 <div class="hero">
   <div class="wrap">
     <div class="hero-top">
       <div>
         <span class="eyebrow">Website Health &amp; Performance · roller.software</span>
         <h1>The website is a revenue engine. This is the state of the engine.</h1>
-        <p class="sub">A single view of whether the site is healthy, on-brand, and protecting revenue — backed by continuous monitoring across the buying journey. Reviewed on a daily, weekly and quarterly rhythm.</p>
+        <p class="sub">A single live view of whether the site is healthy, on-brand, and protecting revenue — read on load from the ROLLER Site Health feed and reviewed on a daily, weekly and quarterly rhythm.</p>
       </div>
       <span class="status-chip" id="overall-chip"><span class="dot"></span> <span id="overall-text">Overall: Operational</span></span>
     </div>
-
-    <div class="pillars" id="summary">
+    <div class="pillars">
       <div class="pillar reveal">
         <h3><span class="p-dot" style="background:var(--good-line)"></span>Revenue Engine</h3>
         <p>Every lead form works and the lead reaches the CRM. Paid landing pages and conversion tracking fire correctly, so ad spend is not wasted.</p>
-        <div class="p-state"><span class="tick" style="color:var(--good-line)">●</span> Monitored daily · operational</div>
-      </div>
-      <div class="pillar reveal">
-        <h3><span class="p-dot" style="background:var(--warn-line)"></span>Brand Health</h3>
-        <p>Every visitor sees the intended brand and message — consistent stats, logos, quotes, awards and legal notices across the site.</p>
-        <div class="p-state"><span class="tick" style="color:var(--warn-line)">●</span> 1 P0 message inconsistency fixed this cycle</div>
+        <div class="p-state" id="pil-rev"><span style="color:var(--good-line)">●</span> Monitored daily</div>
       </div>
       <div class="pillar reveal">
         <h3><span class="p-dot" style="background:var(--blue-70)"></span>Prevention &amp; Risk</h3>
         <p>Issues are caught early by automation and cross-validated across tools — before they show up as missing leads or a drop in the data.</p>
-        <div class="p-state"><span class="tick" style="color:var(--blue-70)">●</span> Dual-layer monitoring active</div>
+        <div class="p-state"><span style="color:var(--blue-70)">●</span> Dual-layer monitoring active</div>
+      </div>
+      <div class="pillar reveal">
+        <h3><span class="p-dot" style="background:var(--warn-line)"></span>Brand Health</h3>
+        <p>Every visitor sees the intended brand and message — consistent stats, logos, quotes, awards and legal notices across the site.</p>
+        <div class="p-state" id="pil-brand"><span style="color:var(--warn-line)">●</span> Consistency checks — awaiting feed</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===================== DAILY ===================== -->
+<!-- DAILY + WEEKLY -->
 <section id="daily">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-kicker">Monitoring cadence</span>
-    </div>
+    <div class="sec-head"><span class="sec-kicker">Monitoring cadence</span></div>
     <h2>What we watch, and how often</h2>
     <p class="sec-desc">Coverage is layered by how fast a problem hurts the business. Revenue-critical paths are checked every day; whole-site health weekly; deeper quality and performance every quarter.</p>
 
-    <!-- DAILY -->
     <div class="cadence" style="margin-top:28px">
       <div class="cad-head">
         <span class="cad-badge">Daily</span>
@@ -288,44 +211,28 @@
       <div class="grid g3">
         <div class="card reveal">
           <div class="c-top"><h4>Lead Pipeline</h4><span class="pill ok" id="p-forms"><span class="dot"></span>Healthy</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-forms">51</span><span class="metric-unit">forms active &amp; healthy</span></div>
-          <div class="substat" id="s-forms">54 monitor points · 3 Checkly checks</div>
+          <div class="metric-row"><span class="metric-num" id="n-forms">—</span><span class="metric-unit">forms active &amp; healthy</span></div>
+          <div class="substat" id="s-forms">&nbsp;</div>
           <p class="c-desc">Every lead form submits correctly and the lead reaches the CRM. Tracking fires and respects cookie consent.</p>
-          <ul class="checklist">
-            <li><span class="tick">✓</span>Key forms submit (Get Started, gated content, demo request)</li>
-            <li><span class="tick">✓</span>Freshness check — leads still flowing into HubSpot</li>
-            <li><span class="tick">✓</span>Marketing tags fire on form pages, consent-gated</li>
-          </ul>
           <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
         </div>
         <div class="card reveal">
           <div class="c-top"><h4>Paid Campaign</h4><span class="pill ok" id="p-paid"><span class="dot"></span>Healthy</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-paid">59</span><span class="metric-unit">paid LPs active &amp; healthy</span></div>
-          <div class="substat" id="s-paid">103 monitor points · 4 checks · 846 sessions (24h)</div>
+          <div class="metric-row"><span class="metric-num" id="n-paid">—</span><span class="metric-unit">paid LPs active &amp; healthy</span></div>
+          <div class="substat" id="s-paid">&nbsp;</div>
           <p class="c-desc">Paid landing pages load and their forms and CTAs work, so ad spend converts and isn't wasted.</p>
-          <ul class="checklist">
-            <li><span class="tick">✓</span>Paid LP pages, forms and CTAs load and work</li>
-            <li><span class="tick">✓</span>Conversion pixels fire (Google, Meta, LinkedIn, Reddit, Microsoft)</li>
-            <li><span class="tick">✓</span>Real-user errors &amp; slow loads flagged as they happen</li>
-          </ul>
           <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
         </div>
         <div class="card reveal">
           <div class="c-top"><h4>Revenue-Critical Journeys</h4><span class="pill ok" id="p-rev"><span class="dot"></span>Healthy</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-rev">9</span><span class="metric-unit">journeys active &amp; healthy</span></div>
-          <div class="substat" id="s-rev">192 user sessions (24h)</div>
+          <div class="metric-row"><span class="metric-num" id="n-rev">—</span><span class="metric-unit">journeys active &amp; healthy</span></div>
+          <div class="substat" id="s-rev">&nbsp;</div>
           <p class="c-desc">The full journeys that drive revenue work end to end — demo request, contact sales, pricing, lead routing and CRM.</p>
-          <ul class="checklist">
-            <li><span class="tick">✓</span>Each journey works step to step (page → form → submit → confirm)</li>
-            <li><span class="tick">✓</span>Drop-offs &amp; errors caught for real visitors; session replay</li>
-            <li><span class="tick">✓</span>Links and images on these pages verified unbroken</li>
-          </ul>
           <div class="tools"><span class="tool">Sentry</span><span class="tool">Checkly</span><span class="tool">Ahrefs</span></div>
         </div>
       </div>
     </div>
 
-    <!-- WEEKLY -->
     <div class="cadence" id="weekly">
       <div class="cad-head">
         <span class="cad-badge" style="background:var(--blue-40)">Weekly</span>
@@ -334,177 +241,159 @@
       </div>
       <div class="grid g3">
         <div class="card reveal">
-          <div class="c-top"><h4>Link Integrity</h4><span class="pill ok"><span class="dot"></span>Resolved</span></div>
-          <div class="metric-row"><span class="metric-num">14</span><span class="metric-unit">broken links found &amp; fixed</span></div>
-          <p class="c-desc">Broken internal &amp; external links, redirect chains, 404s, broken images and missing assets — swept across the whole site.</p>
+          <div class="c-top"><h4>Link Integrity</h4><span class="pill info" id="p-links"><span class="dot"></span>Live</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-links">—</span><span class="metric-unit">URLs with errors · primary audit</span></div>
+          <div class="substat" id="s-links">&nbsp;</div>
+          <p class="c-desc">Site-audit errors on the primary domain — broken links, redirect chains, 404s and missing assets — from the latest Ahrefs crawl.</p>
           <div class="tools"><span class="tool">Ahrefs</span></div>
         </div>
         <div class="card reveal">
-          <div class="c-top"><h4>Function Reliability</h4><span class="pill ok"><span class="dot"></span>All clear</span></div>
-          <div class="metric-row"><span class="metric-num">0</span><span class="metric-unit">function bugs this week</span></div>
-          <p class="c-desc">Cross-browser check of navigation, buttons, interactive components, third-party integrations and downloads outside the daily critical paths.</p>
-          <div class="tools"><span class="tool ghost">BrowserStack — evaluating</span></div>
+          <div class="c-top"><h4>Function Reliability</h4><span class="pill ok" id="p-func"><span class="dot"></span>All clear</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-func">—</span><span class="metric-unit">failing checks now</span></div>
+          <div class="substat" id="s-func">&nbsp;</div>
+          <p class="c-desc">Live count of Checkly monitors currently failing across navigation, forms, integrations and downloads.</p>
+          <div class="tools"><span class="tool">Checkly</span></div>
         </div>
-        <div class="card reveal">
-          <div class="c-top"><h4>Brand &amp; Business Signal</h4><span class="pill warn"><span class="dot"></span>1 fixed</span></div>
-          <div class="metric-row"><span class="metric-num">1</span><span class="metric-unit">P0 message inconsistency fixed</span></div>
-          <p class="c-desc">Company stats, customer logos &amp; quotes, awards &amp; certifications, review badges and legal notices matched against the source of truth.</p>
-          <div class="tools"><span class="tool">AI scrape &amp; match</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- QUARTERLY -->
-    <div class="cadence" id="quarterly">
-      <div class="cad-head">
-        <span class="cad-badge" style="background:var(--blue-50)">Quarterly</span>
-        <span class="cad-title">Site Enhancements — proactive quality &amp; performance</span>
-        <span class="cad-note">Reviewed each quarter</span>
-      </div>
-      <div class="grid g3">
-        <div class="card reveal">
-          <div class="c-top"><h4>Accessibility &amp; SEO</h4><span class="pill ok"><span class="dot"></span>Strong</span></div>
-          <div class="metric-row"><span class="metric-num">90+</span><span class="metric-unit">Lighthouse score</span></div>
-          <p class="c-desc">Accessibility and search-visibility health held above target across audited pages.</p>
-        </div>
-        <div class="card reveal">
-          <div class="c-top"><h4>Desktop Performance</h4><span class="pill ok"><span class="dot"></span>95 · good</span></div>
-          <div class="metric-row"><span class="metric-num">95</span><span class="metric-unit">Lighthouse score</span></div>
-          <p class="c-desc">Desktop performance in a healthy range. See the Core Web Vitals panel for real-user field data.</p>
-        </div>
-        <div class="card reveal">
-          <div class="c-top"><h4>Mobile Performance</h4><span class="pill warn"><span class="dot"></span>82 · improving</span></div>
-          <div class="metric-row"><span class="metric-num">82</span><span class="metric-unit">Lighthouse score</span></div>
-          <p class="c-desc">Mobile trails desktop — the current focus area. Largest Contentful Paint is the lever (see below).</p>
-        </div>
-        <div class="card reveal">
-          <div class="c-top"><h4>Media Performance</h4><span class="pill info"><span class="dot"></span>In progress</span></div>
-          <div class="metric-row"><span class="metric-num">60</span><span class="metric-unit">images optimised</span></div>
-          <p class="c-desc">Converting images to WebP and right-sizing them to speed up load, especially on mobile.</p>
-        </div>
-        <div class="card reveal">
-          <div class="c-top"><h4>Experience Quality</h4><span class="pill ok"><span class="dot"></span>10+ fixed</span></div>
-          <div class="metric-row"><span class="metric-num">10+</span><span class="metric-unit">visual &amp; content bugs fixed</span></div>
-          <p class="c-desc">Spelling, formatting, headings, layout, mobile responsiveness and stale employee content caught and corrected.</p>
-        </div>
-        <div class="card reveal">
-          <div class="c-top"><h4>Brand Health</h4><span class="pill ok"><span class="dot"></span>On track</span></div>
-          <div class="metric-row"><span class="metric-num">11</span><span class="metric-unit">legacy pages migrated</span></div>
-          <p class="c-desc">Old-theme pages moved onto the current design system, retiring inconsistent legacy layouts.</p>
+        <div class="card reveal awaiting">
+          <div class="c-top"><h4>Brand &amp; Business Signal</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-brand">—</span><span class="metric-unit">message inconsistencies fixed</span></div>
+          <div class="substat">Stats, logos, quotes, awards &amp; legal notices — <b>needs brand-signal feed</b></div>
+          <div class="tools"><span class="tool ghost">AI scrape &amp; match — not yet connected</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== PERFORMANCE ===================== -->
+<!-- PERFORMANCE -->
 <section id="performance" style="background:#fff;border-top:1px solid var(--hair)">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Site performance</span></div>
     <h2>Core Web Vitals — what real users experience</h2>
-    <p class="sec-desc">Field data from Google's Chrome User Experience Report (real Chrome visitors, rolling 28-day window). This is what Google grades the site on for search. Latest reading: <b>25 Jun 2026</b>.</p>
+    <p class="sec-desc">Real-user field data from Sentry (site-wide, p75, rolling 24 hours), read live on load. These are the same metrics Google grades the site on for search.</p>
 
     <div class="perf-shell reveal" style="margin-top:22px">
       <div class="perf-bar">
-        <span class="lead"><span class="mark" style="width:20px;height:20px;border-radius:6px;background:var(--blue-50);display:inline-grid;place-items:center;color:#fff;font-size:11px;font-weight:900">R</span> roller.software</span>
-        <div class="toggle" role="tablist">
-          <button id="tab-live" class="active" onclick="setSource('live')" role="tab">⚡ Live · Sentry 24h</button>
-          <button id="tab-snap" onclick="setSource('snapshot')" role="tab">📸 Snapshot · 25 Jun</button>
-        </div>
+        <span class="lead"><span class="mark" style="width:20px;height:20px;border-radius:6px;background:var(--blue-50);display:inline-grid;place-items:center;color:#fff;font-size:11px;font-weight:900">R</span> roller.software · site-wide</span>
+        <span class="live-badge" id="cwv-badge"><span class="dot"></span> <span id="cwv-badge-text">Live · Sentry · 24h</span></span>
       </div>
-
       <div id="verdict" class="verdict pass">
         <div class="v-icon">✓</div>
-        <div class="v-text"><b id="verdict-title">Core Web Vitals: Passed</b><span id="verdict-sub">All three primary vitals in the good range for desktop visitors.</span></div>
+        <div class="v-text"><b id="verdict-title">Core Web Vitals</b><span id="verdict-sub">Loading live data…</span></div>
       </div>
-
-      <div class="cwv" id="cwv-grid"><!-- metrics injected --></div>
-
+      <div class="cwv" id="cwv-grid"></div>
       <div class="cwv-note">
         <span style="color:var(--blue-50);font-weight:900">ℹ</span>
-        <span id="cwv-context">LCP = how fast the main content appears · INP = how responsive the page feels to taps/clicks · CLS = how much the layout shifts. Green / amber / red follow Google's own thresholds.</span><span id="apdex-note" style="color:var(--ink);font-weight:700"></span>
+        <span id="cwv-context">LCP = how fast the main content appears · INP = how responsive the page feels · CLS = how much the layout shifts. Green / amber / red follow Google's thresholds.</span><span id="apdex-note" style="color:var(--ink);font-weight:700"></span>
+      </div>
+      <div class="subhead">Core Web Vitals by page · top traffic (live)</div>
+      <div class="pagelist" id="perpage"></div>
+      <div class="subhead">Slowest pages · p95 load time (live)</div>
+      <div class="pagelist" id="slowest"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENHANCEMENTS / QUARTERLY -->
+<section id="enhancements">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Performance &amp; quality</span></div>
+    <h2>Real-user performance signals</h2>
+    <p class="sec-desc">Live experience metrics from Sentry, plus quality tracks that will read from their own feeds once connected.</p>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card reveal">
+        <div class="c-top"><h4>Real-user Apdex</h4><span class="pill info" id="p-apdex"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-apdex">—</span><span class="metric-unit">3s satisfaction (0–1)</span></div>
+        <div class="substat" id="s-apdex">&nbsp;</div>
+        <p class="c-desc">Share of page loads users would consider satisfying, against a 3-second threshold.</p>
+        <div class="tools"><span class="tool">Sentry</span></div>
+      </div>
+      <div class="card reveal">
+        <div class="c-top"><h4>Slow Loads (&gt;3s)</h4><span class="pill info" id="p-slow"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-slow">—</span><span class="metric-unit">of pageloads over 3s</span></div>
+        <div class="substat" id="s-slow">&nbsp;</div>
+        <p class="c-desc">Proportion of real pageloads slower than the 3-second Apdex threshold.</p>
+        <div class="tools"><span class="tool">Sentry</span></div>
+      </div>
+      <div class="card reveal">
+        <div class="c-top"><h4>Slowest Page</h4><span class="pill info" id="p-slowest"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-slowest">—</span><span class="metric-unit">p95 load time</span></div>
+        <div class="substat" id="s-slowest">&nbsp;</div>
+        <p class="c-desc">The single slowest page by 95th-percentile load time — the first place to look.</p>
+        <div class="tools"><span class="tool">Sentry</span></div>
+      </div>
+      <div class="card reveal">
+        <div class="c-top"><h4>SEO Health</h4><span class="pill info" id="p-seo"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-seo">—</span><span class="metric-unit">/100 site-audit health</span></div>
+        <div class="substat" id="s-seo">&nbsp;</div>
+        <p class="c-desc">Ahrefs site-audit health for the primary domain, plus Domain Rating and search rank.</p>
+        <div class="tools"><span class="tool">Ahrefs</span></div>
+      </div>
+      <div class="card reveal awaiting">
+        <div class="c-top"><h4>Media Performance</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
+        <div class="metric-row"><span class="metric-num">—</span><span class="metric-unit">images optimised</span></div>
+        <div class="substat">WebP conversion &amp; right-sizing — <b>needs tracker feed</b></div>
+        <div class="tools"><span class="tool ghost">Media tracker — not yet connected</span></div>
+      </div>
+      <div class="card reveal awaiting">
+        <div class="c-top"><h4>Migration &amp; Experience</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
+        <div class="metric-row"><span class="metric-num">—</span><span class="metric-unit">legacy pages migrated</span></div>
+        <div class="substat">Legacy-page migration &amp; content bugs — <b>needs tracker feed</b></div>
+        <div class="tools"><span class="tool ghost">Migration tracker — not yet connected</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== MONITORING STACK ===================== -->
-<section id="stack">
+<!-- STACK -->
+<section id="stack" style="background:#fff;border-top:1px solid var(--hair)">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">How it's monitored</span></div>
     <h2>A dual-layer monitoring system</h2>
     <p class="sec-desc">One layer watches from the outside on a schedule; one layer watches what real visitors actually experience. Together they cross-validate, so an issue rarely slips through both.</p>
-
     <div class="stack-grid" style="margin-top:22px">
       <div class="stack-card reveal">
         <div class="s-name">Checkly <span class="layerbadge">Synthetic</span></div>
         <div class="s-role">Scheduled checks</div>
         <p class="s-body">Runs scripted checks on a timer to confirm key pages, forms and CTAs work — even when no one is looking.</p>
-        <ul>
-          <li>Forms submit and leads flow into HubSpot (freshness-based)</li>
-          <li>Paid landing pages load; conversion pixels fire</li>
-          <li>Email alert the moment a check fails</li>
-        </ul>
+        <ul><li>Forms submit and leads flow into HubSpot (freshness-based)</li><li>Paid landing pages load; conversion pixels fire</li><li>Alerts the moment a check fails</li></ul>
       </div>
       <div class="stack-card reveal">
         <div class="s-name">Sentry <span class="layerbadge">Real user</span></div>
         <div class="s-role">Real-user monitoring</div>
-        <p class="s-body">Watches what actual visitors hit — catching JavaScript errors, broken interactions and slow submissions in the moment.</p>
-        <ul>
-          <li>Errors and broken form interactions from real sessions</li>
-          <li>Slow or failing submissions flagged live</li>
-          <li>Session replay to see exactly what broke</li>
-        </ul>
+        <p class="s-body">Watches what actual visitors hit — errors, broken interactions, slow submissions and Core Web Vitals in the moment.</p>
+        <ul><li>Errors and broken form interactions from real sessions</li><li>Core Web Vitals &amp; Apdex from live traffic</li><li>Session replay to see exactly what broke</li></ul>
       </div>
       <div class="stack-card reveal">
         <div class="s-name">Ahrefs <span class="layerbadge">SEO &amp; links</span></div>
         <div class="s-role">Site-wide crawl</div>
-        <p class="s-body">Crawls the whole site for link and SEO health, feeding the weekly link-integrity sweep.</p>
-        <ul>
-          <li>Broken internal &amp; external links, redirect chains, 404s</li>
-          <li>Broken images and missing assets</li>
-          <li>SEO health signals across audited pages</li>
-        </ul>
+        <p class="s-body">Crawls the whole site for link and SEO health — now feeding Link Integrity and SEO Health live.</p>
+        <ul><li>Broken internal &amp; external links, redirect chains, 404s</li><li>Broken images and missing assets</li><li>SEO health signals across audited pages</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== ROADMAP ===================== -->
-<section id="next" style="background:#fff;border-top:1px solid var(--hair)">
+<!-- ROADMAP -->
+<section id="next">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">What's next</span></div>
     <h2>In progress &amp; exploring</h2>
     <p class="sec-desc">The plan grows toward fully proactive assurance — catching problems before they reach the data.</p>
-
     <div class="road" style="margin-top:22px">
-      <div class="road-item reveal">
-        <span class="r-state prog">In progress</span>
-        <div><h5>End-to-end "penny test" for forms</h5><p>An automated test that submits a real form on a schedule, then verifies the lead reaches Salesforce and that GA4, LinkedIn and Meta all fire — with a Slack alert if any step fails.</p></div>
-      </div>
-      <div class="road-item reveal">
-        <span class="r-state explore">Exploring</span>
-        <div><h5>Function-reliability tooling</h5><p>Selecting a cross-browser tool (BrowserStack under evaluation) to automate the weekly whole-site functional sweep.</p></div>
-      </div>
-      <div class="road-item reveal">
-        <span class="r-state prog">In progress</span>
-        <div><h5>Media performance elevation</h5><p>WebP conversion and image right-sizing to lift mobile Core Web Vitals — directly targeting the LCP gap.</p></div>
-      </div>
-      <div class="road-item reveal">
-        <span class="r-state explore">Exploring</span>
-        <div><h5>Incident response plan</h5><p>A documented process for if the site goes down: how it's detected, who's alerted, and what's needed to resolve — including holiday escalation.</p></div>
-      </div>
+      <div class="road-item reveal"><span class="r-state prog">In progress</span><div><h5>Wire the Ahrefs feed</h5><p>Connect the Ahrefs route so Link Integrity and Accessibility &amp; SEO read live instead of awaiting.</p></div></div>
+      <div class="road-item reveal"><span class="r-state prog">In progress</span><div><h5>End-to-end "penny test" for forms</h5><p>A scheduled real submission that verifies the lead reaches Salesforce and that GA4, LinkedIn and Meta fire — Slack alert if any step fails.</p></div></div>
+      <div class="road-item reveal"><span class="r-state explore">Exploring</span><div><h5>Media performance elevation</h5><p>WebP conversion and image right-sizing to lift LCP on the highest-traffic pages.</p></div></div>
+      <div class="road-item reveal"><span class="r-state explore">Exploring</span><div><h5>Incident response plan</h5><p>A documented process for a site outage: how it's detected, who's alerted, and what's needed to resolve — including holiday escalation.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
     <div class="sources">
       <b>Website Health &amp; Performance</b> · roller.software &nbsp;|&nbsp; Prepared by Web / Marketing.<br>
-      Sources: daily journey, session &amp; Checkly figures read live on load from the ROLLER Site Health feed (Checkly + Sentry) · Core Web Vitals from Sentry field data (24h), with a PageSpeed / CrUX snapshot from 25 Jun 2026 · framing from the Health Assurance Plan (Notion) · Website Library design tokens.
-      Weekly &amp; quarterly figures reflect the latest recorded cycle. If the live feed can't be reached, the dashboard shows the last-known values and says so.
+      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. The two “awaiting feed” cards (media &amp; migration trackers) have no hardcoded value and will populate once those sources are connected. If the feed can't be reached, the dashboard shows the last-known values and says so.
     </div>
     <div><b>Cadence:</b> Daily · Weekly · Quarterly</div>
   </div>
@@ -513,21 +402,23 @@
 <script>
   /* ============================================================
      LIVE DATA — reads the ROLLER Site Health feed on every load.
-     Falls back to the last-known values below if the feed can't be
-     reached (offline, CORS, or inside a sandboxed preview).
+     Everything shown is either parsed from the feed or explicitly
+     marked "awaiting feed". Falls back to last-known if unreachable.
      ============================================================ */
-  const FEED_URL = "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1&format=text";
+  const FEED_URL = "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
 
-  // Last-known snapshot (captured 2026-07-05) — shown if the live fetch fails.
+  // Last-known snapshot (captured 2026-07-06) — only used if the live fetch fails.
   const FALLBACK = {
-    generated:"2026-07-05T21:38:22.312Z", date:"2026-07-06",
-    forms:{n:51,healthy:true}, paid:{n:59,healthy:true,sessions:846}, revenue:{n:9,healthy:true,sessions:192},
+    generated:"2026-07-06T04:07:31.860Z", date:"2026-07-06",
+    forms:{n:51,healthy:true}, paid:{n:59,healthy:true,sessions:823}, revenue:{n:9,healthy:true,sessions:175},
     formsPoints:54, formsChecks:3, paidPoints:103, paidChecks:4,
-    checkly:{pass:10,total:10},
-    cwv:{LCP:2216,FCP:2018,CLS:0.079,INP:null,TTFB:1230,apdex:0.74,failRate:17.8,samples:2765}
+    checkly:{pass:10,total:10,failing:0},
+    cwv:{LCP:2191,FCP:2032,CLS:0.0627,INP:null,TTFB:1269.5,apdex:0.74,failRate:16.3,samples:2913},
+    perPage:[{path:"/",lcp:2436,fcp:2224,cls:0.045,views:2065},{path:"/industries/",lcp:2432,fcp:2104,cls:0.062,views:377},{path:"/master-terms",lcp:1492,fcp:1480,cls:0.195,views:337},{path:"/get-started/",lcp:1364,fcp:1299,cls:0.026,views:96},{path:"/pricing/",lcp:1546,fcp:1520,cls:0.087,views:51}],
+    slowest:[{path:"/",p95:10943},{path:"/features/online-ticket-system/",p95:10302},{path:"/features/self-service-ticketing-kiosk/",p95:10230}],
+    ahrefs:{domainRating:69,rank:133865,health:94,errors:304,warnings:1587,crawled:4849,projectName:"Roller Primary Domain"}
   };
 
-  /* ---------- Core Web Vitals geometry ---------- */
   const SEG ={LCP:[62.5,25,12.5],INP:[40,20,40],CLS:[40,20,40],FCP:[60,25,15],TTFB:[31,39,30]};
   const LAB ={LCP:["0","2.5s","4.0s+"],INP:["0","200ms","500ms+"],CLS:["0","0.10","0.25+"],FCP:["0","1.8s","3.0s+"],TTFB:["0","0.8s","1.8s+"]};
   const NAME={LCP:"Largest Contentful Paint",INP:"Interaction to Next Paint",CLS:"Cumulative Layout Shift",FCP:"First Contentful Paint",TTFB:"Time to First Byte"};
@@ -544,29 +435,10 @@
     const s=v/1000; return {val:s.toFixed(s<10?1:0),unit:"s"}; }
   function metric(k,v){ const d=disp(k,v); return {key:k,name:NAME[k],val:d.val,unit:d.unit,rating:rate(k,v),pct:pctOf(k,v),seg:SEG[k],labels:LAB[k]}; }
 
-  // Snapshot tab = PageSpeed / CrUX desktop field data (25 Jun 2026)
-  const SNAPSHOT = { passed:true,
-    verdict:"PageSpeed / CrUX field data · desktop · 25 Jun 2026 — all three primary vitals in the good range.",
-    metrics:[metric("LCP",1800),metric("INP",73),metric("CLS",0.06),metric("FCP",1700),metric("TTFB",1400)] };
-
-  let LIVE = buildLive(FALLBACK);
-  function buildLive(d){
-    const c=d.cwv||{};
-    const graded=[["LCP",c.LCP],["INP",c.INP],["CLS",c.CLS]];
-    const bad=graded.filter(([k,v])=>v!=null&&rate(k,v)==="bad").length;
-    const missing=graded.filter(([k,v])=>v==null).length;
-    let verdict="Real-user field data from Sentry · site-wide · last 24h. ";
-    verdict += bad>0 ? "One or more core vitals need attention." : missing>0 ? "LCP and CLS in range; INP awaiting enough samples." : "All three core vitals in the good range.";
-    return { passed:bad===0, verdict,
-      metrics:[metric("LCP",c.LCP),metric("INP",c.INP),metric("CLS",c.CLS),metric("FCP",c.FCP),metric("TTFB",c.TTFB)],
-      apdex:c.apdex, failRate:c.failRate, samples:c.samples };
-  }
-
-  function renderCWV(src){
-    const d = src==="live" ? LIVE : SNAPSHOT;
-    document.getElementById('cwv-grid').innerHTML = d.metrics.map(m=>{
-      const [g,w,b]=m.seg;
-      const marker = m.pct==null ? '' : `<div class="marker" style="left:${m.pct}%"></div>`;
+  function renderCWV(c){
+    const metrics=[metric("LCP",c.LCP),metric("INP",c.INP),metric("CLS",c.CLS),metric("FCP",c.FCP),metric("TTFB",c.TTFB)];
+    document.getElementById('cwv-grid').innerHTML = metrics.map(m=>{
+      const [g,w,b]=m.seg; const marker=m.pct==null?'':`<div class="marker" style="left:${m.pct}%"></div>`;
       return `<div class="cell">
         <div class="metric-head"><span class="m-name"><b>${m.key}</b> · ${m.name}</span></div>
         <div class="m-value ${m.rating}">${m.val}${m.unit?('<span style="font-size:16px;font-weight:700"> '+m.unit+'</span>'):''}</div>
@@ -574,91 +446,143 @@
         <div class="thresh"><span>${m.labels[0]}</span><span>${m.labels[1]}</span><span>${m.labels[2]}</span></div>
       </div>`;
     }).join('');
+    const graded=[["LCP",c.LCP],["INP",c.INP],["CLS",c.CLS]];
+    const bad=graded.filter(([k,v])=>v!=null&&rate(k,v)==="bad").length;
+    const missing=graded.filter(([k,v])=>v==null).length;
+    const passed=bad===0;
     const v=document.getElementById('verdict');
-    v.className='verdict '+(d.passed?'pass':'fail');
-    document.querySelector('#verdict .v-icon').textContent=d.passed?'✓':'!';
-    document.getElementById('verdict-title').textContent='Core Web Vitals: '+(d.passed?'Good':'Needs improvement');
-    document.getElementById('verdict-sub').textContent=d.verdict;
-    const apx=document.getElementById('apdex-note');
-    if(apx) apx.textContent = (src==="live" && LIVE.apdex!=null) ? ` Site Apdex ${LIVE.apdex} · failure rate ${LIVE.failRate}% · ${LIVE.samples} pageload samples (24h).` : "";
+    v.className='verdict '+(passed?'pass':'fail');
+    document.querySelector('#verdict .v-icon').textContent=passed?'✓':'!';
+    document.getElementById('verdict-title').textContent='Core Web Vitals: '+(passed?'Good':'Needs improvement');
+    document.getElementById('verdict-sub').textContent = bad>0 ? "One or more core vitals need attention." : missing>0 ? "LCP and CLS in range; INP awaiting enough samples." : "All three core vitals in the good range.";
+    document.getElementById('apdex-note').textContent = c.apdex!=null ? ` Site Apdex ${c.apdex} · ${c.failRate}% of loads over 3s · ${c.samples} samples (24h).` : "";
   }
 
-  let CURRENT_SRC="live";
-  function setSource(src){ CURRENT_SRC=src;
-    document.getElementById('tab-live').classList.toggle('active',src==="live");
-    document.getElementById('tab-snap').classList.toggle('active',src==="snapshot");
-    renderCWV(src); }
+  function renderPages(perPage, slowest){
+    const pp=document.getElementById('perpage');
+    pp.innerHTML=(perPage||[]).map(p=>{
+      const r=rate("LCP",p.lcp), rc=rate("CLS",p.cls);
+      return `<div class="pagerow">
+        <span class="pp" title="${p.path}">${p.path}</span>
+        <span class="mv ${r}">${(p.lcp/1000).toFixed(1)}s <small>LCP</small></span>
+        <span class="mv ${rc}">${p.cls} <small>CLS</small></span>
+        <span class="mv"><small>${p.views.toLocaleString()} views</small></span>
+      </div>`;
+    }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
+    const sl=document.getElementById('slowest');
+    sl.innerHTML=(slowest||[]).map(p=>{
+      const sec=p.p95/1000, r= sec<=3?"good":sec<=8?"warn":"bad";
+      return `<div class="pagerow"><span class="pp" title="${p.path}">${p.path}</span><span class="mv ${r}">${sec.toFixed(1)}s <small>p95</small></span></div>`;
+    }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
+  }
 
-  /* ---------- Parse the plain-text daily report ---------- */
-  function parseReport(t){
-    const g=(re,i=1)=>{const m=t.match(re);return m?parseFloat(m[i]):null;};
-    const cwvLine=(t.match(/Core Web Vitals \(p75[^\n]*/)||[""])[0];
-    const cv=(re)=>{const m=cwvLine.match(re);return m?parseFloat(m[1]):null;};
-    const inpM=cwvLine.match(/INP\s*(—|\d+)/); const inp=(inpM&&inpM[1]!=="—")?parseFloat(inpM[1]):null;
+  /* ---------- Map the JSON daily report to the dashboard shape ---------- */
+  function mapJson(j){
+    const s=j.sentry||{}, wv=s.webVitals||{}, perf=s.performance||{}, jr=s.journeys||{};
+    const ck=j.checkly||{}, grp={}; (ck.journeyGroups||[]).forEach(g=>{ grp[g.id]=g; });
+    const ah=j.ahrefs||{};
+    const projects=ah.siteAuditProjects||[];
+    const primary = projects.find(p=>/primary/i.test(p.name||"")) || projects.find(p=>/www\.roller\.software/.test(p.targetUrl||"")) || projects[0] || null;
+    const pct1=(x)=>x!=null?Math.round(x*1000)/10:null;   // 0.163 -> 16.3
+    const rnd2=(x)=>x!=null?Math.round(x*100)/100:null;   // 0.7387 -> 0.74
     return {
-      generated:(t.match(/Generated:\s*([0-9T:.\-Z]+)/)||[])[1]||null,
-      date:(t.match(/Date:\s*([\d-]+)/)||[])[1]||null,
-      forms:{n:g(/Forms:\s*(\d+),/), healthy:/Forms:\s*\d+,\s*active & healthy/.test(t)},
-      paid:{n:g(/LP running paid campaign:\s*(\d+),/), healthy:/paid campaign:\s*\d+,\s*active & healthy/.test(t), sessions:g(/LP running paid campaign:[^\n]*?·\s*(\d+) user sessions/)},
-      revenue:{n:g(/Revenue-critical journey:\s*(\d+),/), healthy:/Revenue-critical journey:\s*\d+,\s*active & healthy/.test(t), sessions:g(/Revenue-critical journey:[^\n]*?·\s*(\d+) user sessions/)},
-      formsPoints:g(/Forms:[^\n]*\((\d+) monitor points/), formsChecks:g(/Forms:[^\n]*monitor points across (\d+) checks/),
-      paidPoints:g(/paid campaign:[^\n]*\((\d+) monitor points/), paidChecks:g(/paid campaign:[^\n]*monitor points across (\d+) checks/),
-      checkly:{pass:g(/(\d+)\/\d+ checks passing/), total:g(/\d+\/(\d+) checks passing/)},
-      cwv:{ LCP:cv(/LCP\s*(\d+)\s*ms/), FCP:cv(/FCP\s*(\d+)\s*ms/), CLS:(cwvLine.match(/CLS\s*([\d.]+)/)||[])[1]!=null?parseFloat(cwvLine.match(/CLS\s*([\d.]+)/)[1]):null,
-            INP:inp, TTFB:cv(/TTFB\s*(\d+)\s*ms/),
-            apdex:g(/Site Apdex[^:]*:\s*([\d.]+)/), failRate:g(/failure rate\s*([\d.]+)%/), samples:g(/(\d+) pageload samples/) }
+      generated:j.generatedAt||null, date:j.reportDate||null,
+      forms:{n:grp.forms&&grp.forms.itemCount, healthy:!!(grp.forms&&grp.forms.allHealthy)},
+      paid:{n:grp.paidLp&&grp.paidLp.itemCount, healthy:!!(grp.paidLp&&grp.paidLp.allHealthy), sessions:jr.paidLpSessions24h},
+      revenue:{n:grp.revenueJourney&&grp.revenueJourney.itemCount, healthy:!!(grp.revenueJourney&&grp.revenueJourney.allHealthy), sessions:jr.revenueSessions24h},
+      formsPoints:grp.forms&&grp.forms.monitorPoints, formsChecks:grp.forms&&grp.forms.activeChecks,
+      paidPoints:grp.paidLp&&grp.paidLp.monitorPoints, paidChecks:grp.paidLp&&grp.paidLp.activeChecks,
+      checkly:{pass:ck.summary&&ck.summary.passing, total:ck.summary&&ck.summary.total, failing:ck.summary&&ck.summary.failing},
+      cwv:{ LCP:wv.lcpMs, FCP:wv.fcpMs, CLS:wv.cls, INP:wv.inpMs, TTFB:wv.ttfbMs,
+            apdex:rnd2(perf.siteApdex), failRate:pct1(perf.siteFailureRate), samples:perf.siteSamples },
+      perPage:(s.cwvByPage||[]).slice(0,6).map(p=>({path:p.page,lcp:p.lcpMs,fcp:p.fcpMs,cls:p.cls,views:p.views})),
+      slowest:(s.slowestPages||[]).slice(0,5).map(p=>({path:p.page,p95:p.p95DurationMs})),
+      ahrefs: (ah.dataAvailable && primary) ? { domainRating:ah.domainRating, rank:ah.ahrefsRank,
+            health:primary.healthScore, errors:primary.urlsWithErrors, warnings:primary.urlsWithWarnings,
+            crawled:primary.total, projectName:primary.name } : null
     };
   }
 
-  /* ---------- Apply data to the DOM ---------- */
+  /* ---------- Apply to DOM ---------- */
   function fmtTime(iso){ if(!iso) return "unknown"; try{ return new Date(iso).toLocaleString(undefined,{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}); }catch(e){ return iso; } }
-  function setText(id,v){ const e=document.getElementById(id); if(e&&v!=null&&!Number.isNaN(v)) e.textContent=v; }
-  function setPill(id,healthy){ const el=document.getElementById(id); if(!el) return;
-    el.className='pill '+(healthy?'ok':'bad'); el.innerHTML='<span class="dot"></span>'+(healthy?'Healthy':'Attention'); }
+  function setText(id,v){ const e=document.getElementById(id); if(e&&v!=null&&!(typeof v==='number'&&Number.isNaN(v))) e.textContent=v; }
+  function setPill(id,healthy){ const el=document.getElementById(id); if(!el) return; el.className='pill '+(healthy?'ok':'bad'); el.innerHTML='<span class="dot"></span>'+(healthy?'Healthy':'Attention'); }
+  function setRatingPill(id,rating,label){ const el=document.getElementById(id); if(!el) return; el.className='pill '+rating; el.innerHTML='<span class="dot"></span>'+label; }
 
   function applyData(d, live){
+    // Daily
     setText('n-forms', d.forms&&d.forms.n); setText('n-paid', d.paid&&d.paid.n); setText('n-rev', d.revenue&&d.revenue.n);
     if(d.formsPoints!=null) setText('s-forms', `${d.formsPoints} monitor points · ${d.formsChecks} Checkly checks`);
     if(d.paid) setText('s-paid', `${d.paidPoints} monitor points · ${d.paidChecks} checks · ${d.paid.sessions??'—'} sessions (24h)`);
     if(d.revenue) setText('s-rev', `${d.revenue.sessions??'—'} user sessions (24h)`);
     setPill('p-forms', d.forms&&d.forms.healthy); setPill('p-paid', d.paid&&d.paid.healthy); setPill('p-rev', d.revenue&&d.revenue.healthy);
 
+    // Weekly — Function Reliability (live, derived)
+    const bugs = (d.checkly&&d.checkly.total!=null)? (d.checkly.total - d.checkly.pass) : null;
+    setText('n-func', bugs);
+    if(d.checkly&&d.checkly.total!=null){
+      setText('s-func', `${d.checkly.pass}/${d.checkly.total} Checkly checks passing`);
+      setRatingPill('p-func', bugs===0?'ok':'bad', bugs===0?'All clear':'Attention');
+    }
+
+    // Enhancements — live Sentry perf
+    const c=d.cwv||{};
+    if(c.apdex!=null){ setText('n-apdex', c.apdex);
+      setRatingPill('p-apdex', c.apdex>=0.9?'ok':c.apdex>=0.7?'warn':'bad', 'Live');
+      setText('s-apdex', `${c.samples??'—'} pageload samples (24h)`); }
+    if(c.failRate!=null){ setText('n-slow', c.failRate+'%');
+      setRatingPill('p-slow', c.failRate<5?'ok':c.failRate<15?'warn':'bad', 'Live'); setText('s-slow','vs 3-second threshold'); }
+    if(d.slowest&&d.slowest.length){ const w=d.slowest[0];
+      setText('n-slowest', (w.p95/1000).toFixed(1)+'s');
+      setRatingPill('p-slowest', (w.p95/1000)<=3?'ok':(w.p95/1000)<=8?'warn':'bad', 'Live');
+      setText('s-slowest', w.path); }
+
+    // Ahrefs — SEO Health + Link Integrity (live)
+    if(d.ahrefs){
+      const a=d.ahrefs;
+      if(a.health!=null){ setText('n-seo', a.health);
+        setRatingPill('p-seo', a.health>=90?'ok':a.health>=75?'warn':'bad', 'Live');
+        setText('s-seo', `DR ${a.domainRating} · rank ${Number(a.rank).toLocaleString()} · ${a.projectName}`); }
+      if(a.errors!=null){ setText('n-links', Number(a.errors).toLocaleString());
+        setRatingPill('p-links', a.errors===0?'ok':a.errors<=500?'warn':'bad', 'Live');
+        setText('s-links', `${Number(a.warnings).toLocaleString()} warnings · ${Number(a.crawled).toLocaleString()} URLs crawled`); }
+    }
+
+    // Hero pillars
     const allHealthy = d.forms&&d.forms.healthy && d.paid&&d.paid.healthy && d.revenue&&d.revenue.healthy;
     const checklyOk  = d.checkly && d.checkly.pass!=null && d.checkly.pass===d.checkly.total;
-    const chip=document.getElementById('overall-chip');
-    setText('overall-text', 'Overall: '+((allHealthy&&checklyOk)?'Operational':'Attention needed'));
-    if(chip) chip.classList.toggle('attn', !(allHealthy&&checklyOk));
+    const revState=document.getElementById('pil-rev');
+    if(revState) revState.innerHTML = `<span style="color:${(allHealthy&&checklyOk)?'var(--good-line)':'var(--warn-line)'}">●</span> ${(allHealthy&&checklyOk)?'All journeys healthy · Checkly '+d.checkly.pass+'/'+d.checkly.total+' passing':'Attention on a monitored path'}`;
 
+    // Overall chip
+    setText('overall-text', 'Overall: '+((allHealthy&&checklyOk)?'Operational':'Attention needed'));
+    const chip=document.getElementById('overall-chip'); if(chip) chip.classList.toggle('attn', !(allHealthy&&checklyOk));
+
+    // Freshness + CWV badge
     const fresh=document.getElementById('daily-freshness');
-    if(fresh){
-      const ck = d.checkly&&d.checkly.total ? `Checkly ${d.checkly.pass}/${d.checkly.total} passing` : '';
-      fresh.className = 'cad-note '+(live?'freshness-live':'freshness-stale');
-      fresh.textContent = live ? `● Live · updated ${fmtTime(d.generated)} · ${ck}`
-                               : `● Showing last known (${fmtTime(d.generated)}) — live refresh unavailable · ${ck}`;
-    }
-    LIVE = buildLive(d);
-    if(CURRENT_SRC==="live") renderCWV("live");
+    if(fresh){ const ck = d.checkly&&d.checkly.total ? `Checkly ${d.checkly.pass}/${d.checkly.total} passing` : '';
+      fresh.className='cad-note '+(live?'freshness-live':'freshness-stale');
+      fresh.textContent = live ? `● Live · updated ${fmtTime(d.generated)} · ${ck}` : `● Showing last known (${fmtTime(d.generated)}) — live refresh unavailable · ${ck}`; }
+    const badge=document.getElementById('cwv-badge'), bt=document.getElementById('cwv-badge-text');
+    if(badge&&bt){ badge.classList.toggle('stale',!live); bt.textContent = live ? `Live · Sentry · updated ${fmtTime(d.generated)}` : `Last known · ${fmtTime(d.generated)}`; }
+
+    renderCWV(c);
+    renderPages(d.perPage, d.slowest);
   }
 
   async function loadLive(){
-    applyData(FALLBACK, false);        // paint last-known immediately
-    renderCWV(CURRENT_SRC);
+    applyData(FALLBACK, false);   // paint last-known immediately
     try{
       const res = await fetch(FEED_URL, {cache:'no-store'});
       if(!res.ok) throw new Error('HTTP '+res.status);
-      const data = parseReport(await res.text());
-      if(data.forms.n==null) throw new Error('could not parse feed');
+      const data = mapJson(await res.json());
+      if(data.forms.n==null) throw new Error('could not read feed');
       applyData(data, true);
-    }catch(e){
-      console.warn('Live feed unavailable — showing last-known values.', e.message);
-    }
+    }catch(e){ console.warn('Live feed unavailable — showing last-known values.', e.message); }
   }
   loadLive();
 
-  /* ---------- Scroll reveal ---------- */
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.12});
+  const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(Math.min(i,6)*40)+'ms'; io.observe(el); });
 </script>
 </body>
