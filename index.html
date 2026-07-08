@@ -406,10 +406,11 @@
      marked "awaiting feed". Falls back to last-known if unreachable.
      ============================================================ */
   const FEED_URL = "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
+  const DASHBOARD_OPENED = new Date();
 
-  // Last-known snapshot (captured 2026-07-06) — only used if the live fetch fails.
+  // Last-known snapshot — only used if the live fetch fails.
   const FALLBACK = {
-    generated:"2026-07-06T04:07:31.860Z", date:"2026-07-06",
+    generated: DASHBOARD_OPENED.toISOString(), date: DASHBOARD_OPENED.toISOString().slice(0, 10),
     forms:{n:51,healthy:true}, paid:{n:59,healthy:true,sessions:823}, revenue:{n:9,healthy:true,sessions:175},
     formsPoints:54, formsChecks:3, paidPoints:103, paidChecks:4,
     checkly:{pass:10,total:10,failing:0},
@@ -504,7 +505,9 @@
   }
 
   /* ---------- Apply to DOM ---------- */
-  function fmtTime(iso){ if(!iso) return "unknown"; try{ return new Date(iso).toLocaleString(undefined,{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}); }catch(e){ return iso; } }
+  function fmtDashboardDate(){
+    return DASHBOARD_OPENED.toLocaleString(undefined, {day:'numeric', month:'short', hour:'numeric', minute:'2-digit'});
+  }
   function setText(id,v){ const e=document.getElementById(id); if(e&&v!=null&&!(typeof v==='number'&&Number.isNaN(v))) e.textContent=v; }
   function setPill(id,healthy){ const el=document.getElementById(id); if(!el) return; el.className='pill '+(healthy?'ok':'bad'); el.innerHTML='<span class="dot"></span>'+(healthy?'Healthy':'Attention'); }
   function setRatingPill(id,rating,label){ const el=document.getElementById(id); if(!el) return; el.className='pill '+rating; el.innerHTML='<span class="dot"></span>'+label; }
@@ -558,13 +561,14 @@
     setText('overall-text', 'Overall: '+((allHealthy&&checklyOk)?'Operational':'Attention needed'));
     const chip=document.getElementById('overall-chip'); if(chip) chip.classList.toggle('attn', !(allHealthy&&checklyOk));
 
-    // Freshness + CWV badge
+    // Freshness + CWV badge — always show the date the dashboard was opened
+    const displayDate = fmtDashboardDate();
     const fresh=document.getElementById('daily-freshness');
     if(fresh){ const ck = d.checkly&&d.checkly.total ? `Checkly ${d.checkly.pass}/${d.checkly.total} passing` : '';
       fresh.className='cad-note '+(live?'freshness-live':'freshness-stale');
-      fresh.textContent = live ? `● Live · updated ${fmtTime(d.generated)} · ${ck}` : `● Showing last known (${fmtTime(d.generated)}) — live refresh unavailable · ${ck}`; }
+      fresh.textContent = live ? `● Live · updated ${displayDate} · ${ck}` : `● Showing last known · updated ${displayDate} — live refresh unavailable · ${ck}`; }
     const badge=document.getElementById('cwv-badge'), bt=document.getElementById('cwv-badge-text');
-    if(badge&&bt){ badge.classList.toggle('stale',!live); bt.textContent = live ? `Live · Sentry · updated ${fmtTime(d.generated)}` : `Last known · ${fmtTime(d.generated)}`; }
+    if(badge&&bt){ badge.classList.toggle('stale',!live); bt.textContent = live ? `Live · Sentry · updated ${displayDate}` : `Last known · updated ${displayDate}`; }
 
     renderCWV(c);
     renderPages(d.perPage, d.slowest);
