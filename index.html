@@ -410,7 +410,9 @@
      Everything shown is either parsed from the feed or explicitly
      marked "awaiting feed". Falls back to last-known if unreachable.
      ============================================================ */
-  const FEED_URL = "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
+  // Same-origin proxy avoids browser CORS blocks (see server.js + vercel.json).
+  const FEED_URL = "/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
+  const FEED_API_UPSTREAM = "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
   const DASHBOARD_OPENED = new Date();
 
   const SEG ={LCP:[62.5,25,12.5],INP:[40,20,40],CLS:[40,20,40],FCP:[60,25,15],TTFB:[31,39,30]};
@@ -532,9 +534,9 @@
         The dashboard only shows data from the ROLLER Site Health API (Sentry + Checkly + Ahrefs). Nothing is hardcoded.
         <br><br><b>Error:</b> <code>${message}</code>
         <br><br><b>What to check:</b>
-        <br>1. Open this page over HTTP/HTTPS — not as a local <code>file://</code> link. Run <code>npx serve .</code> in this folder, or deploy beside the API on Vercel.
-        <br>2. Confirm the API responds: open <code>${FEED_URL}</code> in your browser — you should see JSON with <code>generatedAt</code>, <code>sentry</code>, and <code>checkly</code>.
-        <br>3. If the API works in the browser but not here, add CORS headers on the API (<code>Access-Control-Allow-Origin</code>) so this dashboard origin can fetch it.
+        <br>1. Run the local server in this folder: <code>npm start</code> — then open <code>http://localhost:3000</code>. Do not open the HTML file directly as <code>file://</code>.
+        <br>2. Confirm the upstream API responds: open <code>${FEED_API_UPSTREAM}</code> in your browser — you should see JSON with <code>generatedAt</code>, <code>sentry</code>, and <code>checkly</code>.
+        <br>3. On Vercel, deploy this project as-is — <code>vercel.json</code> proxies <code>/api/daily-report</code> to the live feed.
         <br>4. Check the browser console (F12 → Console) for blocked requests or network errors.`;
     }
     document.getElementById('verdict-sub').textContent = 'Feed unavailable — no live Sentry data loaded.';

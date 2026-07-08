@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/daily-report",
+      "destination": "https://roller-site-health.vercel.app/api/daily-report?key=a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1"
+    }
+  ]
+}
