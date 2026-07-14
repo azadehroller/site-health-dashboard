@@ -532,12 +532,13 @@
       err.hidden=false;
       err.innerHTML = `<b>Live feed could not be loaded</b>
         The dashboard only shows data from the ROLLER Site Health API (Sentry + Checkly + Ahrefs). Nothing is hardcoded.
-        <br><br><b>Error:</b> <code>${message}</code>
+        <!-- <br><br><b>Error:</b> <code>${message}</code>
         <br><br><b>What to check:</b>
         <br>1. Run the local server in this folder: <code>npm start</code> — then open <code>http://localhost:3000</code>. Do not open the HTML file directly as <code>file://</code>.
         <br>2. Confirm the upstream API responds: open <code>${FEED_API_UPSTREAM}</code> in your browser — you should see JSON with <code>generatedAt</code>, <code>sentry</code>, and <code>checkly</code>.
         <br>3. On Vercel, deploy this project as-is — <code>vercel.json</code> proxies <code>/api/daily-report</code> to the live feed.
-        <br>4. Check the browser console (F12 → Console) for blocked requests or network errors.`;
+        <br>4. Check the browser console (F12 → Console) for blocked requests or network errors. -->
+        `;
     }
     document.getElementById('verdict-sub').textContent = 'Feed unavailable — no live Sentry data loaded.';
     document.getElementById('cwv-grid').innerHTML = '';

@@ -3,6 +3,9 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 
+// Toggle: set to false to restore the live feed.
+const FEED_DISABLED = true;
+
 const PORT = Number(process.env.PORT) || 3000;
 const API_KEY = "a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
 const API_URL = `https://roller-site-health.vercel.app/api/daily-report?key=${API_KEY}`;
@@ -18,6 +21,12 @@ const MIME = {
 };
 
 function proxyFeed(res) {
+  if (FEED_DISABLED) {
+    res.writeHead(503, { "Content-Type": "application/json; charset=utf-8" });
+    res.end(JSON.stringify({ error: "Live feed temporarily unavailable" }));
+    return;
+  }
+
   https
     .get(API_URL, (proxyRes) => {
       const headers = { "Content-Type": "application/json; charset=utf-8" };
