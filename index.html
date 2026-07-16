@@ -119,6 +119,13 @@
   .cwv-note{padding:16px 22px;font-size:12.5px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
 
   .subhead{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:18px 22px 4px;border-top:1px solid var(--blue-95)}
+  .cwv-accordion{border-top:1px solid var(--blue-95)}
+  .cwv-accordion>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;font-size:13.5px;font-weight:800;color:var(--blue-30);user-select:none}
+  .cwv-accordion>summary::-webkit-details-marker{display:none}
+  .cwv-accordion>summary:hover{background:var(--blue-99)}
+  .cwv-accordion>summary .acc-hint{font-size:12px;font-weight:700;color:var(--faint)}
+  .cwv-accordion>summary .acc-chevron{width:22px;height:22px;border-radius:6px;background:var(--blue-95);color:var(--blue-40);display:grid;place-items:center;font-size:12px;transition:transform .2s ease;flex:0 0 auto}
+  .cwv-accordion[open]>summary .acc-chevron{transform:rotate(180deg)}
   .pagelist{display:flex;flex-direction:column}
   .pagerow{display:grid;grid-template-columns:1fr auto auto auto;gap:16px;align-items:center;padding:11px 22px;border-bottom:1px solid var(--blue-95);font-size:13px}
   .pagerow:last-child{border-bottom:0}
@@ -216,23 +223,23 @@
       <div class="grid g3">
         <div class="card reveal">
           <div class="c-top"><h4>Lead Pipeline</h4><span class="pill ok" id="p-forms"><span class="dot"></span>Healthy</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-forms">—</span><span class="metric-unit">forms active &amp; healthy</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-forms">—</span><span class="metric-unit">lead forms watched</span></div>
           <div class="substat" id="s-forms">&nbsp;</div>
-          <p class="c-desc">Every lead form submits correctly and the lead reaches the CRM. Tracking fires and respects cookie consent.</p>
+          <p class="c-desc">We check that every lead form still submits, the lead reaches the CRM, and tracking fires correctly (including cookie consent).</p>
           <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
         </div>
         <div class="card reveal">
           <div class="c-top"><h4>Paid Campaign</h4><span class="pill ok" id="p-paid"><span class="dot"></span>Healthy</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-paid">—</span><span class="metric-unit">paid LPs active &amp; healthy</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-paid">—</span><span class="metric-unit">landing pages watched</span></div>
           <div class="substat" id="s-paid">&nbsp;</div>
-          <p class="c-desc">Paid landing pages load and their forms and CTAs work, so ad spend converts and isn't wasted.</p>
+          <p class="c-desc">We check that paid landing pages load and their forms and buttons work — so ad spend isn’t wasted on a broken page.</p>
           <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
         </div>
         <div class="card reveal">
           <div class="c-top"><h4>Revenue-Critical Journeys</h4><span class="pill ok" id="p-rev"><span class="dot"></span>Healthy</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-rev">—</span><span class="metric-unit">journeys active &amp; healthy</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-rev">—</span><span class="metric-unit">key paths watched</span></div>
           <div class="substat" id="s-rev">&nbsp;</div>
-          <p class="c-desc">The full journeys that drive revenue work end to end — demo request, contact sales, pricing, lead routing and CRM.</p>
+          <p class="c-desc">We walk the paths that drive revenue end to end — get started, contact sales, pricing, lead routing, and CRM — to confirm nothing is broken.</p>
           <div class="tools"><span class="tool">Sentry</span><span class="tool">Checkly</span><span class="tool">Ahrefs</span></div>
         </div>
       </div>
@@ -247,22 +254,22 @@
       <div class="grid g3">
         <div class="card reveal">
           <div class="c-top"><h4>Link Integrity</h4><span class="pill info" id="p-links"><span class="dot"></span>Live</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-links">—</span><span class="metric-unit">URLs with errors · primary audit</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-links">—</span><span class="metric-unit">of pages error-free</span></div>
           <div class="substat" id="s-links">&nbsp;</div>
-          <p class="c-desc">Site-audit errors on the primary domain — broken links, redirect chains, 404s and missing assets — from the latest Ahrefs crawl.</p>
+          <p class="c-desc">Share of crawled pages with no broken links, redirect loops, 404s, or missing images — from the latest site crawl.</p>
           <div class="tools"><span class="tool">Ahrefs</span></div>
         </div>
         <div class="card reveal">
           <div class="c-top"><h4>Function Reliability</h4><span class="pill ok" id="p-func"><span class="dot"></span>All clear</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-func">—</span><span class="metric-unit">failing checks now</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-func">—</span><span class="metric-unit">automated checks failing</span></div>
           <div class="substat" id="s-func">&nbsp;</div>
-          <p class="c-desc">Live count of Checkly monitors currently failing across navigation, forms, integrations and downloads.</p>
+          <p class="c-desc">How many of our scheduled site checks are failing right now — covering forms, paid pages, and revenue paths.</p>
           <div class="tools"><span class="tool">Checkly</span></div>
         </div>
         <div class="card reveal awaiting">
           <div class="c-top"><h4>Brand &amp; Business Signal</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-brand">—</span><span class="metric-unit">message inconsistencies fixed</span></div>
-          <div class="substat">Stats, logos, quotes, awards &amp; legal notices — <b>needs brand-signal feed</b></div>
+          <div class="metric-row"><span class="metric-num" id="n-brand">—</span><span class="metric-unit">inconsistencies fixed</span></div>
+          <div class="substat">Stats, logos, quotes, awards &amp; legal notices — <b>feed not connected yet</b></div>
           <div class="tools"><span class="tool ghost">AI scrape &amp; match — not yet connected</span></div>
         </div>
       </div>
@@ -275,7 +282,7 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Site performance</span></div>
     <h2>Core Web Vitals — what real users experience</h2>
-    <p class="sec-desc">Real-user field data from Sentry (site-wide, p75, rolling 24 hours), read live on load. These are the same metrics Google grades the site on for search.</p>
+    <p class="sec-desc">How fast the site feels for real visitors over the last 24 hours. These are the same Core Web Vitals Google uses when ranking pages in search.</p>
 
     <div class="perf-shell reveal" style="margin-top:22px">
       <div class="perf-bar">
@@ -289,12 +296,21 @@
       <div class="cwv" id="cwv-grid"></div>
       <div class="cwv-note">
         <span style="color:var(--blue-50);font-weight:900">ℹ</span>
-        <span id="cwv-context">LCP = how fast the main content appears · INP = how responsive the page feels · CLS = how much the layout shifts. Green / amber / red follow Google's thresholds.</span><span id="apdex-note" style="color:var(--ink);font-weight:700"></span>
+        <span id="cwv-context">LCP = how fast the main content appears · INP = how quickly the page responds to taps · CLS = how much the layout jumps around. Green / amber / red follow Google’s thresholds.</span><span id="apdex-note" style="color:var(--ink);font-weight:700"></span>
       </div>
-      <div class="subhead">Core Web Vitals by page · top traffic (live)</div>
-      <div class="pagelist" id="perpage"></div>
-      <div class="subhead">Slowest pages · p95 load time (live)</div>
-      <div class="pagelist" id="slowest"></div>
+      <details class="cwv-accordion">
+        <summary>
+          <span>Page-level breakdown</span>
+          <span style="display:inline-flex;align-items:center;gap:10px;margin-left:auto">
+            <span class="acc-hint">Top pages &amp; slowest pages</span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </span>
+        </summary>
+        <div class="subhead">How top pages feel for visitors (live)</div>
+        <div class="pagelist" id="perpage"></div>
+        <div class="subhead">Slowest pages · time for most visitors to finish loading (live)</div>
+        <div class="pagelist" id="slowest"></div>
+      </details>
     </div>
   </div>
 </section>
@@ -303,47 +319,47 @@
 <section id="enhancements">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Performance &amp; quality</span></div>
-    <h2>Real-user performance signals</h2>
-    <p class="sec-desc">Live experience metrics from Sentry, plus quality tracks that will read from their own feeds once connected.</p>
+    <h2>How visitors experience the site</h2>
+    <p class="sec-desc">Speed and quality signals from real traffic, plus a few tracks that will light up once their feeds are connected.</p>
     <div class="grid g3" style="margin-top:22px">
       <div class="card reveal">
-        <div class="c-top"><h4>Real-user Apdex</h4><span class="pill info" id="p-apdex"><span class="dot"></span>Live</span></div>
-        <div class="metric-row"><span class="metric-num" id="n-apdex">—</span><span class="metric-unit">3s satisfaction (0–1)</span></div>
+        <div class="c-top"><h4>Visitor Satisfaction</h4><span class="pill info" id="p-apdex"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-apdex">—</span><span class="metric-unit">score out of 1.0</span></div>
         <div class="substat" id="s-apdex">&nbsp;</div>
-        <p class="c-desc">Share of page loads users would consider satisfying, against a 3-second threshold.</p>
+        <p class="c-desc">How satisfied real visitors would feel with page speed. Closer to 1.0 is better — based on whether pages load within about 3 seconds.</p>
         <div class="tools"><span class="tool">Sentry</span></div>
       </div>
       <div class="card reveal">
-        <div class="c-top"><h4>Slow Loads (&gt;3s)</h4><span class="pill info" id="p-slow"><span class="dot"></span>Live</span></div>
-        <div class="metric-row"><span class="metric-num" id="n-slow">—</span><span class="metric-unit">of pageloads over 3s</span></div>
+        <div class="c-top"><h4>Slow Visits</h4><span class="pill info" id="p-slow"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-slow">—</span><span class="metric-unit">of visits took over 3 seconds</span></div>
         <div class="substat" id="s-slow">&nbsp;</div>
-        <p class="c-desc">Proportion of real pageloads slower than the 3-second Apdex threshold.</p>
+        <p class="c-desc">Share of real visits where the page took longer than 3 seconds to load — a useful pulse on how often the site feels slow.</p>
         <div class="tools"><span class="tool">Sentry</span></div>
       </div>
       <div class="card reveal">
         <div class="c-top"><h4>Slowest Page</h4><span class="pill info" id="p-slowest"><span class="dot"></span>Live</span></div>
-        <div class="metric-row"><span class="metric-num" id="n-slowest">—</span><span class="metric-unit">p95 load time</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-slowest">—</span><span class="metric-unit">to load for most visitors</span></div>
         <div class="substat" id="s-slowest">&nbsp;</div>
-        <p class="c-desc">The single slowest page by 95th-percentile load time — the first place to look.</p>
+        <p class="c-desc">The slowest page right now — time for nearly all visitors (95%) to finish loading. A good place to start if speed needs work.</p>
         <div class="tools"><span class="tool">Sentry</span></div>
       </div>
       <div class="card reveal">
         <div class="c-top"><h4>SEO Health</h4><span class="pill info" id="p-seo"><span class="dot"></span>Live</span></div>
-        <div class="metric-row"><span class="metric-num" id="n-seo">—</span><span class="metric-unit">/100 site-audit health</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-seo">—</span><span class="metric-unit">out of 100</span></div>
         <div class="substat" id="s-seo">&nbsp;</div>
-        <p class="c-desc">Ahrefs site-audit health for the primary domain, plus Domain Rating and search rank.</p>
+        <p class="c-desc">Overall SEO health of the main website from the latest crawl — higher is healthier for search visibility.</p>
         <div class="tools"><span class="tool">Ahrefs</span></div>
       </div>
       <div class="card reveal awaiting">
         <div class="c-top"><h4>Media Performance</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
         <div class="metric-row"><span class="metric-num">—</span><span class="metric-unit">images optimised</span></div>
-        <div class="substat">WebP conversion &amp; right-sizing — <b>needs tracker feed</b></div>
+        <div class="substat">Image compression &amp; sizing — <b>feed not connected yet</b></div>
         <div class="tools"><span class="tool ghost">Media tracker — not yet connected</span></div>
       </div>
       <div class="card reveal awaiting">
         <div class="c-top"><h4>Migration &amp; Experience</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
         <div class="metric-row"><span class="metric-num">—</span><span class="metric-unit">legacy pages migrated</span></div>
-        <div class="substat">Legacy-page migration &amp; content bugs — <b>needs tracker feed</b></div>
+        <div class="substat">Legacy-page migration &amp; content bugs — <b>feed not connected yet</b></div>
         <div class="tools"><span class="tool ghost">Migration tracker — not yet connected</span></div>
       </div>
     </div>
@@ -426,7 +442,7 @@
     if(v<=b[1]) return s[0]+(v-b[0])/(b[1]-b[0])*s[1];
     return s[0]+s[1]+Math.min((v-b[1])/b[1],1)*s[2]; }
   function disp(k,v){ if(v==null) return {val:"—",unit:""};
-    if(k==="CLS") return {val:(Math.round(v*1000)/1000).toString(),unit:""};
+    if(k==="CLS") return {val:(Math.round(v*100)/100).toFixed(2),unit:""};
     if(k==="INP") return {val:String(Math.round(v)),unit:"ms"};
     const s=v/1000; return {val:s.toFixed(s<10?1:0),unit:"s"}; }
   function metric(k,v){ const d=disp(k,v); return {key:k,name:NAME[k],val:d.val,unit:d.unit,rating:rate(k,v),pct:pctOf(k,v),seg:SEG[k],labels:LAB[k]}; }
@@ -450,8 +466,8 @@
     v.className='verdict '+(passed?'pass':'fail');
     document.querySelector('#verdict .v-icon').textContent=passed?'✓':'!';
     document.getElementById('verdict-title').textContent='Core Web Vitals: '+(passed?'Good':'Needs improvement');
-    document.getElementById('verdict-sub').textContent = bad>0 ? "One or more core vitals need attention." : missing>0 ? "LCP and CLS in range; INP awaiting enough samples." : "All three core vitals in the good range.";
-    document.getElementById('apdex-note').textContent = c.apdex!=null ? ` Site Apdex ${c.apdex} · ${c.failRate}% of loads over 3s · ${c.samples} samples (24h).` : "";
+    document.getElementById('verdict-sub').textContent = bad>0 ? "One or more of the main speed signals need attention." : missing>0 ? "Main content and layout look good; tap-responsiveness needs more visitor data." : "All three main speed signals look good for visitors.";
+    document.getElementById('apdex-note').textContent = c.apdex!=null ? ` Visitor satisfaction ${c.apdex} · ${c.failRate}% of visits slower than 3s · based on ${Number(c.samples).toLocaleString()} page views (last 24h).` : "";
   }
 
   function renderPages(perPage, slowest){
@@ -461,14 +477,14 @@
       return `<div class="pagerow">
         <span class="pp" title="${p.path}">${p.path}</span>
         <span class="mv ${r}">${(p.lcp/1000).toFixed(1)}s <small>LCP</small></span>
-        <span class="mv ${rc}">${p.cls} <small>CLS</small></span>
-        <span class="mv"><small>${p.views.toLocaleString()} views</small></span>
+        <span class="mv ${rc}">${(Math.round(p.cls*100)/100).toFixed(2)} <small>CLS</small></span>
+        <span class="mv"><small>${p.views.toLocaleString()} visits</small></span>
       </div>`;
     }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
     const sl=document.getElementById('slowest');
     sl.innerHTML=(slowest||[]).map(p=>{
       const sec=p.p95/1000, r= sec<=3?"good":sec<=8?"warn":"bad";
-      return `<div class="pagerow"><span class="pp" title="${p.path}">${p.path}</span><span class="mv ${r}">${sec.toFixed(1)}s <small>p95</small></span></div>`;
+      return `<div class="pagerow"><span class="pp" title="${p.path}">${p.path}</span><span class="mv ${r}">${sec.toFixed(1)}s <small>for most visitors</small></span></div>`;
     }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
   }
 
@@ -547,18 +563,26 @@
   }
 
   function applyData(d){
-    // Daily
+    // Daily — big number = pages/forms/paths watched; substat explains checks + real traffic
     setText('n-forms', d.forms&&d.forms.n); setText('n-paid', d.paid&&d.paid.n); setText('n-rev', d.revenue&&d.revenue.n);
-    if(d.formsPoints!=null) setText('s-forms', `${d.formsPoints} monitor points · ${d.formsChecks} Checkly checks`);
-    if(d.paid) setText('s-paid', `${d.paidPoints} monitor points · ${d.paidChecks} checks · ${d.paid.sessions??'—'} sessions (24h)`);
-    if(d.revenue) setText('s-rev', `${d.revenue.sessions??'—'} user sessions (24h)`);
+    if(d.formsChecks!=null) setText('s-forms', `Watched by ${d.formsChecks} automated checks`);
+    if(d.paid){
+      const sessions = d.paid.sessions!=null ? ` · ${Number(d.paid.sessions).toLocaleString()} visitors in the last 24h` : '';
+      setText('s-paid', `Watched by ${d.paidChecks} automated checks${sessions}`);
+    }
+    if(d.revenue){
+      const sessions = d.revenue.sessions!=null ? `${Number(d.revenue.sessions).toLocaleString()} visitors on these paths in the last 24h` : 'Visitor traffic loading…';
+      setText('s-rev', sessions);
+    }
     setPill('p-forms', d.forms&&d.forms.healthy); setPill('p-paid', d.paid&&d.paid.healthy); setPill('p-rev', d.revenue&&d.revenue.healthy);
 
     // Weekly — Function Reliability (live, derived)
     const bugs = (d.checkly&&d.checkly.total!=null)? (d.checkly.total - d.checkly.pass) : null;
     setText('n-func', bugs);
     if(d.checkly&&d.checkly.total!=null){
-      setText('s-func', `${d.checkly.pass}/${d.checkly.total} Checkly checks passing`);
+      setText('s-func', bugs===0
+        ? `All ${d.checkly.total} automated checks are passing`
+        : `${d.checkly.pass} of ${d.checkly.total} automated checks are passing`);
       setRatingPill('p-func', bugs===0?'ok':'bad', bugs===0?'All clear':'Attention');
     }
 
@@ -566,30 +590,36 @@
     const c=d.cwv||{};
     if(c.apdex!=null){ setText('n-apdex', c.apdex);
       setRatingPill('p-apdex', c.apdex>=0.9?'ok':c.apdex>=0.7?'warn':'bad', 'Live');
-      setText('s-apdex', `${c.samples??'—'} pageload samples (24h)`); }
+      setText('s-apdex', c.samples!=null
+        ? `Based on ${Number(c.samples).toLocaleString()} page views in the last 24h`
+        : 'From real visitor traffic'); }
     if(c.failRate!=null){ setText('n-slow', c.failRate+'%');
-      setRatingPill('p-slow', c.failRate<5?'ok':c.failRate<15?'warn':'bad', 'Live'); setText('s-slow','vs 3-second threshold'); }
+      setRatingPill('p-slow', c.failRate<5?'ok':c.failRate<15?'warn':'bad', 'Live');
+      setText('s-slow','From real visitor traffic in the last 24h'); }
     if(d.slowest&&d.slowest.length){ const w=d.slowest[0];
       setText('n-slowest', (w.p95/1000).toFixed(1)+'s');
       setRatingPill('p-slowest', (w.p95/1000)<=3?'ok':(w.p95/1000)<=8?'warn':'bad', 'Live');
-      setText('s-slowest', w.path); }
+      setText('s-slowest', 'Slowest page: '+w.path); }
 
     // Ahrefs — SEO Health + Link Integrity (live)
     if(d.ahrefs){
       const a=d.ahrefs;
       if(a.health!=null){ setText('n-seo', a.health);
         setRatingPill('p-seo', a.health>=90?'ok':a.health>=75?'warn':'bad', 'Live');
-        setText('s-seo', `DR ${a.domainRating} · rank ${Number(a.rank).toLocaleString()} · ${a.projectName}`); }
-      if(a.errors!=null){ setText('n-links', Number(a.errors).toLocaleString());
-        setRatingPill('p-links', a.errors===0?'ok':a.errors<=500?'warn':'bad', 'Live');
-        setText('s-links', `${Number(a.warnings).toLocaleString()} warnings · ${Number(a.crawled).toLocaleString()} URLs crawled`); }
+        setText('s-seo', `Domain strength ${a.domainRating} · global search rank #${Number(a.rank).toLocaleString()}`); }
+      if(a.errors!=null && a.crawled){
+        const cleanPct = Math.round(((a.crawled - a.errors) / a.crawled) * 1000) / 10; // e.g. 93.7
+        setText('n-links', cleanPct + '%');
+        setRatingPill('p-links', cleanPct>=95?'ok':cleanPct>=85?'warn':'bad', 'Live');
+        setText('s-links', `${Number(a.errors).toLocaleString()} pages need attention · ${Number(a.warnings).toLocaleString()} warnings · ${Number(a.crawled).toLocaleString()} crawled`);
+      }
     }
 
     // Hero pillars
     const allHealthy = d.forms&&d.forms.healthy && d.paid&&d.paid.healthy && d.revenue&&d.revenue.healthy;
     const checklyOk  = d.checkly && d.checkly.pass!=null && d.checkly.pass===d.checkly.total;
     const revState=document.getElementById('pil-rev');
-    if(revState) revState.innerHTML = `<span style="color:${(allHealthy&&checklyOk)?'var(--good-line)':'var(--warn-line)'}">●</span> ${(allHealthy&&checklyOk)?'All journeys healthy · Checkly '+d.checkly.pass+'/'+d.checkly.total+' passing':'Attention on a monitored path'}`;
+    if(revState) revState.innerHTML = `<span style="color:${(allHealthy&&checklyOk)?'var(--good-line)':'var(--warn-line)'}">●</span> ${(allHealthy&&checklyOk)?'All key paths healthy · '+d.checkly.pass+'/'+d.checkly.total+' checks passing':'Attention needed on a monitored path'}`;
 
     // Overall chip
     setText('overall-text', 'Overall: '+((allHealthy&&checklyOk)?'Operational':'Attention needed'));
@@ -598,12 +628,12 @@
     // Freshness + CWV badge — always show the date the dashboard was opened
     const displayDate = fmtDashboardDate();
     const fresh=document.getElementById('daily-freshness');
-    if(fresh){ const ck = d.checkly&&d.checkly.total ? `Checkly ${d.checkly.pass}/${d.checkly.total} passing` : '';
+    if(fresh){ const ck = d.checkly&&d.checkly.total ? `${d.checkly.pass}/${d.checkly.total} checks passing` : '';
       fresh.className='cad-note freshness-live';
       fresh.textContent = `● Live · updated ${displayDate} · ${ck}`; }
     const badge=document.getElementById('cwv-badge'), bt=document.getElementById('cwv-badge-text');
     if(badge){ badge.classList.remove('stale'); }
-    if(bt){ bt.textContent = `Live · Sentry · updated ${displayDate}`; }
+    if(bt){ bt.textContent = `Live · real visitors · updated ${displayDate}`; }
     const err=document.getElementById('feed-error');
     if(err){ err.hidden=true; err.innerHTML=''; }
 
