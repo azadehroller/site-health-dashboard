@@ -1,0 +1,140 @@
+{
+  "auditedAt": "2026-08-03T12:04:45",
+  "method": "Full live re-audit: re-score Global Stats inventory against live HTML + sitewide sweep for retired values",
+  "findings": [
+    "No retired venue figures (2,600 / 2,300) found anywhere on the crawled site.",
+    "No retired revenue figures ($4B / $3B) found anywhere on the crawled site.",
+    "Headline money copy has shifted from \u201c$5B in guest revenue processed\u201d to \u201c$5B transactions processed\u201d on the live site; source of truth updated accordingly.",
+    "Guest-revenue phrasing remains on 1 page(s) outside/inside inventory.",
+    "Previous Area 51 $4B drift is resolved \u2014 page now shows $5B."
+  ],
+  "pagesInInventory": 108,
+  "extraPagesSwept": 147,
+  "sitewide": {
+    "retiredHits": [],
+    "guestRevenuePages": [
+      "https://www.roller.software/integrations/partner/beacon"
+    ],
+    "extraPagesWith5B": 21
+  },
+  "statusBefore": {
+    "ok": 102,
+    "context": 19,
+    "unverified": 43,
+    "review": 4,
+    "drift": 2
+  },
+  "statusAfter": {
+    "ok": 110,
+    "context": 13,
+    "unverified": 47,
+    "review": 0,
+    "drift": 0
+  },
+  "sourceOfTruth": [
+    {
+      "id": "venues",
+      "label": "Venues worldwide",
+      "value": "3,000+",
+      "canonical": "Trusted by 3,000+ venues worldwide",
+      "retired": [
+        "2,600",
+        "2,300"
+      ],
+      "owner": "Brand / Marketing",
+      "controlled": "Logo-Set module default + per-page Heading-Composition copy",
+      "blurb": "The venue count. Appears more often than any other brand number and is the one most likely to be quoted back at us.",
+      "instances": 100,
+      "onBrand": 100,
+      "offBrand": 0,
+      "retiredFound": []
+    },
+    {
+      "id": "revenue",
+      "label": "Transactions processed",
+      "value": "$5B",
+      "canonical": "$5B transactions processed",
+      "retired": [
+        "$4B",
+        "$3B"
+      ],
+      "owner": "Finance / Brand",
+      "controlled": "Stats-Set and Stats-Set-Stacked module fields",
+      "blurb": "The headline money figure. Live site copy now uses \u201ctransactions processed\u201d (formerly \u201cguest revenue processed\u201d). Year-in-Review pages may still carry frozen annual numbers on purpose.",
+      "instances": 10,
+      "onBrand": 10,
+      "offBrand": 0,
+      "retiredFound": []
+    }
+  ],
+  "components": [
+    {
+      "id": "ls",
+      "name": "Logo-Set",
+      "pageCount": 89,
+      "attention": 0,
+      "statusCounts": {
+        "ok": 89,
+        "context": 0,
+        "unverified": 0,
+        "review": 0,
+        "drift": 0
+      }
+    },
+    {
+      "id": "hc",
+      "name": "Heading-Composition",
+      "pageCount": 24,
+      "attention": 3,
+      "statusCounts": {
+        "ok": 10,
+        "context": 13,
+        "unverified": 3,
+        "review": 0,
+        "drift": 0
+      }
+    },
+    {
+      "id": "ur",
+      "name": "User-Reviews",
+      "pageCount": 34,
+      "attention": 34,
+      "statusCounts": {
+        "ok": 0,
+        "context": 0,
+        "unverified": 34,
+        "review": 0,
+        "drift": 0
+      }
+    },
+    {
+      "id": "ss",
+      "name": "Stats-Set",
+      "pageCount": 14,
+      "attention": 7,
+      "statusCounts": {
+        "ok": 7,
+        "context": 0,
+        "unverified": 7,
+        "review": 0,
+        "drift": 0
+      }
+    },
+    {
+      "id": "sss",
+      "name": "Stats-Set-Stacked",
+      "pageCount": 7,
+      "attention": 3,
+      "statusCounts": {
+        "ok": 4,
+        "context": 0,
+        "unverified": 3,
+        "review": 0,
+        "drift": 0
+      }
+    }
+  ],
+  "drift": [],
+  "review": [],
+  "attnTotal": 47
+}

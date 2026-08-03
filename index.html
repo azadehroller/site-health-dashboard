@@ -23,14 +23,20 @@
 
   .topbar{position:sticky;top:0;z-index:50;background:rgba(245,248,255,.86);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--hair)}
   .topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px;text-decoration:none;color:inherit}
   .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--blue-50);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px}
   .brand small{font-weight:600;color:var(--muted);font-size:12px;letter-spacing:0}
-  .topbar nav{margin-left:auto;display:flex;gap:6px}
-  .topbar nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:13.5px;padding:7px 12px;border-radius:9px;transition:background .15s,color .15s}
-  .topbar nav a:hover{background:var(--blue-95);color:var(--blue-30)}
+  .view-tabs{display:flex;align-items:center;gap:4px;margin-left:8px;padding:3px;background:var(--blue-95);border-radius:11px;border:1px solid var(--blue-90);flex:0 0 auto}
+  .view-tabs a{text-decoration:none;color:var(--muted);font-weight:700;font-size:13px;padding:7px 14px;border-radius:8px;transition:background .15s,color .15s,box-shadow .15s;white-space:nowrap}
+  .view-tabs a:hover{color:var(--blue-30)}
+  .view-tabs a.active{background:#fff;color:var(--blue-30);box-shadow:0 1px 2px rgba(1,24,64,.08)}
+  .section-nav{margin-left:auto;display:flex;gap:6px}
+  .section-nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:13.5px;padding:7px 12px;border-radius:9px;transition:background .15s,color .15s}
+  .section-nav a:hover{background:var(--blue-95);color:var(--blue-30)}
+  .section-nav a.active{background:var(--blue-95);color:var(--blue-30);font-weight:800}
   .btn-print{border:1px solid var(--blue-90);background:#fff;color:var(--blue-30);font-family:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:9px;cursor:pointer}
   .btn-print:hover{background:var(--blue-95)}
+  @media (max-width:900px){.view-tabs a{padding:7px 10px;font-size:12px}}
 
   .hero{background:var(--blue-10);color:#fff;padding:44px 0 40px}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-80);margin-bottom:14px}
@@ -158,7 +164,7 @@
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
   .reveal.in{opacity:1;transform:none}
-  @media (max-width:900px){.pillars,.g3,.cwv,.stack-grid,.road{grid-template-columns:1fr}.cwv .cell{border-right:0}.topbar nav{display:none}.pagerow{grid-template-columns:1fr auto auto}}
+  @media (max-width:900px){.pillars,.g3,.cwv,.stack-grid,.road{grid-template-columns:1fr}.cwv .cell{border-right:0}.section-nav{display:none}.pagerow{grid-template-columns:1fr auto auto}}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
   @media print{.topbar,.btn-print{display:none}body{background:#fff}.hero,footer{background:#fff;color:var(--ink)}.hero .sub,.hero .eyebrow,.pillar p,.pillar .p-state{color:var(--muted)}.pillar{border-color:var(--hair)}.card,.perf-shell,.stack-card,.road-item{box-shadow:none;break-inside:avoid}section{padding:22px 0}}
 </style>
@@ -167,8 +173,12 @@
 
 <header class="topbar">
   <div class="wrap">
-    <div class="brand"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></div>
-    <nav>
+    <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
+    <nav class="view-tabs" aria-label="Dashboard views">
+      <a href="./" class="active" aria-current="page">Site Health</a>
+      <a href="brand-numbers.html">Brand Numbers</a>
+    </nav>
+    <nav class="section-nav" aria-label="On this page">
       <a href="#daily">Daily</a><a href="#weekly">Weekly</a><a href="#performance">Performance</a>
       <a href="#enhancements">Enhancements</a><a href="#stack">Monitoring</a>
     </nav>
@@ -266,11 +276,15 @@
           <p class="c-desc">How many of our scheduled site checks are failing right now — covering forms, paid pages, and revenue paths.</p>
           <div class="tools"><span class="tool">Checkly</span></div>
         </div>
-        <div class="card reveal awaiting">
-          <div class="c-top"><h4>Brand &amp; Business Signal</h4><span class="pill info"><span class="dot"></span>Awaiting feed</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-brand">—</span><span class="metric-unit">inconsistencies fixed</span></div>
-          <div class="substat">Stats, logos, quotes, awards &amp; legal notices — <b>feed not connected yet</b></div>
-          <div class="tools"><span class="tool ghost">AI scrape &amp; match — not yet connected</span></div>
+        <div class="card reveal" id="brand-signal-card">
+          <div class="c-top"><h4>Brand &amp; Business Signal</h4><span class="pill info" id="p-brand"><span class="dot"></span>Loading…</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-brand">—</span><span class="metric-unit" id="u-brand">need attention</span></div>
+          <div class="substat" id="s-brand">Brand numbers audit — loading…</div>
+          <p class="c-desc">Whether the headline figures on roller.software match the business source of truth — venues, revenue, and related stats.</p>
+          <div class="tools">
+            <a class="tool" href="brand-numbers.html" style="text-decoration:none">Open Brand Numbers →</a>
+            <span class="tool">Site scrape audit</span>
+          </div>
         </div>
       </div>
     </div>
@@ -415,12 +429,13 @@
   <div class="wrap">
     <div class="sources">
       <b>Website Health &amp; Performance</b> · roller.software &nbsp;|&nbsp; Prepared by Web / Marketing.<br>
-      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. The two “awaiting feed” cards (media &amp; migration trackers) have no hardcoded value and will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
+      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Brand Numbers is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
     </div>
     <div><b>Cadence:</b> Daily · Weekly · Quarterly</div>
   </div>
 </footer>
 
+<script src="brand-numbers.data.js"></script>
 <script>
   /* ============================================================
      LIVE DATA — reads the ROLLER Site Health feed on every load.
@@ -612,7 +627,7 @@
         const cleanPct = Math.round(((a.crawled - a.errors) / a.crawled) * 1000) / 10; // e.g. 93.7
         setText('n-links', cleanPct + '%');
         setRatingPill('p-links', cleanPct>=95?'ok':cleanPct>=85?'warn':'bad', 'Live');
-        setText('s-links', `${Number(a.errors).toLocaleString()} pages need attention · ${Number(a.warnings).toLocaleString()} warnings · ${Number(a.crawled).toLocaleString()} crawled`);
+        setText('s-links', `${Number(a.crawled).toLocaleString()} pages crawled`);
       }
     }
 
@@ -657,8 +672,95 @@
   }
   loadLive();
 
+  /* ---------- Brand Numbers summary (weekly Brand & Business Signal) ---------- */
+  (function applyBrandNumbers(){
+    const D = window.BRAND_NUMBERS;
+    const pill = document.getElementById('p-brand');
+    const num = document.getElementById('n-brand');
+    const unit = document.getElementById('u-brand');
+    const sub = document.getElementById('s-brand');
+    const pil = document.getElementById('pil-brand');
+    if(!D){
+      if(pill){ pill.className='pill warn'; pill.innerHTML='<span class="dot"></span>Unavailable'; }
+      if(sub) sub.innerHTML='Brand numbers data file missing — open <a href="brand-numbers.html">Brand Numbers</a> after regenerating the audit.';
+      return;
+    }
+    const attn = (D.attentionStatuses||[]).reduce((n,s)=>n+(D.statusCounts[s]||0),0);
+    const drift = D.statusCounts.drift||0;
+    const ok = D.statusCounts.ok||0;
+    const rating = drift>0 ? 'bad' : attn>0 ? 'warn' : 'ok';
+    const label = drift>0 ? 'Off brand' : attn>0 ? 'Needs review' : 'On brand';
+    if(num) num.textContent = attn;
+    if(unit) unit.textContent = attn===1 ? 'number needs attention' : 'numbers need attention';
+    if(pill){ pill.className='pill '+rating; pill.innerHTML='<span class="dot"></span>'+label; }
+    if(sub) sub.innerHTML = `<b>${ok}</b> of <b>${D.instanceCount}</b> figures match the source of truth · scraped ${D.scrapeDate} · ${D.pagesAudited} pages`;
+    if(pil){
+      const color = drift>0 ? 'var(--bad-line)' : attn>0 ? 'var(--warn-line)' : 'var(--good-line)';
+      const text = drift>0
+        ? `${drift} off-brand figure${drift===1?'':'s'} on the live site`
+        : attn>0
+          ? `${attn} brand number${attn===1?'':'s'} need review`
+          : 'All brand numbers match the source of truth';
+      pil.innerHTML = `<span style="color:${color}">●</span> ${text}`;
+    }
+  })();
+
   const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(Math.min(i,6)*40)+'ms'; io.observe(el); });
+
+  /* ---------- Section nav: active on click + while that section is in view ---------- */
+  (function sectionNavActive(){
+    const nav = document.querySelector('.section-nav');
+    if(!nav) return;
+    const links = [...nav.querySelectorAll('a[href^="#"]')];
+    const ids = links.map(a => a.getAttribute('href').slice(1));
+    const topOffset = 72; // sticky topbar
+    let lockedId = null;
+    let lockTimer = null;
+
+    function setActive(id){
+      links.forEach(a => {
+        const on = !!id && a.getAttribute('href') === '#' + id;
+        a.classList.toggle('active', on);
+        if(on) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      });
+    }
+
+    function currentFromScroll(){
+      let current = null;
+      for(const id of ids){
+        const el = document.getElementById(id);
+        if(!el) continue;
+        if(el.getBoundingClientRect().top - topOffset <= 1) current = id;
+      }
+      return current;
+    }
+
+    function sync(){
+      if(lockedId){ setActive(lockedId); return; }
+      setActive(currentFromScroll());
+    }
+
+    links.forEach(a => {
+      a.addEventListener('click', () => {
+        const id = a.getAttribute('href').slice(1);
+        lockedId = id;
+        setActive(id);
+        clearTimeout(lockTimer);
+        // Keep the clicked item active through the smooth-scroll, then resume scroll-spy.
+        lockTimer = setTimeout(() => { lockedId = null; sync(); }, 700);
+      });
+    });
+
+    window.addEventListener('scroll', sync, {passive:true});
+    window.addEventListener('resize', sync);
+    if(location.hash){
+      const id = location.hash.slice(1);
+      if(ids.includes(id)) setActive(id);
+    }
+    sync();
+  })();
 </script>
 </body>
 </html>

@@ -3,8 +3,8 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 
-// Toggle: set to false to restore the live feed.
-const FEED_DISABLED = true;
+// Local only: keep false so npm start works. Production stays broken via api/daily-report.js.
+const FEED_DISABLED = false;
 
 const PORT = Number(process.env.PORT) || 3000;
 const API_KEY = "a7f3c9e2b1d84e6f0a2c8b5d9e1f4a7c3b8e2d5f9a1c4e7b0d3f6a9c2e5b8d1";
