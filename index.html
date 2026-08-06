@@ -176,7 +176,7 @@
     <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
       <a href="./" class="active" aria-current="page">Site Health</a>
-      <a href="brand-numbers.html">Brand Numbers</a>
+      <a href="brand-numbers.html">Brand &amp; Business Signal</a>
     </nav>
     <nav class="section-nav" aria-label="On this page">
       <a href="#daily">Daily</a><a href="#weekly">Weekly</a><a href="#performance">Performance</a>
@@ -282,7 +282,7 @@
           <div class="substat" id="s-brand">Brand numbers audit — loading…</div>
           <p class="c-desc">Whether the headline figures on roller.software match the business source of truth — venues, revenue, and related stats.</p>
           <div class="tools">
-            <a class="tool" href="brand-numbers.html" style="text-decoration:none">Open Brand Numbers →</a>
+            <a class="tool" href="brand-numbers.html" style="text-decoration:none">Open Brand &amp; Business Signal →</a>
             <span class="tool">Site scrape audit</span>
           </div>
         </div>
@@ -429,7 +429,7 @@
   <div class="wrap">
     <div class="sources">
       <b>Website Health &amp; Performance</b> · roller.software &nbsp;|&nbsp; Prepared by Web / Marketing.<br>
-      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Brand Numbers is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
+      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Brand &amp; Business Signal is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
     </div>
     <div><b>Cadence:</b> Daily · Weekly · Quarterly</div>
   </div>
@@ -682,7 +682,7 @@
     const pil = document.getElementById('pil-brand');
     if(!D){
       if(pill){ pill.className='pill warn'; pill.innerHTML='<span class="dot"></span>Unavailable'; }
-      if(sub) sub.innerHTML='Brand numbers data file missing — open <a href="brand-numbers.html">Brand Numbers</a> after regenerating the audit.';
+      if(sub) sub.innerHTML='Brand numbers data file missing — open <a href="brand-numbers.html">Brand &amp; Business Signal</a> after regenerating the audit.';
       return;
     }
     const attn = (D.attentionStatuses||[]).reduce((n,s)=>n+(D.statusCounts[s]||0),0);
