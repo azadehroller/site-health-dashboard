@@ -1,0 +1,304 @@
+{
+  "auditedAt": "2026-08-04T16:43:22",
+  "scope": "ROLLER blog posts \u2014 copy-only brand number scan (no components/assets)",
+  "pagesRequested": 798,
+  "pagesFetchedOk": 797,
+  "fetchErrors": 1,
+  "elapsedSec": 79.6,
+  "pagesWithAnyPattern": 26,
+  "pagesWithBrandNumbers": 23,
+  "patternCounts": {
+    "guest_revenue": 6,
+    "transactions_processed": 1,
+    "venue_3000": 16,
+    "venue_retired_2300": 1,
+    "venues_worldwide": 6
+  },
+  "brandPages": [
+    {
+      "title": "ROLLER secures US$50M to accelerate innovation and customer growth",
+      "url": "https://www.roller.software/blog/2025-funding-round",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000 venues",
+          "context": "venues deliver unforgettable experiences. Today, with over 3,000 venues across 30 countries, that purpose feels more alive than eve"
+        }
+      ]
+    },
+    {
+      "title": "5 Key Online Checkout Insights from the 2026 Benchmark Report",
+      "url": "https://www.roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000 venues worldwide",
+          "context": "ed by hundreds of thousands of data points across more than 3,000 venues worldwide, is full of trends and takeaways that show exactly how gues"
+        },
+        {
+          "pattern": "venues_worldwide",
+          "match": "venues worldwide",
+          "context": "hundreds of thousands of data points across more than 3,000 venues worldwide, is full of trends and takeaways that show exactly how gues"
+        }
+      ]
+    },
+    {
+      "title": "Amusement 360 2025 Recap: Growth and Celebration",
+      "url": "https://www.roller.software/blog/amusement-360-2025-recap",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "icy of empowering staff to resolve guest issues with up to $3,000, she challenged attendees to consider how they can empower"
+        }
+      ]
+    },
+    {
+      "title": "Amusement Expo 2025",
+      "url": "https://www.roller.software/blog/amusement-expo-2025-cheers-connections-and-a-whole-lot-of-industry-love",
+      "matches": [
+        {
+          "pattern": "venue_retired_2300",
+          "match": "2,300",
+          "context": "ard to each year. While attendance dipped ever so slightly (2,300 buyers compared to last year\u2019s 2,500), you wouldn\u2019t have gu"
+        }
+      ]
+    },
+    {
+      "title": "Axe Throwing Franchise: Costs, and Profit Potential",
+      "url": "https://www.roller.software/blog/axe-throwing-franchise",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "to location: Consider indoor space requirements, typically 3,000\u20136,000 sq. ft. or more Evaluate foot traffic, visibility, an"
+        }
+      ]
+    },
+    {
+      "title": "How WhoaZone Reduced Admin Time By 50%",
+      "url": "https://www.roller.software/blog/case-study-whoazone",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "kets at their Texas park through Groupon, generating over $13,000 in revenue. ROLLER\u2019s Groupon integration saves WhoaZone tim"
+        }
+      ]
+    },
+    {
+      "title": "Electronic Ticketing: How Attractions Venues Can Benefit",
+      "url": "https://www.roller.software/blog/electronic-ticketing-for-attractions",
+      "matches": [
+        {
+          "pattern": "guest_revenue",
+          "match": "guest revenue",
+          "context": "s, 24/7 Offer a smoother check-in experience Boost your per-guest revenue Collect valuable data for better marketing Cut down on admi"
+        }
+      ]
+    },
+    {
+      "title": "Top Family Entertainment Business Ideas: Profitable Ventures & How to Start",
+      "url": "https://www.roller.software/blog/family-entertainment-business-ideas",
+      "matches": [
+        {
+          "pattern": "guest_revenue",
+          "match": "guest revenue",
+          "context": "events, or combo passes can significantly increase your per-guest revenue. You can also run themed nights or competitions to attract"
+        }
+      ]
+    },
+    {
+      "title": "How Much Does it Cost to Build a Roller Skating Rink?",
+      "url": "https://www.roller.software/blog/how-much-does-it-cost-to-build-a-roller-skating-rink",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "d business model. Category Cost Property purchase $400,000\u2013$3,000,000 Property lease $50,000\u2013$250,000 per year Hardwood floor"
+        }
+      ]
+    },
+    {
+      "title": "Tips for Getting a Higher Lifetime Value from Mini Golf Guests",
+      "url": "https://www.roller.software/blog/how-to-extract-more-revenue-from-every-mini-golf-visit",
+      "matches": [
+        {
+          "pattern": "guest_revenue",
+          "match": "guest revenue",
+          "context": "\u201d expanding your menu could be a simple way to increase per-guest revenue. An idea to get you started: If your reviews frequently men"
+        }
+      ]
+    },
+    {
+      "title": "Ice Skating Rink Franchises: Costs and Opportunities",
+      "url": "https://www.roller.software/blog/ice-skating-rink-franchise",
+      "matches": [
+        {
+          "pattern": "guest_revenue",
+          "match": "guest revenue",
+          "context": "and corporate events often generate some of the highest per-guest revenue. These bookings are typically scheduled in advance and incl"
+        }
+      ]
+    },
+    {
+      "title": "Laser Tag Business Guide: Costs and Profitability",
+      "url": "https://www.roller.software/blog/laser-tag-business",
+      "matches": [
+        {
+          "pattern": "guest_revenue",
+          "match": "guest revenue",
+          "context": "mpetitive nights fill weekday evenings and drive higher per-guest revenue. Groups of adults tend to spend more per person than famili"
+        }
+      ]
+    },
+    {
+      "title": "Membership Insights from the 2026 Benchmark Report",
+      "url": "https://www.roller.software/blog/membership-insights-2026-benchmark-report",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000 venues worldwide",
+          "context": "from hundreds of thousands of data points across more than 3,000 venues worldwide, reveals clear trends around membership adoption, visitatio"
+        },
+        {
+          "pattern": "venues_worldwide",
+          "match": "venues worldwide",
+          "context": "hundreds of thousands of data points across more than 3,000 venues worldwide, reveals clear trends around membership adoption, visitatio"
+        }
+      ]
+    },
+    {
+      "title": "Navigating Wage Increases in the Attractions Industry",
+      "url": "https://www.roller.software/blog/navigating-wage-increases-in-the-attractions-industry",
+      "matches": [
+        {
+          "pattern": "guest_revenue",
+          "match": "guest revenue",
+          "context": "asses, premium experiences, and food packages, boosting per-guest revenue. Upselling and add-ons Providing upsell opportunities can s"
+        }
+      ]
+    },
+    {
+      "title": "Party Insights from the 2026 Attractions Industry Benchmark Report",
+      "url": "https://www.roller.software/blog/party-insights-2026-benchmark-report",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000 venues worldwide",
+          "context": "from hundreds of thousands of data points across more than 3,000 venues worldwide, reveals several clear trends around party bookings and how"
+        },
+        {
+          "pattern": "venues_worldwide",
+          "match": "venues worldwide",
+          "context": "hundreds of thousands of data points across more than 3,000 venues worldwide, reveals several clear trends around party bookings and how"
+        }
+      ]
+    },
+    {
+      "title": "Payment Insights from the 2026 Benchmark Report",
+      "url": "https://www.roller.software/blog/payment-insights-2026-benchmark-report",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000 venues worldwide",
+          "context": "ts from hundreds of thousands of data points from more than 3,000 venues worldwide. The report reveals major shifts in how guests prefer to pa"
+        },
+        {
+          "pattern": "venues_worldwide",
+          "match": "venues worldwide",
+          "context": "m hundreds of thousands of data points from more than 3,000 venues worldwide. The report reveals major shifts in how guests prefer to pa"
+        }
+      ]
+    },
+    {
+      "title": "5 Proven Attractions Marketing Ideas",
+      "url": "https://www.roller.software/blog/proven-attractions-marketing-ideas",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "r Texas park through Groupon last season, generating over $13,000 in revenue. Before the integration, guests had to use a man"
+        }
+      ]
+    },
+    {
+      "title": "Revenue vs Profit: Are You Really Running a Profitable Venue?",
+      "url": "https://www.roller.software/blog/revenue-vs-profit-for-attractions-venues",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "of discounts and promotions, your net profit might only be $3,000, or even less. This is why it\u2019s crucial to understand the d"
+        }
+      ]
+    },
+    {
+      "title": "RIVERSPORT Saved Thousands of Dollars in Operating Costs with ROLLER",
+      "url": "https://www.roller.software/blog/riversport-saved-thousands-annual-operating-costs",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "rst month, this new feature alone brought in an additional $3,000 to $5,000 which covered the initial investment of the camer"
+        }
+      ]
+    },
+    {
+      "title": "Service Recovery Should MAKE You Money",
+      "url": "https://www.roller.software/blog/service-recovery-should-make-you-money-not-cost-you",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "mpensation, Ben estimated that it saved his group about USD 3,000, which they were fully prepared to spend, all over an hones"
+        }
+      ]
+    },
+    {
+      "title": "4 Payment Strategies to Protect Your Revenue",
+      "url": "https://www.roller.software/blog/smart-strategies-to-protect-your-revenue",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "e payment. Venues using this feature collect an average of $3,000 p/m \u2014revenue that could\u2019ve otherwise been lost! 2. Auto-can"
+        }
+      ]
+    },
+    {
+      "title": "How to Open a Laser Tag Business in 10 Steps",
+      "url": "https://www.roller.software/blog/start-laser-tag-business",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "s and brand visibility. Size: Most laser tag arenas require 3,000 to 6,000 sq. ft. on average, but larger venues may want add"
+        }
+      ]
+    },
+    {
+      "title": "Zoo Management Software: Buyer\u2019s Guide for Zoo Operators",
+      "url": "https://www.roller.software/blog/zoo-management-software-guide",
+      "matches": [
+        {
+          "pattern": "venue_3000",
+          "match": "3,000",
+          "context": "ss 40 acres has different challenges than an aquarium where 3,000 people are moving through the same building. Read more: How"
+        }
+      ]
+    }
+  ],
+  "venuesWorldwideOnly": [
+    {
+      "title": "Putting the Pedal to the Metal with Karting Innovation",
+      "url": "https://www.roller.software/blog/our-commitment-to-the-karting-industry",
+      "context": "e ROLLER comes in. We\u2019re proud to work with leading karting venues worldwide, including: Amp Up Action Park Entertainment Park Gridline"
+    },
+    {
+      "title": "Skating Rink Attraction Ideas",
+      "url": "https://www.roller.software/blog/skating-rink-attraction-ideas-with-strong-roi-potential",
+      "context": "is a multinational indoor playground franchise with over 45 venues worldwide. Chipmunks caters to children under 11 years of age and off"
+    }
+  ]
+}
