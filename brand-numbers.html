@@ -113,7 +113,7 @@
         <h1>Are the numbers on the site the numbers we mean?</h1>
         <p class="sub">A high-level view of whether headline brand figures match the business source of truth — open any card for the full audit behind it.</p>
       </div>
-      <span class="status-chip attn" id="overall-chip"><span class="dot"></span> <span id="overall-text">Loading…</span></span>
+      <span class="status-chip" id="overall-chip"><span class="dot"></span> <span id="overall-text">Loading…</span></span>
     </div>
   </div>
 </div>
@@ -213,8 +213,10 @@
   var rating = drift > 0 ? "bad" : attn > 0 ? "warn" : "ok";
   var label = drift > 0 ? "Off brand" : attn > 0 ? "Needs review" : "On brand";
 
-  document.getElementById("overall-text").textContent = label + (attn ? " · " + attn + " to check" : "");
-  document.getElementById("overall-chip").classList.toggle("attn", rating !== "ok");
+  // Hero: pages covered for brand numbers (keep the vibe positive).
+  document.getElementById("overall-text").textContent =
+    D.pagesWithNumbers + " pages covered";
+  document.getElementById("overall-chip").classList.remove("attn");
 
   document.getElementById("n-attn").textContent = attn;
   document.getElementById("u-attn").textContent = attn === 1 ? "figure to check" : "figures to check";
