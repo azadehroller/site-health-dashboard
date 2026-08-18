@@ -660,7 +660,7 @@
   async function loadLive(){
     setFeedLoading();
     try{
-      const res = await fetch(FEED_URL, {cache:'no-store'});
+      const res = await fetch(`${FEED_URL}${FEED_URL.includes("?") ? "&" : "?"}_=${Date.now()}`, {cache:'no-store'});
       if(!res.ok) throw new Error('HTTP '+res.status);
       const data = mapJson(await res.json());
       if(data.forms.n==null) throw new Error('could not read feed — missing Checkly forms data');

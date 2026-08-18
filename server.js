@@ -18,9 +18,16 @@ const MIME = {
 };
 
 function proxyFeed(res) {
+  const url = `${API_URL}&_=${Date.now()}`;
   https
-    .get(API_URL, (proxyRes) => {
-      const headers = { "Content-Type": "application/json; charset=utf-8" };
+    .get(url, (proxyRes) => {
+      const headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "CDN-Cache-Control": "no-store",
+        Pragma: "no-cache",
+        Expires: "0"
+      };
       res.writeHead(proxyRes.statusCode || 502, headers);
       proxyRes.pipe(res);
     })
