@@ -17,22 +17,21 @@
     --radius:18px; --font:"Proxima Nova","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--font);color:var(--ink);background:var(--blue-99);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:var(--font);color:var(--ink);background:var(--blue-99);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;min-width:0}
 
   .topbar{position:sticky;top:0;z-index:50;background:rgba(245,248,255,.86);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--hair)}
-  .topbar .wrap{display:flex;align-items:center;gap:16px;height:60px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px;text-decoration:none;color:inherit}
-  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--blue-50);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px}
+  .topbar .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;min-height:60px;height:auto;padding-top:10px;padding-bottom:10px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px;text-decoration:none;color:inherit;flex:0 1 auto;min-width:0}
+  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--blue-50);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;flex:0 0 auto}
   .brand small{font-weight:600;color:var(--muted);font-size:12px;letter-spacing:0}
-  .view-tabs{display:flex;align-items:center;gap:4px;margin-left:8px;padding:3px;background:var(--blue-95);border-radius:11px;border:1px solid var(--blue-90);flex:0 0 auto}
+  .view-tabs{display:flex;align-items:center;gap:4px;margin-left:4px;padding:3px;background:var(--blue-95);border-radius:11px;border:1px solid var(--blue-90);flex:1 1 auto;min-width:0}
   .view-tabs a{text-decoration:none;color:var(--muted);font-weight:700;font-size:13px;padding:7px 14px;border-radius:8px;transition:background .15s,color .15s,box-shadow .15s;white-space:nowrap}
   .view-tabs a:hover{color:var(--blue-30)}
   .view-tabs a.active{background:#fff;color:var(--blue-30);box-shadow:0 1px 2px rgba(1,24,64,.08)}
-  .btn-print{margin-left:auto;border:1px solid var(--blue-90);background:#fff;color:var(--blue-30);font-family:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:9px;cursor:pointer}
+  .btn-print{margin-left:auto;border:1px solid var(--blue-90);background:#fff;color:var(--blue-30);font-family:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:9px;cursor:pointer;flex:0 0 auto;white-space:nowrap}
   .btn-print:hover{background:var(--blue-95)}
-  @media (max-width:900px){.view-tabs a{padding:7px 10px;font-size:12px}}
 
   .hero{background:var(--blue-10);color:#fff;padding:44px 0 40px}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-80);margin-bottom:14px}
@@ -50,15 +49,32 @@
   h2{font-size:26px;letter-spacing:-.8px;font-weight:800}
   .sec-desc{color:var(--muted);font-size:15px;max-width:66ch;margin-top:10px}
 
-  .grid{display:grid;gap:16px;margin-top:22px}
+  .grid{display:grid;gap:16px;margin-top:22px;min-width:0}
   .g3{grid-template-columns:repeat(3,1fr)}
   .g2{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:900px){.g3,.g2{grid-template-columns:1fr}}
+  @media (max-width:900px){
+    .g3,.g2{grid-template-columns:repeat(2,1fr)}
+    .view-tabs a{padding:7px 10px;font-size:12px}
+  }
+  @media (max-width:720px){
+    .wrap{padding:0 16px}
+    .brand small{display:none}
+    .btn-print{display:none}
+    .view-tabs{flex:1 1 100%;margin-left:0}
+    .view-tabs a{flex:1;text-align:center;padding:8px 10px}
+    .hero{padding:28px 0 32px}
+    .hero h1{font-size:clamp(24px,7vw,36px);max-width:none}
+    h2{font-size:22px}
+    section{padding:36px 0}
+    .metric-num{font-size:34px;letter-spacing:-1.4px}
+    .status-chip{white-space:normal}
+  }
+  @media (max-width:560px){.g3,.g2{grid-template-columns:1fr}}
 
   .card{
     background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:20px;
     box-shadow:var(--shadow);display:flex;flex-direction:column;text-decoration:none;color:inherit;
-    transition:border-color .15s, box-shadow .15s, transform .15s;
+    transition:border-color .15s, box-shadow .15s, transform .15s;min-width:0;
   }
   a.card:hover{border-color:var(--blue-80);box-shadow:0 2px 8px rgba(1,24,64,.08), 0 12px 28px rgba(1,24,64,.08);transform:translateY(-2px);text-decoration:none}
   .card .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
@@ -99,7 +115,7 @@
     <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
       <a href="./">Site Health</a>
-      <a href="brand-numbers.html" class="active" aria-current="page">Brand &amp; Business Signal</a>
+      <a href="brand-numbers.html" class="active" aria-current="page" title="Brand &amp; Business Signal">Brand Signal</a>
     </nav>
     <button class="btn-print" onclick="window.print()">Print / PDF</button>
   </div>
