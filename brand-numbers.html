@@ -26,7 +26,7 @@
   .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px;text-decoration:none;color:inherit;flex:0 1 auto;min-width:0}
   .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--blue-50);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;flex:0 0 auto}
   .brand small{font-weight:600;color:var(--muted);font-size:12px;letter-spacing:0}
-  .view-tabs{display:flex;align-items:center;gap:4px;margin-left:4px;padding:3px;background:var(--blue-95);border-radius:11px;border:1px solid var(--blue-90);flex:1 1 auto;min-width:0}
+  .view-tabs{display:flex;align-items:center;gap:4px;margin-left:4px;padding:3px;background:var(--blue-95);border-radius:11px;border:1px solid var(--blue-90);flex:0 0 auto;width:max-content}
   .view-tabs a{text-decoration:none;color:var(--muted);font-weight:700;font-size:13px;padding:7px 14px;border-radius:8px;transition:background .15s,color .15s,box-shadow .15s;white-space:nowrap}
   .view-tabs a:hover{color:var(--blue-30)}
   .view-tabs a.active{background:#fff;color:var(--blue-30);box-shadow:0 1px 2px rgba(1,24,64,.08)}
@@ -60,7 +60,7 @@
     .wrap{padding:0 16px}
     .brand small{display:none}
     .btn-print{display:none}
-    .view-tabs{flex:1 1 100%;margin-left:0}
+    .view-tabs{flex:1 1 100%;width:100%;margin-left:0}
     .view-tabs a{flex:1;text-align:center;padding:8px 10px}
     .hero{padding:28px 0 32px}
     .hero h1{font-size:clamp(24px,7vw,36px);max-width:none}
@@ -115,7 +115,7 @@
     <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
       <a href="./">Site Health</a>
-      <a href="brand-numbers.html" class="active" aria-current="page" title="Brand &amp; Business Signal">Brand Signal</a>
+      <a href="brand-numbers.html" class="active" aria-current="page">Brand Signal</a>
     </nav>
     <button class="btn-print" onclick="window.print()">Print / PDF</button>
   </div>

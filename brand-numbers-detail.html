@@ -92,7 +92,7 @@
   .view-tabs {
     display: flex; align-items: center; gap: 4px; margin-left: 4px; padding: 3px;
     background: var(--blue-95); border-radius: 11px; border: 1px solid var(--blue-90);
-    flex: 1 1 auto; min-width: 0;
+    flex: 0 0 auto; width: max-content;
   }
   .view-tabs a {
     text-decoration: none; color: var(--muted); font-weight: 700; font-size: 13px;
@@ -115,7 +115,7 @@
   @media (max-width: 720px) {
     .wrap { padding: 0 16px; }
     .brand small { display: none; }
-    .view-tabs { flex: 1 1 100%; margin-left: 0; }
+    .view-tabs { flex: 1 1 100%; width: 100%; margin-left: 0; }
     .view-tabs a { flex: 1; text-align: center; padding: 8px 10px; }
   }
 
@@ -538,7 +538,7 @@
     <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
       <a href="./">Site Health</a>
-      <a href="brand-numbers.html" class="active" aria-current="page" title="Brand &amp; Business Signal">Brand Signal</a>
+      <a href="brand-numbers.html" class="active" aria-current="page">Brand Signal</a>
     </nav>
     <div class="hdr-right">
       <span class="hdr-chip" id="chip-scrape">—</span>
