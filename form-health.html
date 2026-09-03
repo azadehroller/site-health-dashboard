@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Health · ROLLER Website Ops</title>
+<style>
+  :root{
+    --blue-10:#011840; --blue-20:#032663; --blue-30:#033180; --blue-40:#074DC5;
+    --blue-50:#0960F6; --blue-60:#3A80F8; --blue-70:#6BA0FA; --blue-80:#9DBFFB;
+    --blue-90:#CEDFFD; --blue-95:#EBF2FE; --blue-99:#F5F8FF; --white:#FFFFFF;
+    --good:#0B7A43; --good-soft:#E7F8EF; --good-line:#18F273;
+    --warn:#9A5A00; --warn-soft:#FFF2DE; --warn-line:#F5A623;
+    --bad:#C11414;  --bad-soft:#FCEBEB;  --bad-line:#FF290C;
+    --ink:var(--blue-10); --muted:rgba(1,24,64,.62); --faint:rgba(1,24,64,.42);
+    --hair:#D7E3FB; --shadow:0 1px 2px rgba(1,24,64,.06), 0 8px 24px rgba(1,24,64,.06);
+    --radius:18px; --font:"Proxima Nova","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:ui-monospace,Menlo,Consolas,"Courier New",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:var(--font);color:var(--ink);background:var(--blue-99);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;min-width:0}
+  a{color:var(--blue-50);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:3px solid var(--blue-50);outline-offset:2px;border-radius:4px}
+
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(245,248,255,.86);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--hair)}
+  .topbar .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;min-height:60px;height:auto;padding-top:10px;padding-bottom:10px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px;font-size:19px;text-decoration:none;color:inherit;flex:0 1 auto;min-width:0}
+  .brand .mark{width:26px;height:26px;border-radius:7px;background:var(--blue-50);display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;flex:0 0 auto}
+  .brand small{font-weight:600;color:var(--muted);font-size:12px;letter-spacing:0}
+  .view-tabs{display:flex;align-items:center;gap:4px;margin-left:4px;padding:3px;background:var(--blue-95);border-radius:11px;border:1px solid var(--blue-90);flex:0 0 auto;width:max-content}
+  .view-tabs a{text-decoration:none;color:var(--muted);font-weight:700;font-size:13px;padding:7px 14px;border-radius:8px;transition:background .15s,color .15s,box-shadow .15s;white-space:nowrap}
+  .view-tabs a:hover{color:var(--blue-30);text-decoration:none}
+  .view-tabs a.active{background:#fff;color:var(--blue-30);box-shadow:0 1px 2px rgba(1,24,64,.08)}
+  .btn-print{margin-left:auto;border:1px solid var(--blue-90);background:#fff;color:var(--blue-30);font-family:inherit;font-weight:700;font-size:13px;padding:7px 14px;border-radius:9px;cursor:pointer;flex:0 0 auto;white-space:nowrap}
+  .btn-print:hover{background:var(--blue-95)}
+
+  .hero{background:var(--blue-10);color:#fff;padding:44px 0 40px}
+  .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-80);margin-bottom:14px}
+  .hero h1{font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-1.4px;font-weight:800;max-width:18ch}
+  .hero .sub{color:rgba(255,255,255,.72);font-size:16px;margin-top:14px;max-width:62ch}
+  .hero-top{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between}
+  .status-chip{display:inline-flex;align-items:center;gap:10px;background:rgba(24,242,115,.14);border:1px solid rgba(24,242,115,.4);color:#EAFFF3;border-radius:999px;padding:9px 16px 9px 12px;font-weight:700;font-size:14px;white-space:nowrap}
+  .status-chip .dot{width:10px;height:10px;border-radius:50%;background:var(--good-line);box-shadow:0 0 0 4px rgba(24,242,115,.25)}
+  .status-chip.attn{background:rgba(245,166,35,.16);border-color:rgba(245,166,35,.5);color:#FFF2DE}
+  .status-chip.attn .dot{background:var(--warn-line);box-shadow:0 0 0 4px rgba(245,166,35,.25)}
+
+  section{padding:48px 0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  .sec-kicker{font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue-50)}
+  h2{font-size:26px;letter-spacing:-.8px;font-weight:800}
+  .sec-desc{color:var(--muted);font-size:15px;max-width:66ch;margin-top:10px}
+
+  .grid{display:grid;gap:16px;margin-top:22px;min-width:0}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+
+  .card{
+    background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:20px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0;
+  }
+  .card .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .card h4{font-size:15.5px;font-weight:800;letter-spacing:-.2px}
+  .card .c-desc{color:var(--muted);font-size:13.5px;margin-top:8px}
+
+  .pill{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:999px;white-space:nowrap;letter-spacing:.2px}
+  .pill .dot{width:7px;height:7px;border-radius:50%}
+  .pill.ok{background:var(--good-soft);color:var(--good)} .pill.ok .dot{background:var(--good-line)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.warn .dot{background:var(--warn-line)}
+  .pill.bad{background:var(--bad-soft);color:var(--bad)} .pill.bad .dot{background:var(--bad-line)}
+  .pill.info{background:var(--blue-95);color:var(--blue-40)} .pill.info .dot{background:var(--blue-50)}
+
+  .metric-row{display:flex;align-items:flex-end;gap:10px;margin-top:14px}
+  .metric-num{font-size:40px;font-weight:800;letter-spacing:-2px;line-height:1;font-variant-numeric:tabular-nums}
+  .metric-unit{font-size:13px;color:var(--muted);font-weight:700;padding-bottom:5px}
+  .substat{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:7px} .substat b{color:var(--ink);font-weight:800}
+
+  .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;border-top:1px solid var(--blue-95)}
+  .tool{font-size:11px;font-weight:800;letter-spacing:.3px;color:var(--blue-30);background:var(--blue-95);padding:4px 9px;border-radius:7px;text-decoration:none}
+  a.tool:hover{text-decoration:none;background:var(--blue-90)}
+
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .filters button{
+    font:700 13px var(--font);color:var(--muted);background:#fff;border:1px solid var(--hair);
+    padding:7px 13px;border-radius:999px;cursor:pointer;letter-spacing:.1px;
+  }
+  .filters button[aria-pressed="true"]{background:var(--blue-10);color:#fff;border-color:var(--blue-10)}
+  .filters button:hover{border-color:var(--blue-80);color:var(--blue-30)}
+  .filters button[aria-pressed="true"]:hover{color:#fff}
+
+  .form-meta{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-size:12.5px;color:var(--muted);font-weight:600}
+  .form-meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .pages{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+  .pages a{font-size:13px;font-weight:700;color:var(--blue-50);text-decoration:none;word-break:break-word}
+  .pages a:hover{text-decoration:underline}
+  .pages span{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:1px}
+  .gid{display:block;font:11px var(--mono);color:var(--faint);margin-top:6px;word-break:break-all;text-decoration:none}
+  .gid:hover{color:var(--blue-50)}
+
+  footer{background:var(--blue-10);color:rgba(255,255,255,.6);padding:32px 0;margin-top:8px;font-size:12.5px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start}
+  footer b{color:#fff}
+  footer .sources{max-width:78ch;line-height:1.7}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  @media (max-width:900px){
+    .g3,.g2{grid-template-columns:repeat(2,1fr)}
+    .view-tabs a{padding:7px 10px;font-size:12px}
+  }
+  @media (max-width:720px){
+    .wrap{padding:0 16px}
+    .brand small{display:none}
+    .btn-print{display:none}
+    .view-tabs{flex:1 1 100%;width:100%;margin-left:0}
+    .view-tabs a{flex:1;text-align:center;padding:8px 8px;font-size:12px}
+    .hero{padding:28px 0 32px}
+    .hero h1{font-size:clamp(24px,7vw,36px);max-width:none}
+    h2{font-size:22px}
+    section{padding:36px 0}
+    .metric-num{font-size:34px;letter-spacing:-1.4px}
+    .status-chip{white-space:normal}
+  }
+  @media (max-width:560px){.g3,.g2{grid-template-columns:1fr}}
+  @media print{.topbar,.btn-print,.filters{display:none}body{background:#fff}.hero,footer{background:#fff;color:var(--ink)}.hero .sub,.hero .eyebrow{color:var(--muted)}.card{box-shadow:none;break-inside:avoid}section{padding:22px 0}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
+    <nav class="view-tabs" aria-label="Dashboard views">
+      <a href="./">Site Health</a>
+      <a href="brand-numbers.html">Brand Signal</a>
+      <a href="form-health.html" class="active" aria-current="page">Form Health</a>
+    </nav>
+    <button class="btn-print" onclick="window.print()">Print / PDF</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <span class="eyebrow">Form Health · roller.software</span>
+        <h1>Are the forms earning their keep?</h1>
+        <p class="sub" id="hero-sub">A sitewide audit of every form placed on roller.software — which ones are live, which still convert, and which have gone quiet.</p>
+      </div>
+      <span class="status-chip attn" id="overall-chip"><span class="dot"></span> <span id="overall-text">Loading…</span></span>
+    </div>
+  </div>
+</div>
+
+<section id="snapshot">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Audit snapshot</span></div>
+    <h2>What was audited</h2>
+    <p class="sec-desc" id="snap-desc">Crawled non-blog pages and joined each embed to the HubSpot all-forms export.</p>
+    <div class="grid g3" id="snapshot-grid"></div>
+  </div>
+</section>
+
+<section id="action" style="background:#fff;border-top:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Action list</span></div>
+    <h2>Worth acting on</h2>
+    <p class="sec-desc">Findings from the crawl that need a human look — naming, double embeds, and forms that have gone silent.</p>
+    <div class="grid g2" id="flags-grid"></div>
+  </div>
+</section>
+
+<section id="forms">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Inventory</span></div>
+    <h2>Forms in use</h2>
+    <p class="sec-desc">One card per form, ordered by lifetime submissions. Filter by freshness or by forms that sit on more than one page.</p>
+    <div class="filters" id="filters" role="toolbar" aria-label="Filter forms"></div>
+    <div class="grid g2" id="forms-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="sources">
+      <b>Form Health</b> · roller.software &nbsp;|&nbsp; Part of Website Ops.<br>
+      <span id="foot-notes">Site crawl of non-blog page embeds, joined to HubSpot. Site Health covers whether those forms still submit; this tab covers which forms are on the site and how fresh they are.</span>
+    </div>
+    <div><b>Cadence:</b> Periodic form audit</div>
+  </div>
+</footer>
+
+<script src="form-audit.data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.FORM_AUDIT;
+  if (!D) {
+    document.getElementById("overall-text").textContent = "Audit data unavailable";
+    return;
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function num(n) { return Number(n).toLocaleString(); }
+  function fmtDate(iso) {
+    if (!iso) return "—";
+    var d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+  }
+  function conv(v) { return v == null ? "n/a" : v.toFixed(2) + "%"; }
+
+  var S = D.stats;
+  var idle = S.idleSixMonths;
+  document.getElementById("overall-text").textContent = idle + " forms idle 6+ months";
+  document.getElementById("hero-sub").textContent =
+    D.stats.formsInUse + " forms audited on " + D.auditedOn + " across " + num(S.pagesCrawled) +
+    " non-blog pages. " + D.source;
+  document.getElementById("snap-desc").textContent =
+    "Crawled " + D.auditedOn + ". Footer subscribe is excluded except where it is separately embedded in the page body. HubSpot lists " +
+    D.hubspotFormsTotal + " forms in total; these are the ones actually placed on the site.";
+  document.getElementById("foot-notes").textContent = D.notes;
+
+  var snap = [
+    { title: "Forms on the site", n: S.formsInUse, unit: "forms audited", pill: "ok", pillLabel: "Audited",
+      sub: "<b>" + D.statusCounts.fresh + "</b> active · <b>" + D.statusCounts.warm + "</b> slowing",
+      desc: "HubSpot forms actually placed on a non-blog page — not the " + D.hubspotFormsTotal + " sitting unused in the portal." },
+    { title: "Pages crawled", n: S.pagesCrawled, unit: "non-blog pages", pill: "info", pillLabel: "Crawl",
+      sub: "<b>" + S.placements + "</b> form placements found",
+      desc: D.scope },
+    { title: "Lifetime submissions", n: S.lifetimeSubmissions, unit: "across all forms", pill: "info", pillLabel: "HubSpot",
+      sub: "To " + D.auditedOn,
+      desc: "Per form, lifetime-to-date. Shared forms pool submissions across every page they sit on." },
+    { title: "Idle 6+ months", n: S.idleSixMonths, unit: "forms gone quiet", pill: "bad", pillLabel: "Attention",
+      sub: "<b>" + D.statusCounts.cold + "</b> stale · <b>" + D.statusCounts.dead + "</b> dormant",
+      desc: "Pages are still published. The Guest Experience Playbook form has been silent since September 2022." },
+    { title: "Shared forms", n: S.sharedForms, unit: "on 2+ pages", pill: "warn", pillLabel: "Pooled",
+      sub: "Cannot split submissions by page",
+      desc: "Use HubSpot’s page-level breakdown if you need attribution for a shared form." },
+    { title: "Catalogue vs live", n: D.hubspotFormsTotal, unit: "forms in HubSpot", pill: "info", pillLabel: "Portal",
+      sub: "<b>" + S.formsInUse + "</b> of those are on the site",
+      desc: "The rest exist in HubSpot but were not found on a non-blog page in this crawl." }
+  ];
+  document.getElementById("snapshot-grid").innerHTML = snap.map(function (c) {
+    return '<div class="card reveal">' +
+      '<div class="c-top"><h4>' + esc(c.title) + '</h4><span class="pill ' + c.pill + '"><span class="dot"></span>' + esc(c.pillLabel) + '</span></div>' +
+      '<div class="metric-row"><span class="metric-num">' + num(c.n) + '</span><span class="metric-unit">' + esc(c.unit) + '</span></div>' +
+      '<div class="substat">' + c.sub + '</div>' +
+      '<p class="c-desc">' + esc(c.desc) + '</p>' +
+    '</div>';
+  }).join("");
+
+  document.getElementById("flags-grid").innerHTML = D.flags.map(function (f) {
+    var label = f.severity === "bad" ? "Act" : f.severity === "info" ? "Note" : "Review";
+    return '<div class="card reveal">' +
+      '<div class="c-top"><h4>' + esc(f.title) + '</h4><span class="pill ' + esc(f.severity) + '"><span class="dot"></span>' + label + '</span></div>' +
+      '<p class="c-desc">' + esc(f.body) + '</p>' +
+    '</div>';
+  }).join("");
+
+  var filters = [
+    { id: "all", label: "All", count: D.forms.length },
+    { id: "fresh", label: "Active", count: D.statusCounts.fresh },
+    { id: "warm", label: "Slowing", count: D.statusCounts.warm },
+    { id: "cold", label: "Stale", count: D.statusCounts.cold },
+    { id: "dead", label: "Dormant", count: D.statusCounts.dead },
+    { id: "shared", label: "On 2+ pages", count: S.sharedForms }
+  ];
+  var currentFilter = "all";
+  var bar = document.getElementById("filters");
+  bar.innerHTML = filters.map(function (f, i) {
+    return '<button type="button" data-f="' + f.id + '" aria-pressed="' + (i === 0) + '">' +
+      esc(f.label) + " (" + f.count + ")</button>";
+  }).join("");
+
+  function renderForms() {
+    var list = D.forms.filter(function (f) {
+      if (currentFilter === "all") return true;
+      if (currentFilter === "shared") return f.pageCount > 1;
+      return f.band === currentFilter;
+    });
+    document.getElementById("forms-grid").innerHTML = list.map(function (f) {
+      var pages = (f.pages || []).map(function (p) {
+        return '<div><a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.path) + "</a>" +
+          "<span>" + esc(p.role) + "</span></div>";
+      }).join("");
+      var pageLabel = f.pageCount === 1 ? "1 page" : f.pageCount + " pages";
+      return '<article class="card reveal" data-band="' + esc(f.band) + '" data-n="' + f.pageCount + '">' +
+        '<div class="c-top"><h4>' + esc(f.name) + '</h4><span class="pill ' + esc(f.pill) + '"><span class="dot"></span>' + esc(f.status) + "</span></div>" +
+        '<a class="gid" href="' + esc(f.hubspotUrl) + '" target="_blank" rel="noopener">' + esc(f.id) + "</a>" +
+        '<div class="metric-row"><span class="metric-num">' + num(f.submissions) + '</span><span class="metric-unit">lifetime submissions</span></div>' +
+        '<div class="form-meta">' +
+          "<span>Last submit <b>" + esc(fmtDate(f.lastSubmitted)) + "</b> · " + esc(f.daysAgoLabel) + "</span>" +
+          "<span>Views <b>" + num(f.views) + "</b></span>" +
+          "<span>Conv. <b>" + esc(conv(f.conversion)) + "</b></span>" +
+          "<span>" + esc(pageLabel) + "</span>" +
+        "</div>" +
+        '<div class="pages">' + pages + "</div>" +
+        '<div class="tools">' +
+          '<a class="tool" href="' + esc(f.hubspotUrl) + '" target="_blank" rel="noopener">Open in HubSpot →</a>' +
+        "</div>" +
+      "</article>";
+    }).join("") || '<p class="sec-desc">No forms in this filter.</p>';
+    reveal();
+  }
+
+  bar.addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-f]");
+    if (!btn) return;
+    currentFilter = btn.getAttribute("data-f");
+    bar.querySelectorAll("button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    });
+    renderForms();
+  });
+
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  function reveal() {
+    document.querySelectorAll(".reveal:not(.in)").forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i, 8) * 40) + "ms";
+      io.observe(el);
+    });
+  }
+
+  renderForms();
+  reveal();
+})();
+</script>
+</body>
+</html>

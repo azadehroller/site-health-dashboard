@@ -201,6 +201,7 @@
     <nav class="view-tabs" aria-label="Dashboard views">
       <a href="./" class="active" aria-current="page">Site Health</a>
       <a href="brand-numbers.html">Brand Signal</a>
+      <a href="form-health.html">Form Health</a>
     </nav>
     <nav class="section-nav" aria-label="On this page">
       <a href="#daily">Daily</a><a href="#weekly">Weekly</a><a href="#performance">Performance</a>
@@ -260,7 +261,11 @@
           <div class="metric-row"><span class="metric-num" id="n-forms">—</span><span class="metric-unit">lead forms watched</span></div>
           <div class="substat" id="s-forms">&nbsp;</div>
           <p class="c-desc">We check that every lead form still submits, the lead reaches the CRM, and tracking fires correctly (including cookie consent).</p>
-          <div class="tools"><span class="tool">Checkly</span><span class="tool">Sentry</span></div>
+          <div class="tools">
+            <a class="tool" href="form-health.html" style="text-decoration:none">Open Form Health →</a>
+            <span class="tool">Checkly</span>
+            <span class="tool">Sentry</span>
+          </div>
         </div>
         <div class="card reveal">
           <div class="c-top"><h4>Paid Campaign</h4><span class="pill ok" id="p-paid"><span class="dot"></span>Healthy</span></div>
@@ -451,7 +456,7 @@
   <div class="wrap">
     <div class="sources">
       <b>Website Health &amp; Performance</b> · roller.software &nbsp;|&nbsp; Prepared by Web / Marketing.<br>
-      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Brand &amp; Business Signal is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
+      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Form Health is a site crawl of every form placed on roller.software, joined to HubSpot. Brand &amp; Business Signal is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
     </div>
     <div><b>Cadence:</b> Daily · Weekly · Quarterly</div>
   </div>
