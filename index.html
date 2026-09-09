@@ -139,6 +139,15 @@
   .pagerow .mv small{color:var(--muted);font-weight:600;font-size:11px}
   .pagerow .mv.good{color:var(--good)} .pagerow .mv.warn{color:var(--warn)} .pagerow .mv.bad{color:var(--bad)}
 
+  .issue-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .issue-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:10px 12px;background:var(--blue-99);border-radius:10px;border:1px solid var(--blue-95)}
+  .issue-row .iname{font-size:13px;font-weight:700;color:var(--ink)}
+  .issue-row .icat{display:block;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .issue-row .icount{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--blue-30);white-space:nowrap}
+  .issue-delta{font-size:11.5px;font-weight:700;margin-top:3px}
+  .issue-delta.up{color:var(--bad)} .issue-delta.down{color:var(--good)}
+  .prop-host{font-size:12px;font-weight:700;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--blue-30);margin-top:4px;word-break:break-all}
+
   .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .stack-card{background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
   .stack-card .s-name{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
@@ -205,7 +214,7 @@
     </nav>
     <nav class="section-nav" aria-label="On this page">
       <a href="#daily">Daily</a><a href="#weekly">Weekly</a><a href="#performance">Performance</a>
-      <a href="#enhancements">Enhancements</a><a href="#stack">Monitoring</a>
+      <a href="#enhancements">Enhancements</a><a href="#audit">Audits</a><a href="#stack">Monitoring</a>
     </nav>
     <!-- <button class="btn-print" onclick="window.print()">Print / PDF</button> -->
   </div>
@@ -295,7 +304,7 @@
           <div class="c-top"><h4>Link Integrity</h4><span class="pill info" id="p-links"><span class="dot"></span>Live</span></div>
           <div class="metric-row"><span class="metric-num" id="n-links">—</span><span class="metric-unit">of pages error-free</span></div>
           <div class="substat" id="s-links">&nbsp;</div>
-          <p class="c-desc">Share of crawled pages with no broken links, redirect loops, 404s, or missing images — from the latest site crawl.</p>
+          <p class="c-desc">Share of crawled pages with no technical SEO errors — broken links, redirect loops, 404s, or missing images — from the latest site crawl.</p>
           <div class="tools"><span class="tool">Ahrefs</span></div>
         </div>
         <div class="card reveal">
@@ -390,7 +399,7 @@
         <div class="c-top"><h4>SEO Health</h4><span class="pill info" id="p-seo"><span class="dot"></span>Live</span></div>
         <div class="metric-row"><span class="metric-num" id="n-seo">—</span><span class="metric-unit">out of 100</span></div>
         <div class="substat" id="s-seo">&nbsp;</div>
-        <p class="c-desc">Overall SEO health of the main website from the latest crawl — higher is healthier for search visibility.</p>
+        <p class="c-desc">Overall SEO health of the main website from the latest crawl — higher is healthier for search visibility. Issue counts live in Accessibility &amp; technical SEO.</p>
         <div class="tools"><span class="tool">Ahrefs</span></div>
       </div>
       <div class="card reveal awaiting">
@@ -409,9 +418,48 @@
   </div>
 </section>
 
+<!-- AHREFS AUDITS — accessibility + technical SEO from the health program -->
+<section id="audit" style="background:#fff;border-top:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">Website audits · Ahrefs</span></div>
+    <h2>Accessibility &amp; technical SEO</h2>
+    <p class="sec-desc">The weekly Site Audit that the health program committed to — accessibility-adjacent flags (image alt, viewport, tap targets) and technical SEO errors on roller.software.</p>
+
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card reveal in">
+        <div class="c-top"><h4>Accessibility</h4><span class="pill info" id="p-a11y"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-a11y">—</span><span class="metric-unit" id="u-a11y">pages with quality warnings</span></div>
+        <div class="substat" id="s-a11y">&nbsp;</div>
+        <p class="c-desc" id="d-a11y">Ahrefs flags missing alt text, viewport, and tap-target issues in this warning set. This is the accessibility coverage we can read from Site Audit — not a full WCAG pass.</p>
+        <div class="issue-list" id="list-a11y" hidden></div>
+        <div class="tools"><span class="tool">Ahrefs Site Audit</span></div>
+      </div>
+      <div class="card reveal in">
+        <div class="c-top"><h4>Technical SEO</h4><span class="pill info" id="p-techseo"><span class="dot"></span>Live</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-techseo">—</span><span class="metric-unit" id="u-techseo">pages with SEO errors</span></div>
+        <div class="substat" id="s-techseo">&nbsp;</div>
+        <p class="c-desc">Indexability, broken links, redirects, titles, duplicates, and sitemap issues from the latest crawl of the primary domain.</p>
+        <div class="issue-list" id="list-seo" hidden></div>
+        <div class="tools"><span class="tool">Ahrefs Site Audit</span></div>
+      </div>
+      <div class="card reveal in">
+        <div class="c-top"><h4>Issue movement</h4><span class="pill info" id="p-move"><span class="dot"></span>Weekly</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-move">—</span><span class="metric-unit" id="u-move">properties audited</span></div>
+        <div class="substat" id="s-move">&nbsp;</div>
+        <p class="c-desc">Whether the crawl is finding more problems or clearing them — the “increasing checks for outdated pages” signal from the health program.</p>
+        <div class="tools"><span class="tool">Ahrefs</span></div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:36px"><span class="sec-kicker">Properties</span></div>
+    <h2 style="font-size:22px">What we crawl</h2>
+    <p class="sec-desc">Health, errors, and warnings from the latest roller.software crawl.</p>
+    <div class="grid g3" id="ahrefs-properties" style="margin-top:22px"></div>
+  </div>
+</section>
 
 <!-- STACK -->
-<section id="stack" style="background:#fff;border-top:1px solid var(--hair)">
+<section id="stack" style="border-top:1px solid var(--hair)">
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">How it's monitored</span></div>
     <h2>Monitoring stack</h2>
@@ -432,8 +480,8 @@
       <div class="stack-card reveal">
         <div class="s-name">Ahrefs <span class="layerbadge">SEO &amp; links</span></div>
         <div class="s-role">Site-wide crawl</div>
-        <p class="s-body">Crawls the whole site for link and SEO health — now feeding Link Integrity and SEO Health live.</p>
-        <ul><li>Broken internal &amp; external links, redirect chains, 404s</li><li>Broken images and missing assets</li><li>SEO health signals across audited pages</li></ul>
+        <p class="s-body">Weekly Site Audit for accessibility-adjacent flags and technical SEO — feeding Link Integrity, SEO Health, and the Audits section.</p>
+        <ul><li>Missing alt text, viewport, and tap-target warnings</li><li>Broken links, redirects, indexability, titles, duplicates</li><li>Health score and error/warning counts for roller.software</li></ul>
       </div>
     </div>
   </div>
@@ -456,7 +504,7 @@
   <div class="wrap">
     <div class="sources">
       <b>Website Health &amp; Performance</b> · roller.software &nbsp;|&nbsp; Prepared by Web / Marketing.<br>
-      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Form Health is a site crawl of every form placed on roller.software, joined to HubSpot. Brand &amp; Business Signal is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
+      Every live figure is read on load from the ROLLER Site Health feed (Checkly + Sentry + Ahrefs) as JSON. Ahrefs Site Audit covers accessibility-adjacent flags and technical SEO on roller.software. Form Health is a site crawl of every form placed on roller.software, joined to HubSpot. Brand &amp; Business Signal is a site scrape audit of headline figures against the business source of truth. The two “awaiting feed” cards (media &amp; migration trackers) will populate once those sources are connected. If the feed can't be reached, the dashboard shows an error and does not display cached numbers.
     </div>
     <div><b>Cadence:</b> Daily · Weekly · Quarterly</div>
   </div>
@@ -531,13 +579,61 @@
     }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
   }
 
+  function hostKey(url){
+    return String(url||"").replace(/^https?:\/\//,"").replace(/\/$/,"").toLowerCase();
+  }
+  function isRollerSoftwareHost(host){
+    return host==="www.roller.software";
+  }
+  function uniqueAhrefsProjects(projects){
+    const rank = (p) => /primary/i.test(p.name||"") ? 0 : 1;
+    const byHost = {};
+    [...(projects||[])].sort((a,b)=>rank(a)-rank(b)).forEach(p=>{
+      const host = hostKey(p.targetUrl);
+      if(!isRollerSoftwareHost(host)) return;
+      if(!byHost[host] || rank(p) < rank(byHost[host])) byHost[host] = p;
+    });
+    return Object.values(byHost).sort((a,b)=>rank(a)-rank(b));
+  }
+  function isA11yIssue(i){
+    const cat = String(i.category||"").toLowerCase();
+    const name = String(i.name||"").toLowerCase();
+    return cat==="images" || cat==="usability and performance" ||
+      /alt attribute|alt text|missing alt|viewport|tap target|text too small|too small to read/.test(name);
+  }
+  function summarizeIssues(issues){
+    const list = Array.isArray(issues) ? issues.filter(i => (i.crawled||0) > 0 || (i.added||i.new||i.removed)) : [];
+    const a11y = [], seo = [];
+    list.forEach(i => { (isA11yIssue(i) ? a11y : seo).push(i); });
+    const flags = (arr) => arr.reduce((n,i)=>n+(Number(i.crawled)||0),0);
+    const added = (arr) => arr.reduce((n,i)=>n+(Number(i.added||i.new)||0),0);
+    const removed = (arr) => arr.reduce((n,i)=>n+(Number(i.removed)||0),0);
+    const top = (arr) => arr.slice().sort((a,b)=>(b.crawled||0)-(a.crawled||0)).slice(0,5);
+    return {
+      hasIssues: list.length>0,
+      a11y, seo,
+      a11yFlags: flags(a11y), seoFlags: flags(seo),
+      a11yAdded: added(a11y), a11yRemoved: removed(a11y),
+      added: added(list), removed: removed(list),
+      topA11y: top(a11y), topSeo: top(seo)
+    };
+  }
+  function collectAhrefsIssues(ah, primary){
+    if(!ah) return [];
+    const buckets = [ah.issues, ah.siteAuditIssues, ah.projectIssues,
+      primary&&primary.issues, primary&&primary.siteAuditIssues];
+    for(const b of buckets){ if(Array.isArray(b) && b.length) return b; }
+    return [];
+  }
+
   /* ---------- Map the JSON daily report to the dashboard shape ---------- */
   function mapJson(j){
     const s=j.sentry||{}, wv=s.webVitals||{}, perf=s.performance||{}, jr=s.journeys||{};
     const ck=j.checkly||{}, grp={}; (ck.journeyGroups||[]).forEach(g=>{ grp[g.id]=g; });
     const ah=j.ahrefs||{};
-    const projects=ah.siteAuditProjects||[];
+    const projects=uniqueAhrefsProjects(ah.siteAuditProjects||[]);
     const primary = projects.find(p=>/primary/i.test(p.name||"")) || projects.find(p=>/www\.roller\.software/.test(p.targetUrl||"")) || projects[0] || null;
+    const issueSummary = summarizeIssues(collectAhrefsIssues(ah, primary));
     const pct1=(x)=>x!=null?Math.round(x*1000)/10:null;   // 0.163 -> 16.3
     const rnd2=(x)=>x!=null?Math.round(x*100)/100:null;   // 0.7387 -> 0.74
     return {
@@ -554,7 +650,8 @@
       slowest:(s.slowestPages||[]).slice(0,5).map(p=>({path:p.page,p95:p.p95DurationMs})),
       ahrefs: (ah.dataAvailable && primary) ? { domainRating:ah.domainRating, rank:ah.ahrefsRank,
             health:primary.healthScore, errors:primary.urlsWithErrors, warnings:primary.urlsWithWarnings,
-            crawled:primary.total, projectName:primary.name } : null
+            crawled:primary.total, projectName:primary.name, status:primary.status,
+            projects, issueSummary } : null
     };
   }
 
@@ -603,6 +700,114 @@
     document.getElementById('cwv-grid').innerHTML = '';
     document.getElementById('perpage').innerHTML = '<div class="pagerow"><span class="pp">Feed unavailable</span></div>';
     document.getElementById('slowest').innerHTML = '<div class="pagerow"><span class="pp">Feed unavailable</span></div>';
+    const props=document.getElementById('ahrefs-properties');
+    if(props) props.innerHTML = '';
+  }
+
+  function escHtml(s){
+    return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+  function healthRating(score){ return score>=90?'ok':score>=75?'warn':'bad'; }
+  function renderIssueRows(el, items){
+    if(!el) return;
+    if(!items||!items.length){ el.hidden=true; el.innerHTML=''; return; }
+    el.hidden=false;
+    el.innerHTML = items.map(i=>{
+      const added = Number(i.added||i.new||0), removed = Number(i.removed||0);
+      let delta = '';
+      if(added||removed){
+        const parts=[];
+        if(added) parts.push('<span class="issue-delta up">+'+added.toLocaleString()+' new</span>');
+        if(removed) parts.push('<span class="issue-delta down">−'+removed.toLocaleString()+' cleared</span>');
+        delta = '<div>'+parts.join(' ')+'</div>';
+      }
+      return '<div class="issue-row"><div><span class="iname">'+escHtml(i.name||'Issue')+'</span>'+
+        '<span class="icat">'+escHtml(i.category||'')+(i.importance?' · '+escHtml(i.importance):'')+'</span>'+delta+
+        '</div><span class="icount">'+(Number(i.crawled)||0).toLocaleString()+' URLs</span></div>';
+    }).join('');
+  }
+  function renderAhrefsAudit(a){
+    const iss = (a&&a.issueSummary) || {};
+    const hasIssues = !!iss.hasIssues;
+
+    if(hasIssues){
+      setText('n-a11y', iss.a11yFlags);
+      setText('u-a11y', 'accessibility flags');
+      setRatingPill('p-a11y', iss.a11yFlags===0?'ok':iss.a11yFlags<50?'warn':'bad', 'Live');
+      const a11yMove = [];
+      if(iss.a11yAdded) a11yMove.push(iss.a11yAdded.toLocaleString()+' new this crawl');
+      if(iss.a11yRemoved) a11yMove.push(iss.a11yRemoved.toLocaleString()+' cleared');
+      setText('s-a11y', a11yMove.join(' · ') || (iss.topA11y[0] ? iss.topA11y[0].name+' · '+(iss.topA11y[0].crawled||0).toLocaleString()+' URLs' : 'No image or usability flags'));
+      const da=document.getElementById('d-a11y');
+      if(da) da.textContent = 'Missing alt text, viewport, and tap-target issues from Ahrefs Site Audit. Not a full WCAG audit.';
+      renderIssueRows(document.getElementById('list-a11y'), iss.topA11y);
+
+      setText('n-techseo', iss.seoFlags);
+      setText('u-techseo', 'technical SEO flags');
+      setRatingPill('p-techseo', iss.seoFlags===0?'ok':iss.seoFlags<200?'warn':'bad', 'Live');
+      setText('s-techseo', (a.errors!=null?Number(a.errors).toLocaleString()+' pages with errors':'') +
+        (a.warnings!=null?' · '+Number(a.warnings).toLocaleString()+' with warnings':''));
+      renderIssueRows(document.getElementById('list-seo'), iss.topSeo);
+    } else if(a){
+      setText('n-a11y', a.warnings);
+      setText('u-a11y', 'pages with quality warnings');
+      setRatingPill('p-a11y', a.warnings===0?'ok':a.warnings<200?'warn':'bad', 'Live');
+      setText('s-a11y', a.crawled!=null
+        ? Number(a.crawled).toLocaleString()+' pages crawled on '+ (a.projectName||'primary')
+        : 'From the latest Site Audit');
+      const da=document.getElementById('d-a11y');
+      if(da) da.textContent = 'Ahrefs warning set includes missing alt text, viewport, and tap-target issues — the accessibility coverage this program can read from Site Audit. Per-issue counts appear when the feed includes Site Audit issues.';
+      renderIssueRows(document.getElementById('list-a11y'), []);
+
+      setText('n-techseo', a.errors);
+      setText('u-techseo', 'pages with SEO errors');
+      setRatingPill('p-techseo', a.errors===0?'ok':a.errors<100?'warn':'bad', 'Attention');
+      setText('s-techseo', a.health!=null
+        ? 'Health '+a.health+'/100 · '+Number(a.warnings||0).toLocaleString()+' warnings'
+        : Number(a.warnings||0).toLocaleString()+' warnings');
+      renderIssueRows(document.getElementById('list-seo'), []);
+    }
+
+    const props = (a&&a.projects)||[];
+    if(hasIssues && (iss.added||iss.removed)){
+      setText('n-move', iss.added);
+      setText('u-move', 'new issue flags this crawl');
+      setRatingPill('p-move', iss.added===0?'ok':iss.added<50?'warn':'bad', iss.added===0?'Stable':'Increased');
+      setText('s-move', (iss.removed?iss.removed.toLocaleString()+' flags cleared · ':'')+props.length+' properties audited');
+    } else if(a){
+      setText('n-move', props.length);
+      setText('u-move', props.length===1?'property audited':'properties audited');
+      const crawling = /in_progress/i.test(a.status||'');
+      setRatingPill('p-move', crawling?'info':a.errors>0?'warn':'ok', crawling?'Crawling':'Weekly');
+      setText('s-move', crawling
+        ? 'Primary crawl in progress — next finish will show what increased or cleared'
+        : (a.errors!=null?Number(a.errors).toLocaleString()+' pages still flagged on primary':'Latest crawl complete'));
+    }
+
+    const grid = document.getElementById('ahrefs-properties');
+    if(grid){
+      grid.innerHTML = props.map(p=>{
+        const score = p.healthScore;
+        const rating = healthRating(score);
+        const err = Number(p.urlsWithErrors||0);
+        const warn = Number(p.urlsWithWarnings||0);
+        const total = Number(p.total||0);
+        const clean = total ? Math.round(((total-err)/total)*1000)/10 : null;
+        const crawling = /in_progress/i.test(p.status||'');
+        const pill = crawling ? 'info' : rating;
+        const pillLabel = crawling ? 'Crawling' : (score!=null ? score+'/100' : 'Live');
+        const host = hostKey(p.targetUrl) || '';
+        const title = (/^roller$/i.test(p.name||"") && host) ? host : (p.name||host);
+        return '<div class="card reveal in">'+
+          '<div class="c-top"><h4>'+escHtml(title)+'</h4><span class="pill '+pill+'"><span class="dot"></span>'+escHtml(pillLabel)+'</span></div>'+
+          (host?'<div class="prop-host">'+escHtml(host)+'</div>':'')+
+          '<div class="metric-row"><span class="metric-num">'+(score!=null?score:'—')+'</span><span class="metric-unit">health score</span></div>'+
+          '<div class="substat"><b>'+err.toLocaleString()+'</b> errors · <b>'+warn.toLocaleString()+'</b> warnings'+(clean!=null?' · <b>'+clean+'%</b> error-free':'')+'</div>'+
+          '<p class="c-desc">'+total.toLocaleString()+' URLs in the latest crawl'+(crawling?' — crawl still running':'')+'.</p>'+
+          '<div class="tools"><span class="tool">Ahrefs</span></div>'+
+        '</div>';
+      }).join('') || '';
+    }
   }
 
   function applyData(d){
@@ -644,7 +849,7 @@
       setRatingPill('p-slowest', (w.p95/1000)<=3?'ok':(w.p95/1000)<=8?'warn':'bad', 'Live');
       setText('s-slowest', 'Slowest page: '+w.path); }
 
-    // Ahrefs — SEO Health + Link Integrity (live)
+    // Ahrefs — SEO Health + Link Integrity + Accessibility / technical SEO
     if(d.ahrefs){
       const a=d.ahrefs;
       if(a.health!=null){ setText('n-seo', a.health);
@@ -654,8 +859,9 @@
         const cleanPct = Math.round(((a.crawled - a.errors) / a.crawled) * 1000) / 10; // e.g. 93.7
         setText('n-links', cleanPct + '%');
         setRatingPill('p-links', cleanPct>=95?'ok':cleanPct>=85?'warn':'bad', 'Live');
-        setText('s-links', `${Number(a.crawled).toLocaleString()} pages crawled`);
+        setText('s-links', `${Number(a.crawled).toLocaleString()} pages crawled · ${Number(a.errors).toLocaleString()} with errors`);
       }
+      renderAhrefsAudit(a);
     }
 
     // Hero pillars
