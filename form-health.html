@@ -169,7 +169,7 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-kicker">Action list</span></div>
     <h2>Worth acting on</h2>
-    <p class="sec-desc">Findings from the crawl that need a human look — naming, double embeds, and forms that have gone silent.</p>
+    <p class="sec-desc">Findings from the crawl that need a human look — forms that have gone silent, and forms that sit on more than one page.</p>
     <div class="grid g2" id="flags-grid"></div>
   </div>
 </section>
@@ -256,7 +256,10 @@
     '</div>';
   }).join("");
 
-  document.getElementById("flags-grid").innerHTML = D.flags.map(function (f) {
+  var actionFlags = (D.flags || []).filter(function (f) {
+    return f.id === "idle-forms" || f.id === "shared-attribution";
+  });
+  document.getElementById("flags-grid").innerHTML = actionFlags.map(function (f) {
     var label = f.severity === "bad" ? "Act" : f.severity === "info" ? "Note" : "Review";
     return '<div class="card reveal">' +
       '<div class="c-top"><h4>' + esc(f.title) + '</h4><span class="pill ' + esc(f.severity) + '"><span class="dot"></span>' + label + '</span></div>' +
