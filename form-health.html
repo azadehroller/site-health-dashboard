@@ -235,7 +235,7 @@
       sub: "<b>" + S.placements + "</b> form placements found",
       desc: D.scope },
     { title: "Lifetime submissions", n: S.lifetimeSubmissions, unit: "across all forms", pill: "info", pillLabel: "HubSpot",
-      sub: "To " + D.auditedOn,
+      sub: "HubSpot export " + (D.hubspotAsOf || D.auditedOn),
       desc: "Per form, lifetime-to-date. Shared forms pool submissions across every page they sit on." },
     { title: "Idle 6+ months", n: S.idleSixMonths, unit: "forms gone quiet", pill: "bad", pillLabel: "Attention",
       sub: "<b>" + D.statusCounts.cold + "</b> stale · <b>" + D.statusCounts.dead + "</b> dormant",
@@ -257,7 +257,7 @@
   }).join("");
 
   var actionFlags = (D.flags || []).filter(function (f) {
-    return f.id === "idle-forms" || f.id === "shared-attribution";
+    return f.id === "idle-forms" || f.id === "shared-attribution" || f.id === "lets-chat-shared";
   });
   document.getElementById("flags-grid").innerHTML = actionFlags.map(function (f) {
     var label = f.severity === "bad" ? "Act" : f.severity === "info" ? "Note" : "Review";
