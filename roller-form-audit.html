@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Form audit — roller.software</title><style>
+:root{--ink:#011840;--acc:#0960F6;--deep:#033180;--wash:#EBF2FE;--rule:#CEDFFD}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:15px/1.55 "Proxima Nova",Arial,Helvetica,sans-serif}
+.wrap{max-width:1300px;margin:0 auto;padding:48px 28px 80px}
+h1{font-size:34px;font-weight:700;margin:0 0 6px;letter-spacing:-.4px}
+.sub{color:var(--deep);margin:0 0 34px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:38px}
+.stat{background:#fff;padding:18px 20px}
+.stat b{display:block;font-size:30px;font-weight:700;line-height:1.1}
+.stat span{font-size:12px;color:var(--deep)}
+h2{font-size:19px;font-weight:700;margin:38px 0 12px}
+.flags{border-left:3px solid var(--acc);background:var(--wash);padding:16px 20px;margin:0 0 34px}
+.flags p{margin:0 0 11px;font-size:14px}.flags p:last-child{margin:0}
+code{font:12px ui-monospace,Menlo,monospace}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.filters button{font:600 13px "Proxima Nova",Arial,sans-serif;background:#fff;color:var(--ink);border:1.5px solid var(--rule);padding:7px 14px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--ink);color:#fff;text-align:left;padding:11px 12px;font-size:12px;font-weight:700;position:sticky;top:0;cursor:pointer;white-space:nowrap}
+th.num{text-align:right}
+th:hover{background:var(--deep)}
+td{padding:13px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:hover{background:var(--wash)}
+.nm{max-width:225px}.nm b{font-size:14px}
+.gid{display:block;font:11px ui-monospace,Menlo,monospace;color:var(--deep);margin-top:4px;text-decoration:none;word-break:break-all}
+.gid:hover{color:var(--acc)}
+.pgs{min-width:320px}
+.cnt{display:inline-block;font-size:11px;font-weight:700;color:var(--deep);background:var(--wash);padding:2px 8px;margin-bottom:7px}
+.pgs ul{margin:0;padding:0;list-style:none}
+.pgs li{margin-bottom:7px}.pgs li:last-child{margin:0}
+.pgs a{color:var(--acc);font-weight:600;text-decoration:none;font-size:13px}
+.pgs span{display:block;font-size:11px;color:var(--deep);margin-top:1px}
+.num,.dt{white-space:nowrap;font-variant-numeric:tabular-nums}
+.num{text-align:right}.num b{font-size:15px;font-weight:700}
+.ago{display:block;font-size:11px;color:var(--deep);margin-top:3px}
+.pill{display:inline-block;padding:2px 9px;font-size:11px;font-weight:700;border-radius:2px}
+.pill.fresh{background:var(--acc);color:#fff}.pill.warm{background:var(--wash);color:var(--deep)}
+.pill.cold{background:var(--deep);color:#fff}.pill.dead,.pill.never{background:var(--ink);color:#fff}
+footer{margin-top:34px;font-size:12px;color:var(--deep);line-height:1.7;max-width:780px}
+</style></head><body><div class="wrap">
+<h1>Form audit — roller.software</h1>
+<p class="sub">One row per form, ordered by lifetime submissions. All non-blog pages, forms outside the site footer. Crawled 3 September 2026, joined to the HubSpot all-forms export of the same date.</p>
+<div class="stats">
+<div class="stat"><b>24</b><span>forms in use on the site</span></div>
+<div class="stat"><b>149</b><span>non-blog pages crawled</span></div>
+<div class="stat"><b>31</b><span>page placements</span></div>
+<div class="stat"><b>16,652</b><span>lifetime submissions</span></div>
+<div class="stat"><b>7</b><span>forms idle 6+ months</span></div>
+<div class="stat"><b>6</b><span>forms on 2+ pages</span></div>
+</div>
+
+<h2>Worth acting on</h2>
+<div class="flags">
+<p><b>/get-started/ runs two forms, neither of them a normal embed.</b> “2023 - Let’s chat v2” renders into <code>#hubspot-form-wrapper</code> via an inline <code>hbspt.forms.create()</code> call, then reveals the Calendly widget with name and email prefilled. When Calendly fires <code>calendly.event_scheduled</code>, the page POSTs directly to the HubSpot Forms API to submit “Calendly tag registration form” with <code>calendly_booked=true</code> and the event and invitee URIs. That second form has no markup on the page at all.</p>
+<p><b>The “Calendly tag registration form” conversion figures are meaningless.</b> It shows 4 page views against 211 submissions because it never renders — HubSpot’s submissions-per-page-view of 5,275 is an artefact. Treat those 211 as a count of completed Calendly bookings.</p>
+<p><b>“Let’s chat v2” is shared between /get-started/ and /iaapa-europe-2026</b>, so its 8,748 submissions cannot be split by form ID. On the IAAPA page it is embedded twice — once through the standard module and once into a hidden <code>#footerHSForm</code> div — worth confirming that is intentional and not double-firing.</p>
+<p><b>A form named “2023 - Get Started (Spam Leads)” is live on two solutions pages</b> with 36 submissions, last one 3 August 2026. Separately, “2023 - Get Started” (770 submissions) sits on /solutions/enterprise, not on /get-started/. The naming across those three needs untangling.</p>
+<p><b>Seven forms have not been submitted in over six months</b> while their pages stay published and in the sitemap. The Guest Experience Playbook form has been silent since September 2022, nearly four years.</p>
+<p><b>6 forms sit on more than one page</b>, so their submissions pool and cannot be attributed by form ID. For per-page numbers on any of them you need HubSpot’s page-level breakdown.</p>
+</div>
+
+<h2>Forms in use</h2>
+<div class="filters">
+<button aria-pressed="true" data-f="all">All (24)</button>
+<button aria-pressed="false" data-f="fresh">Active</button>
+<button aria-pressed="false" data-f="warm">Slowing</button>
+<button aria-pressed="false" data-f="cold">Stale</button>
+<button aria-pressed="false" data-f="dead">Dormant</button>
+<button aria-pressed="false" data-f="shared">On 2+ pages</button>
+</div>
+<table id="t"><thead><tr>
+<th data-t="s">Form</th><th data-t="n">Pages using it</th>
+<th data-t="n" class="num">Subs</th><th data-t="s">Last submission</th>
+<th data-t="n" class="num">Views</th><th data-t="s">Status</th>
+<th data-t="n" class="num">Conv.</th></tr></thead>
+<tbody><tr data-band="fresh" data-n="2">
+<td class="nm"><b>2023 - Let&#x27;s chat v2</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/20a46e0f-ec52-4e8d-ad13-a1c6bae4c8f0/edit/form" target="_blank">20a46e0f-ec52-4e8d-ad13-a1c6bae4c8f0</a></td>
+<td class="pgs"><span class="cnt">2 pages</span><ul><li><a href="https://www.roller.software/get-started/" target="_blank">/get-started/</a><span>Get Started demo request (feeds Calendly)</span></li><li><a href="https://www.roller.software/iaapa-europe-2026" target="_blank">/iaapa-europe-2026</a><span>IAAPA Europe 2026 meeting request</span></li></ul></td>
+<td class="num"><b>8,748</b></td>
+<td class="dt">2026-09-03<span class="ago">0d ago</span></td>
+<td class="num">234,515</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">3.73%</td>
+</tr><tr data-band="fresh" data-n="3">
+<td class="nm"><b>Subscribe to Blog Notifications</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/efa7bd0a-929a-4ea4-8480-1c6f77843cf2/edit/form" target="_blank">efa7bd0a-929a-4ea4-8480-1c6f77843cf2</a></td>
+<td class="pgs"><span class="cnt">3 pages</span><ul><li><a href="https://www.roller.software/customer-stories" target="_blank">/customer-stories</a><span>Newsletter / GX signup (in-body)</span></li><li><a href="https://www.roller.software/customer-stories/rockstar-climbing-increases-online-sales-by-over-25-after-switching-to-roller" target="_blank">/customer-stories/rockstar-climbing-increases-online-sales-by-over-25-after-switching-to-roller</a><span>Newsletter / GX signup (in-body)</span></li><li><a href="https://www.roller.software/customer-stories/rolling-on-over-to-jump-giants" target="_blank">/customer-stories/rolling-on-over-to-jump-giants</a><span>Newsletter / GX signup (in-body)</span></li></ul></td>
+<td class="num"><b>4,962</b></td>
+<td class="dt">2026-09-03<span class="ago">0d ago</span></td>
+<td class="num">4,319,901</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">0.11%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>2024 - Industry Benchmark Report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/2051941f-0411-4b31-a088-87377ae46bf0/edit/form" target="_blank">2051941f-0411-4b31-a088-87377ae46bf0</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/2025-benchmark-report" target="_blank">/2025-benchmark-report</a><span>2025 Benchmark Report download</span></li></ul></td>
+<td class="num"><b>824</b></td>
+<td class="dt">2026-08-24<span class="ago">10d ago</span></td>
+<td class="num">5,070</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">16.25%</td>
+</tr><tr data-band="warm" data-n="1">
+<td class="nm"><b>2023 - Get Started</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/fb0ce181-8ea3-437c-a6be-fbc6cf8daa89/edit/form" target="_blank">fb0ce181-8ea3-437c-a6be-fbc6cf8daa89</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/solutions/enterprise" target="_blank">/solutions/enterprise</a><span>Solutions demo request</span></li></ul></td>
+<td class="num"><b>770</b></td>
+<td class="dt">2026-07-01<span class="ago">64d ago</span></td>
+<td class="num">9,063</td>
+<td><span class="pill warm">Slowing</span></td>
+<td class="num">8.50%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>2026 Industry Benchmark Report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/5cbf1aa8-f1de-4df8-8695-20efc5de8a6f/edit/form" target="_blank">5cbf1aa8-f1de-4df8-8695-20efc5de8a6f</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/2026-benchmark-report" target="_blank">/2026-benchmark-report</a><span>2026 Benchmark Report download</span></li></ul></td>
+<td class="num"><b>432</b></td>
+<td class="dt">2026-09-03<span class="ago">0d ago</span></td>
+<td class="num">12,608</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">3.43%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>Calendly tag registration form</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/48a28f64-ceaf-4249-90c7-fbfd7a10aec3/edit/form" target="_blank">48a28f64-ceaf-4249-90c7-fbfd7a10aec3</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/get-started/" target="_blank">/get-started/</a><span>Calendly booking confirmation (no rendered form) · API submit on booking</span></li></ul></td>
+<td class="num"><b>211</b></td>
+<td class="dt">2026-09-03<span class="ago">0d ago</span></td>
+<td class="num">4</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">n/a</td>
+</tr><tr data-band="fresh" data-n="2">
+<td class="nm"><b>2025 - Partnerships</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/1ba546dd-ea89-46da-be44-be55daa12197/edit/form" target="_blank">1ba546dd-ea89-46da-be44-be55daa12197</a></td>
+<td class="pgs"><span class="cnt">2 pages</span><ul><li><a href="https://www.roller.software/partners/integration" target="_blank">/partners/integration</a><span>Integration partner application</span></li><li><a href="https://www.roller.software/partners/service" target="_blank">/partners/service</a><span>Service partner application</span></li></ul></td>
+<td class="num"><b>125</b></td>
+<td class="dt">2026-09-03<span class="ago">0d ago</span></td>
+<td class="num">955</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">13.09%</td>
+</tr><tr data-band="warm" data-n="1">
+<td class="nm"><b>2025 - Party parent consumer report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/b71c75b1-1df3-4e44-be20-2ab671290978/edit/form" target="_blank">b71c75b1-1df3-4e44-be20-2ab671290978</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/party-parent-report" target="_blank">/party-parent-report</a><span>Party Parent Report download</span></li></ul></td>
+<td class="num"><b>121</b></td>
+<td class="dt">2026-07-27<span class="ago">38d ago</span></td>
+<td class="num">479</td>
+<td><span class="pill warm">Slowing</span></td>
+<td class="num">25.26%</td>
+</tr><tr data-band="fresh" data-n="2">
+<td class="nm"><b>2026 Pulse Report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/f5404897-7beb-420e-a376-70e70a462c23/edit/form" target="_blank">f5404897-7beb-420e-a376-70e70a462c23</a></td>
+<td class="pgs"><span class="cnt">2 pages</span><ul><li><a href="https://www.roller.software/2026-pulse-report" target="_blank">/2026-pulse-report</a><span>2026 Pulse Report download</span></li><li><a href="https://www.roller.software/customers/stories/area-51" target="_blank">/customers/stories/area-51</a><span>2026 Pulse Report download</span></li></ul></td>
+<td class="num"><b>87</b></td>
+<td class="dt">2026-08-26<span class="ago">8d ago</span></td>
+<td class="num">8,520</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">1.02%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>2022 - Mystery Shopper</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/b7ecbc08-e849-4747-b378-fcab4ff449d0/edit/form" target="_blank">b7ecbc08-e849-4747-b378-fcab4ff449d0</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/mystery-shopper-report/" target="_blank">/mystery-shopper-report/</a><span>Mystery Shopper Report download</span></li></ul></td>
+<td class="num"><b>65</b></td>
+<td class="dt">2026-08-11<span class="ago">23d ago</span></td>
+<td class="num">17,181</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">0.38%</td>
+</tr><tr data-band="cold" data-n="1">
+<td class="nm"><b>2022 - Memberships eBook</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/a8a3d5e4-f7a7-4b8f-a107-1d7490013bd5/edit/form" target="_blank">a8a3d5e4-f7a7-4b8f-a107-1d7490013bd5</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/membership-ebook" target="_blank">/membership-ebook</a><span>Membership e-book download</span></li></ul></td>
+<td class="num"><b>59</b></td>
+<td class="dt">2025-09-16<span class="ago">352d ago</span></td>
+<td class="num">7,391</td>
+<td><span class="pill cold">Stale</span></td>
+<td class="num">0.80%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>Venue launch checklist</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/70a64b65-2b35-4448-a94c-b8f59890ee66/edit/form" target="_blank">70a64b65-2b35-4448-a94c-b8f59890ee66</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/venue-launch-checklist" target="_blank">/venue-launch-checklist</a><span>Venue launch checklist download</span></li></ul></td>
+<td class="num"><b>49</b></td>
+<td class="dt">2026-08-14<span class="ago">20d ago</span></td>
+<td class="num">134</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">36.57%</td>
+</tr><tr data-band="warm" data-n="1">
+<td class="nm"><b>2025 - Analytics ebook</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/066f2fff-c86e-4714-ba4a-6e68ee1e84b0/edit/form" target="_blank">066f2fff-c86e-4714-ba4a-6e68ee1e84b0</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/analytics-ebook" target="_blank">/analytics-ebook</a><span>Analytics e-book download</span></li></ul></td>
+<td class="num"><b>43</b></td>
+<td class="dt">2026-07-13<span class="ago">52d ago</span></td>
+<td class="num">176</td>
+<td><span class="pill warm">Slowing</span></td>
+<td class="num">24.43%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>2025 - Roller skating trends report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/ca21fd8b-7a08-49c4-8b90-ef1f11dc1d75/edit/form" target="_blank">ca21fd8b-7a08-49c4-8b90-ef1f11dc1d75</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/2025-roller-skating-trends-report" target="_blank">/2025-roller-skating-trends-report</a><span>Roller Skating Trends Report download</span></li></ul></td>
+<td class="num"><b>42</b></td>
+<td class="dt">2026-08-11<span class="ago">23d ago</span></td>
+<td class="num">293</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">14.33%</td>
+</tr><tr data-band="warm" data-n="2">
+<td class="nm"><b>2023 - Get Started (Spam Leads)</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/08f35b46-27fe-45e2-bd33-c5519cbc5302/edit/form" target="_blank">08f35b46-27fe-45e2-bd33-c5519cbc5302</a></td>
+<td class="pgs"><span class="cnt">2 pages</span><ul><li><a href="https://www.roller.software/solutions/grow-your-business" target="_blank">/solutions/grow-your-business</a><span>Solutions demo request</span></li><li><a href="https://www.roller.software/solutions/multi-venue" target="_blank">/solutions/multi-venue</a><span>Solutions demo request</span></li></ul></td>
+<td class="num"><b>36</b></td>
+<td class="dt">2026-08-03<span class="ago">31d ago</span></td>
+<td class="num">8,470</td>
+<td><span class="pill warm">Slowing</span></td>
+<td class="num">0.43%</td>
+</tr><tr data-band="dead" data-n="1">
+<td class="nm"><b>2022 - GX Show eBook</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/ae7b5552-c0d4-436c-886a-d5304df5100d/edit/form" target="_blank">ae7b5552-c0d4-436c-886a-d5304df5100d</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/gx-show-ebook" target="_blank">/gx-show-ebook</a><span>GX Show e-book download</span></li></ul></td>
+<td class="num"><b>28</b></td>
+<td class="dt">2024-04-10<span class="ago">876d ago</span></td>
+<td class="num">469</td>
+<td><span class="pill dead">Dormant</span></td>
+<td class="num">5.97%</td>
+</tr><tr data-band="warm" data-n="2">
+<td class="nm"><b>Refresh2025</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/6c317a40-231d-4117-a450-174892a5397a/edit/form" target="_blank">6c317a40-231d-4117-a450-174892a5397a</a></td>
+<td class="pgs"><span class="cnt">2 pages</span><ul><li><a href="https://www.roller.software/industries/family-entertainment-centers" target="_blank">/industries/family-entertainment-centers</a><span>Contact / demo request</span></li><li><a href="https://www.roller.software/resources/featured" target="_blank">/resources/featured</a><span>Contact / demo request</span></li></ul></td>
+<td class="num"><b>17</b></td>
+<td class="dt">2026-07-01<span class="ago">64d ago</span></td>
+<td class="num">1,592</td>
+<td><span class="pill warm">Slowing</span></td>
+<td class="num">1.07%</td>
+</tr><tr data-band="dead" data-n="1">
+<td class="nm"><b>2022 - Guest Experience Playbook</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/7b17abe9-b7fd-4801-a8f5-b89f24c6aa5c/edit/form" target="_blank">7b17abe9-b7fd-4801-a8f5-b89f24c6aa5c</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/guest-experience-playbook" target="_blank">/guest-experience-playbook</a><span>GX playbook download</span></li></ul></td>
+<td class="num"><b>14</b></td>
+<td class="dt">2022-09-08<span class="ago">1456d ago</span></td>
+<td class="num">95</td>
+<td><span class="pill dead">Dormant</span></td>
+<td class="num">14.74%</td>
+</tr><tr data-band="cold" data-n="1">
+<td class="nm"><b>2025 - Entrepreneur guide to opening a venue playbook</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/0d57dd22-84f2-4496-b66e-0dc93bf59442/edit/form" target="_blank">0d57dd22-84f2-4496-b66e-0dc93bf59442</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/opening-your-first-attraction-playbook" target="_blank">/opening-your-first-attraction-playbook</a><span>First attraction playbook download</span></li></ul></td>
+<td class="num"><b>10</b></td>
+<td class="dt">2025-10-27<span class="ago">311d ago</span></td>
+<td class="num">43</td>
+<td><span class="pill cold">Stale</span></td>
+<td class="num">23.26%</td>
+</tr><tr data-band="dead" data-n="1">
+<td class="nm"><b>2025 - Expanding your business playbook</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/12076001-c57f-422d-946b-f1c31ae825e0/edit/form" target="_blank">12076001-c57f-422d-946b-f1c31ae825e0</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/expanding-your-business-playbook" target="_blank">/expanding-your-business-playbook</a><span>Expansion playbook download</span></li></ul></td>
+<td class="num"><b>4</b></td>
+<td class="dt">2025-03-21<span class="ago">531d ago</span></td>
+<td class="num">32</td>
+<td><span class="pill dead">Dormant</span></td>
+<td class="num">12.50%</td>
+</tr><tr data-band="warm" data-n="1">
+<td class="nm"><b>2026 - Bowling trends report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/b20c7fde-0d9a-4280-95e9-3fe07b43c036/edit/form" target="_blank">b20c7fde-0d9a-4280-95e9-3fe07b43c036</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/2026-bowling-trends" target="_blank">/2026-bowling-trends</a><span>Bowling Trends Report download</span></li></ul></td>
+<td class="num"><b>2</b></td>
+<td class="dt">2026-07-10<span class="ago">55d ago</span></td>
+<td class="num">34</td>
+<td><span class="pill warm">Slowing</span></td>
+<td class="num">5.88%</td>
+</tr><tr data-band="dead" data-n="1">
+<td class="nm"><b>2025 - School vacation optimization guide</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/faee02b8-dbc3-493d-b042-e85ee5a7a02f/edit/form" target="_blank">faee02b8-dbc3-493d-b042-e85ee5a7a02f</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/school-vacation-optimization-guide" target="_blank">/school-vacation-optimization-guide</a><span>School vacation guide download</span></li></ul></td>
+<td class="num"><b>1</b></td>
+<td class="dt">2025-03-31<span class="ago">521d ago</span></td>
+<td class="num">28</td>
+<td><span class="pill dead">Dormant</span></td>
+<td class="num">3.57%</td>
+</tr><tr data-band="cold" data-n="1">
+<td class="nm"><b>2025 - Water park trends report</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/28a500f2-3d72-45f2-9b6d-10d3f87270b4/edit/form" target="_blank">28a500f2-3d72-45f2-9b6d-10d3f87270b4</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/2025-water-park-trends-report" target="_blank">/2025-water-park-trends-report</a><span>Water Park Trends Report download</span></li></ul></td>
+<td class="num"><b>1</b></td>
+<td class="dt">2025-10-07<span class="ago">331d ago</span></td>
+<td class="num">21</td>
+<td><span class="pill cold">Stale</span></td>
+<td class="num">4.76%</td>
+</tr><tr data-band="fresh" data-n="1">
+<td class="nm"><b>French version get started</b><a class="gid" href="https://app.hubspot.com/forms/3375779/editor/bd568951-5b7d-4042-8742-a934edbb0622/edit/form" target="_blank">bd568951-5b7d-4042-8742-a934edbb0622</a></td>
+<td class="pgs"><span class="cnt">1 page</span><ul><li><a href="https://www.roller.software/fr/commencer" target="_blank">/fr/commencer</a><span>FR demo request (Commencer)</span></li></ul></td>
+<td class="num"><b>1</b></td>
+<td class="dt">2026-08-25<span class="ago">9d ago</span></td>
+<td class="num">652</td>
+<td><span class="pill fresh">Active</span></td>
+<td class="num">0.15%</td>
+</tr></tbody></table>
+
+<footer>
+No literal &lt;form&gt; tags exist in the served HTML — every form on roller.software is injected by JavaScript. Detection covered three mechanisms: the standard module options block, inline <code>hbspt.forms.create()</code> calls, and direct POSTs to <code>api.hsforms.com/submissions/v3</code>. Each embed's target div was located to determine whether it sits inside the site footer (<code>&lt;footer id="js-footer"&gt;</code>) or the page body; the footer subscribe form is excluded site-wide except where it is separately embedded in the body. Submissions, views and dates are per form and lifetime-to-date, so for a form on several pages they cover all of them together. Your HubSpot export lists 134 forms in total; the 24 here are the ones actually placed on a non-blog page.
+</footer></div>
+<script>
+const tb=document.querySelector('#t tbody');
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ const f=b.dataset.f;
+ tb.querySelectorAll('tr').forEach(r=>{
+   const ok=f==='all'||(f==='shared'?+r.dataset.n>1:r.dataset.band===f);
+   r.style.display=ok?'':'none';});});
+document.querySelectorAll('#t th').forEach((th,i)=>{let asc=false;th.onclick=()=>{asc=!asc;
+ const rs=[...tb.querySelectorAll('tr')];
+ rs.sort((a,b)=>{let x=a.cells[i].innerText.trim(),y=b.cells[i].innerText.trim();
+  if(th.dataset.t==='n'){x=parseFloat(x.replace(/[^0-9.]/g,''))||0;y=parseFloat(y.replace(/[^0-9.]/g,''))||0;return asc?x-y:y-x;}
+  return asc?x.localeCompare(y):y.localeCompare(x);});
+ rs.forEach(r=>tb.appendChild(r));};});
+</script></body></html>

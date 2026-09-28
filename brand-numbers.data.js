@@ -1,9 +1,9 @@
 window.BRAND_NUMBERS = {
- "scrapeDate": "August 2026",
- "pagesAudited": 255,
- "pagesLiveChecked": 255,
- "pagesWithNumbers": 108,
- "instanceCount": 170,
+ "scrapeDate": "28 September 2026",
+ "pagesAudited": 161,
+ "pagesLiveChecked": 161,
+ "pagesWithNumbers": 111,
+ "instanceCount": 248,
  "statusMeta": {
   "ok": {
    "label": "On brand",
@@ -37,9 +37,9 @@ window.BRAND_NUMBERS = {
   "unverified"
  ],
  "statusCounts": {
-  "ok": 110,
-  "context": 13,
-  "unverified": 47,
+  "ok": 186,
+  "context": 24,
+  "unverified": 38,
   "review": 0,
   "drift": 0
  },
@@ -56,8 +56,8 @@ window.BRAND_NUMBERS = {
    "owner": "Brand / Marketing",
    "controlled": "Logo-Set module default + per-page Heading-Composition copy",
    "blurb": "The venue count. Appears more often than any other brand number and is the one most likely to be quoted back at us.",
-   "instances": 100,
-   "onBrand": 100,
+   "instances": 139,
+   "onBrand": 139,
    "offBrand": 0,
    "retiredFound": []
   },
@@ -73,8 +73,8 @@ window.BRAND_NUMBERS = {
    "owner": "Finance / Brand",
    "controlled": "Stats-Set and Stats-Set-Stacked module fields",
    "blurb": "The headline money figure. Live site copy now uses “transactions processed” (formerly “guest revenue processed”). Year-in-Review pages may still carry frozen annual numbers on purpose.",
-   "instances": 10,
-   "onBrand": 10,
+   "instances": 47,
+   "onBrand": 47,
    "offBrand": 0,
    "retiredFound": []
   }
@@ -88,7 +88,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "195231364891",
    "updateWhere": "HubSpot Design Manager → module default heading",
    "updateEffort": "one",
-   "updateNote": "One edit in the module default changes the heading on all 89 pages at once. This is the single highest-leverage field on the site.",
+   "updateNote": "One edit in the module default changes the heading on all 90 pages at once. This is the single highest-leverage field on the site.",
    "rebuild": "Becomes one Customer logo carousel component; heading moves to a Sanity global.",
    "figma": [
     {
@@ -104,9 +104,9 @@ window.BRAND_NUMBERS = {
      "alt": "Customer logo carousel – dark background"
     }
    ],
-   "pageCount": 89,
+   "pageCount": 90,
    "statusCounts": {
-    "ok": 89,
+    "ok": 90,
     "context": 0,
     "unverified": 0,
     "review": 0,
@@ -114,6 +114,21 @@ window.BRAND_NUMBERS = {
    },
    "attention": 0,
    "pages": [
+    {
+     "title": "Adventure Parks",
+     "href": "https://www.roller.software/industries/adventure-parks-software",
+     "display": "roller.software/industries/adventure-parks-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
     {
      "title": "AI for Attractions",
      "href": "https://www.roller.software/features/ai-for-attractions",
@@ -130,24 +145,9 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "API Integrations",
-     "href": "https://www.roller.software/features/api-integrations",
-     "display": "roller.software/features/api-integrations",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "Adventure Parks",
-     "href": "https://www.roller.software/industries/adventure-parks-software",
-     "display": "roller.software/industries/adventure-parks-software",
+     "title": "All-in-One Venue Management Software for Attractions",
+     "href": "https://www.roller.software",
+     "display": "roller.software",
      "numbers": [
       {
        "kind": "venue",
@@ -220,9 +220,9 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "Axe Throwing",
-     "href": "https://www.roller.software/industries/axe-throwing-software",
-     "display": "roller.software/industries/axe-throwing-software",
+     "title": "API Integrations",
+     "href": "https://www.roller.software/features/api-integrations",
+     "display": "roller.software/features/api-integrations",
      "numbers": [
       {
        "kind": "venue",
@@ -235,13 +235,13 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "BookNow Software",
-     "href": "https://www.roller.software/competitor/booknow-software",
-     "display": "roller.software/competitor/booknow-software",
+     "title": "Axe Throwing",
+     "href": "https://www.roller.software/industries/axe-throwing-software",
+     "display": "roller.software/industries/axe-throwing-software",
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000+",
+       "value": "Trusted by over 3,000 venues worldwide",
        "status": "ok",
        "reason": "Matches 3,000+",
        "action": ""
@@ -265,9 +265,9 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "Bowling",
-     "href": "https://www.roller.software/industries/bowling-alley-management-software",
-     "display": "roller.software/industries/bowling-alley-management-software",
+     "title": "BookNow Software",
+     "href": "https://www.roller.software/competitor/booknow-software",
+     "display": "roller.software/competitor/booknow-software",
      "numbers": [
       {
        "kind": "venue",
@@ -280,9 +280,9 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "CRM Experience",
-     "href": "https://www.roller.software/features/crm-experience",
-     "display": "roller.software/features/crm-experience",
+     "title": "Bowling",
+     "href": "https://www.roller.software/industries/bowling-alley-management-software",
+     "display": "roller.software/industries/bowling-alley-management-software",
      "numbers": [
       {
        "kind": "venue",
@@ -385,6 +385,21 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
+     "title": "CRM Experience",
+     "href": "https://www.roller.software/features/crm-experience",
+     "display": "roller.software/features/crm-experience",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
      "title": "Digital Waivers",
      "href": "https://www.roller.software/features/digital-waiver-software",
      "display": "roller.software/features/digital-waiver-software",
@@ -430,36 +445,6 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "FEC POS",
-     "href": "https://www.roller.software/industries/family-entertainment-center-software/pos-system",
-     "display": "roller.software/…/fec/pos-system",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "FEC Ticketing",
-     "href": "https://www.roller.software/industries/family-entertainment-center-software/ticketing-system",
-     "display": "roller.software/…/fec/ticketing-system",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "Family Entertainment Centers",
      "href": "https://www.roller.software/industries/family-entertainment-center-software",
      "display": "roller.software/industries/family-entertainment-center-software",
@@ -478,6 +463,36 @@ window.BRAND_NUMBERS = {
      "title": "FareHarbor",
      "href": "https://www.roller.software/competitor/fareharbor",
      "display": "roller.software/competitor/fareharbor",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "FEC POS",
+     "href": "https://www.roller.software/industries/family-entertainment-center-software/pos-system",
+     "display": "roller.software/industries/family-entertainment-center-software/pos-system",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "FEC Ticketing",
+     "href": "https://www.roller.software/industries/family-entertainment-center-software/ticketing-system",
+     "display": "roller.software/industries/family-entertainment-center-software/ticketing-system",
      "numbers": [
       {
        "kind": "venue",
@@ -820,21 +835,6 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "POS Reports",
-     "href": "https://www.roller.software/features/point-of-sale-reports",
-     "display": "roller.software/features/point-of-sale-reports",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "Packages",
      "href": "https://www.roller.software/features/packages",
      "display": "roller.software/features/packages",
@@ -897,7 +897,7 @@ window.BRAND_NUMBERS = {
     {
      "title": "Playcenter Online Ticketing",
      "href": "https://www.roller.software/industries/playcenter-software/online-ticketing-system",
-     "display": "roller.software/…/playcenter/online-ticketing",
+     "display": "roller.software/industries/playcenter-software/online-ticketing-system",
      "numbers": [
       {
        "kind": "venue",
@@ -912,7 +912,7 @@ window.BRAND_NUMBERS = {
     {
      "title": "Playcenter POS",
      "href": "https://www.roller.software/industries/playground-software/play-center-point-of-sale-system",
-     "display": "roller.software/…/playground/play-center-pos",
+     "display": "roller.software/industries/playground-software/play-center-point-of-sale-system",
      "numbers": [
       {
        "kind": "venue",
@@ -955,13 +955,28 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
+     "title": "POS Reports",
+     "href": "https://www.roller.software/features/point-of-sale-reports",
+     "display": "roller.software/features/point-of-sale-reports",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
      "title": "Pricing",
      "href": "https://www.roller.software/pricing",
      "display": "roller.software/pricing",
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000",
+       "value": "Trusted by over 3,000 venues worldwide",
        "status": "ok",
        "reason": "Matches 3,000+",
        "action": ""
@@ -1000,84 +1015,24 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "RFID",
-     "href": "https://www.roller.software/products/rfid",
-     "display": "roller.software/products/rfid",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "ROLLER Capital",
-     "href": "https://www.roller.software/features/capital",
-     "display": "roller.software/features/capital",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "ROLLER Payments",
-     "href": "https://www.roller.software/features/payment-processing-software",
-     "display": "roller.software/features/payment-processing-software",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "ROLLER and Centeredge",
-     "href": "https://www.roller.software/centeredge-software-alternative",
-     "display": "roller.software/centeredge-software-alternative",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "ROLLER iQ",
-     "href": "https://www.roller.software/features/ai-assistant",
-     "display": "roller.software/features/ai-assistant",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "RaceFacer",
      "href": "https://www.roller.software/competitor/racefacer",
      "display": "roller.software/competitor/racefacer",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "RFID",
+     "href": "https://www.roller.software/products/rfid",
+     "display": "roller.software/products/rfid",
      "numbers": [
       {
        "kind": "venue",
@@ -1123,6 +1078,66 @@ window.BRAND_NUMBERS = {
      "title": "RocketRez",
      "href": "https://www.roller.software/competitor/rocketrez",
      "display": "roller.software/competitor/rocketrez",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER and Centeredge",
+     "href": "https://www.roller.software/centeredge-software-alternative",
+     "display": "roller.software/centeredge-software-alternative",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER Capital",
+     "href": "https://www.roller.software/features/capital",
+     "display": "roller.software/features/capital",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER iQ",
+     "href": "https://www.roller.software/features/ai-assistant",
+     "display": "roller.software/features/ai-assistant",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER Payments",
+     "href": "https://www.roller.software/features/payment-processing-software",
+     "display": "roller.software/features/payment-processing-software",
      "numbers": [
       {
        "kind": "venue",
@@ -1270,21 +1285,6 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "Trampoline POS",
-     "href": "https://www.roller.software/industries/trampoline-parks-software/pos",
-     "display": "roller.software/…/trampoline-parks-software/pos",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "Trampoline Parks",
      "href": "https://www.roller.software/industries/trampoline-parks-software",
      "display": "roller.software/industries/trampoline-parks-software",
@@ -1300,9 +1300,24 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
+     "title": "Trampoline POS",
+     "href": "https://www.roller.software/industries/trampoline-parks-software/pos",
+     "display": "roller.software/industries/trampoline-parks-software/pos",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by over 3,000 venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
      "title": "Trampoline Ticketing",
      "href": "https://www.roller.software/industries/trampoline-parks-software/ticketing-software",
-     "display": "roller.software/…/trampoline-parks/ticketing",
+     "display": "roller.software/industries/trampoline-parks-software/ticketing-software",
      "numbers": [
       {
        "kind": "venue",
@@ -1362,7 +1377,7 @@ window.BRAND_NUMBERS = {
     {
      "title": "Wake & Aqua Parks",
      "href": "https://www.roller.software/industries/wake-and-aqua-parks-management-software",
-     "display": "roller.software/…/wake-and-aqua-parks",
+     "display": "roller.software/industries/wake-and-aqua-parks-management-software",
      "numbers": [
       {
        "kind": "venue",
@@ -1377,7 +1392,7 @@ window.BRAND_NUMBERS = {
     {
      "title": "Wake Park Ticketing",
      "href": "https://www.roller.software/industries/wake-parks-management-software/ticketing-system",
-     "display": "roller.software/…/wake-parks/ticketing-system",
+     "display": "roller.software/industries/wake-parks-management-software/ticketing-system",
      "numbers": [
       {
        "kind": "venue",
@@ -1459,7 +1474,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "118787874184",
    "updateWhere": "HubSpot page editor, one page at a time",
    "updateEffort": "each",
-   "updateNote": "Every instance is hand-written page copy. There is no shared default — each of the 24 pages has to be opened and edited individually.",
+   "updateNote": "Every instance is hand-written page copy. There is no shared default — each of the 20 pages has to be opened and edited individually.",
    "rebuild": "Becomes the Text block heading composition; numbers stay as page copy.",
    "figma": [
     {
@@ -1475,28 +1490,21 @@ window.BRAND_NUMBERS = {
      "alt": "Heading composition – mobile"
     }
    ],
-   "pageCount": 24,
+   "pageCount": 20,
    "statusCounts": {
-    "ok": 10,
+    "ok": 8,
     "context": 13,
-    "unverified": 3,
+    "unverified": 0,
     "review": 0,
     "drift": 0
    },
-   "attention": 3,
+   "attention": 0,
    "pages": [
     {
      "title": "2024 Year in Review",
      "href": "https://www.roller.software/2023-rollup",
      "display": "roller.software/2023-rollup",
      "numbers": [
-      {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
-      },
       {
        "kind": "context",
        "value": "700,000",
@@ -1505,37 +1513,22 @@ window.BRAND_NUMBERS = {
        "action": "An event, customer or page-level number. Not a brand number."
       }
      ],
-     "status": "unverified"
+     "status": "context"
     },
     {
-     "title": "2025 Year in Review",
-     "href": "https://www.roller.software/2024-rollup",
-     "display": "roller.software/2024-rollup",
+     "title": "All-in-One Venue Management Software for Attractions",
+     "href": "https://www.roller.software",
+     "display": "roller.software",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "venue",
+       "value": "The platform powering 3,000+ thriving attractions",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
       }
      ],
-     "status": "unverified"
-    },
-    {
-     "title": "2026 Year in Review",
-     "href": "https://www.roller.software/2025-roll-up-year-in-review",
-     "display": "roller.software/2025-roll-up-year-in-review",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
-      }
-     ],
-     "status": "unverified"
+     "status": "ok"
     },
     {
      "title": "Amusement Expo 2026",
@@ -1574,7 +1567,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000+",
+       "value": "The platform powering 3,000+ thriving attractions",
        "status": "ok",
        "reason": "Matches 3,000+",
        "action": ""
@@ -1604,7 +1597,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000+ venues",
+       "value": "Helping a community of 3,000+ venues thrive",
        "status": "ok",
        "reason": "Matches 3,000+",
        "action": ""
@@ -1615,7 +1608,7 @@ window.BRAND_NUMBERS = {
     {
      "title": "FEC Ticketing",
      "href": "https://www.roller.software/industries/family-entertainment-center-software/ticketing-system",
-     "display": "roller.software/…/fec/ticketing-system",
+     "display": "roller.software/industries/family-entertainment-center-software/ticketing-system",
      "numbers": [
       {
        "kind": "context",
@@ -1667,7 +1660,7 @@ window.BRAND_NUMBERS = {
     {
      "title": "Implementation Services",
      "href": "https://www.roller.software/professional-services/implementation",
-     "display": "roller.software/…/implementation",
+     "display": "roller.software/professional-services/implementation",
      "numbers": [
       {
        "kind": "context",
@@ -1697,7 +1690,22 @@ window.BRAND_NUMBERS = {
     {
      "title": "Laser Tag",
      "href": "https://www.roller.software/industries/laser-tag-software",
-     "display": "roller.software/…/laser-tag-software",
+     "display": "roller.software/industries/laser-tag-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by 3,000+ attractions worldwide",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Loyalty matters",
+     "href": "https://www.roller.software/loyalty-matters",
+     "display": "roller.software/loyalty-matters",
      "numbers": [
       {
        "kind": "venue",
@@ -1731,7 +1739,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000",
+       "value": "We partner with over 3,000 attractions venues",
        "status": "ok",
        "reason": "Matches 3,000+",
        "action": ""
@@ -1770,24 +1778,9 @@ window.BRAND_NUMBERS = {
      "status": "context"
     },
     {
-     "title": "ROLLER Payments",
-     "href": "https://www.roller.software/features/payment-processing-software",
-     "display": "roller.software/…/payment-processing-software",
-     "numbers": [
-      {
-       "kind": "revenue",
-       "value": "$5B transactions processed",
-       "status": "ok",
-       "reason": "Matches $5B",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "Roller Skating Trends 2026",
      "href": "https://www.roller.software/2025-roller-skating-trends-report",
-     "display": "roller.software/…/roller-skating-trends-report",
+     "display": "roller.software/2025-roller-skating-trends-report",
      "numbers": [
       {
        "kind": "context",
@@ -1798,51 +1791,6 @@ window.BRAND_NUMBERS = {
       }
      ],
      "status": "context"
-    },
-    {
-     "title": "Trampoline POS",
-     "href": "https://www.roller.software/industries/trampoline-parks-software/pos",
-     "display": "roller.software/…/trampoline-parks-software/pos",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "3,000+",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "Trampoline Ticketing",
-     "href": "https://www.roller.software/industries/trampoline-parks-software/ticketing-software",
-     "display": "roller.software/…/trampoline-parks-software/ticketing",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "3,000+",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "Wake & Aqua Parks",
-     "href": "https://www.roller.software/industries/wake-and-aqua-parks-management-software",
-     "display": "roller.software/…/wake-and-aqua-parks",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "3,000+",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
     },
     {
      "title": "Water Park Trends 2026",
@@ -1885,15 +1833,15 @@ window.BRAND_NUMBERS = {
      "alt": "User review widget badge strip"
     }
    ],
-   "pageCount": 34,
+   "pageCount": 38,
    "statusCounts": {
     "ok": 0,
     "context": 0,
-    "unverified": 34,
+    "unverified": 38,
     "review": 0,
     "drift": 0
    },
-   "attention": 34,
+   "attention": 38,
    "pages": [
     {
      "title": "Adventure Parks",
@@ -1911,9 +1859,69 @@ window.BRAND_NUMBERS = {
      "status": "unverified"
     },
     {
+     "title": "All-in-One Venue Management Software for Attractions",
+     "href": "https://www.roller.software",
+     "display": "roller.software",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
+     "title": "All-in-One Venue Management Software for Attractions",
+     "href": "https://www.roller.software/competitor/booknow-software",
+     "display": "roller.software/competitor/booknow-software",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
      "title": "Amusement & Theme Parks",
      "href": "https://www.roller.software/industries/amusement-and-theme-parks-software",
      "display": "roller.software/industries/amusement-and-theme-parks-software",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
+     "title": "Aqua Park Management Software | Booking, POS & Waivers",
+     "href": "https://www.roller.software/industries/wake-and-aqua-parks-management-software",
+     "display": "roller.software/industries/wake-and-aqua-parks-management-software",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
+     "title": "Attractions Management Software | Streamline Operations and Maximize Revenue",
+     "href": "https://www.roller.software/solutions/grow-your-business",
+     "display": "roller.software/solutions/grow-your-business",
      "numbers": [
       {
        "kind": "note",
@@ -2091,6 +2099,21 @@ window.BRAND_NUMBERS = {
      "status": "unverified"
     },
     {
+     "title": "Indoor Playground & Soft Play Center Software | POS & Booking System",
+     "href": "https://www.roller.software/industries/playground-software",
+     "display": "roller.software/industries/playground-software",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
      "title": "Laser Tag",
      "href": "https://www.roller.software/industries/laser-tag-software",
      "display": "roller.software/industries/laser-tag-software",
@@ -2211,54 +2234,9 @@ window.BRAND_NUMBERS = {
      "status": "unverified"
     },
     {
-     "title": "Pricing Strategy",
-     "href": "https://www.roller.software/features/pricing-strategy",
-     "display": "roller.software/features/pricing-strategy",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "review scores",
-       "status": "unverified",
-       "reason": "Third-party figures",
-       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
-      }
-     ],
-     "status": "unverified"
-    },
-    {
-     "title": "Printer Management",
-     "href": "https://www.roller.software/features/printer-management",
-     "display": "roller.software/features/printer-management",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "review scores",
-       "status": "unverified",
-       "reason": "Third-party figures",
-       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
-      }
-     ],
-     "status": "unverified"
-    },
-    {
-     "title": "RFID",
-     "href": "https://www.roller.software/products/rfid",
-     "display": "roller.software/products/rfid",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "review scores",
-       "status": "unverified",
-       "reason": "Third-party figures",
-       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
-      }
-     ],
-     "status": "unverified"
-    },
-    {
-     "title": "ROLLER Capital",
-     "href": "https://www.roller.software/features/capital",
-     "display": "roller.software/features/capital",
+     "title": "Professional Services",
+     "href": "https://www.roller.software/professional-services",
+     "display": "roller.software/professional-services",
      "numbers": [
       {
        "kind": "note",
@@ -2301,6 +2279,51 @@ window.BRAND_NUMBERS = {
      "status": "unverified"
     },
     {
+     "title": "ROLLER Software Features | POS, Ticketing & Venue Management Tools",
+     "href": "https://www.roller.software/features",
+     "display": "roller.software/features",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
+     "title": "ROLLER vs CenterEdge: Features, Pros, Pricing",
+     "href": "https://www.roller.software/centeredge-software-alternative",
+     "display": "roller.software/centeredge-software-alternative",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
+     "title": "ROLLER vs Rock Gym Pro: Features, Pros, Pricing",
+     "href": "https://www.roller.software/competitor/rock-gym-pro",
+     "display": "roller.software/competitor/rock-gym-pro",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
      "title": "Self-Serve Kiosks",
      "href": "https://www.roller.software/features/self-service-ticketing-kiosk",
      "display": "roller.software/features/self-service-ticketing-kiosk",
@@ -2316,39 +2339,9 @@ window.BRAND_NUMBERS = {
      "status": "unverified"
     },
     {
-     "title": "Staff Permissions",
-     "href": "https://www.roller.software/features/staff-permissions",
-     "display": "roller.software/features/staff-permissions",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "review scores",
-       "status": "unverified",
-       "reason": "Third-party figures",
-       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
-      }
-     ],
-     "status": "unverified"
-    },
-    {
-     "title": "Stock & Inventory",
-     "href": "https://www.roller.software/features/stock-and-inventory-control",
-     "display": "roller.software/features/stock-and-inventory-control",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "review scores",
-       "status": "unverified",
-       "reason": "Third-party figures",
-       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
-      }
-     ],
-     "status": "unverified"
-    },
-    {
-     "title": "Trampoline POS",
-     "href": "https://www.roller.software/industries/trampoline-parks-software/pos",
-     "display": "roller.software/…/trampoline-parks-software/pos",
+     "title": "The Future of Multi-Venue Management",
+     "href": "https://www.roller.software/solutions/multi-venue",
+     "display": "roller.software/solutions/multi-venue",
      "numbers": [
       {
        "kind": "note",
@@ -2391,6 +2384,21 @@ window.BRAND_NUMBERS = {
      "status": "unverified"
     },
     {
+     "title": "Water Park Management Software | Ticketing, POS & Capacity Control",
+     "href": "https://www.roller.software/industries/water-parks-management-software",
+     "display": "roller.software/industries/water-parks-management-software",
+     "numbers": [
+      {
+       "kind": "note",
+       "value": "review scores",
+       "status": "unverified",
+       "reason": "Third-party figures",
+       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
+      }
+     ],
+     "status": "unverified"
+    },
+    {
      "title": "Zoos & Aquariums",
      "href": "https://www.roller.software/industries/zoos-management-software",
      "display": "roller.software/industries/zoos-management-software",
@@ -2414,8 +2422,8 @@ window.BRAND_NUMBERS = {
    "module": "stats-set.module",
    "moduleId": "138558821728",
    "updateWhere": "HubSpot module fields per page",
-   "updateEffort": "each",
-   "updateNote": "Currently a per-page edit. In the rebuild this becomes a Sanity singleton, so one update will propagate everywhere.",
+   "updateEffort": "mixed",
+   "updateNote": "41 pages share the company-stats block: 3,000 customers and $5B transactions processed annually. The other Stats-Set modules are edited per page and currently carry operational or page-level figures.",
    "rebuild": "Sanity singleton — one set of values, used by every page.",
    "figma": [
     {
@@ -2431,15 +2439,15 @@ window.BRAND_NUMBERS = {
      "alt": "Company stats widget – mobile"
     }
    ],
-   "pageCount": 14,
+   "pageCount": 53,
    "statusCounts": {
-    "ok": 7,
-    "context": 0,
-    "unverified": 7,
+    "ok": 83,
+    "context": 11,
+    "unverified": 0,
     "review": 0,
     "drift": 0
    },
-   "attention": 7,
+   "attention": 0,
    "pages": [
     {
      "title": "2024 Year in Review",
@@ -2447,14 +2455,14 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/2023-rollup",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "context",
+       "value": "Year-in-review figures: $2m · 92% · $25k · 576%",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
       }
      ],
-     "status": "unverified"
+     "status": "context"
     },
     {
      "title": "2025 Year in Review",
@@ -2462,14 +2470,14 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/2024-rollup",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "context",
+       "value": "Year-in-review figures: $1M+ · 5x · $60,000 · 50%",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
       }
      ],
-     "status": "unverified"
+     "status": "context"
     },
     {
      "title": "2026 Year in Review",
@@ -2477,23 +2485,140 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/2025-roll-up-year-in-review",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "context",
+       "value": "Year-in-review figures: $2M Increase in revenue this year · 2x Increase in weekly sales · 72 Venues centralized under one platform · £27,000 In bookings within 3 days of launch",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
       }
      ],
-     "status": "unverified"
+     "status": "context"
     },
     {
-     "title": "Area 51",
-     "href": "https://www.roller.software/customers/stories/area-51",
-     "display": "roller.software/customers/stories/area-51",
+     "title": "All-in-One Venue Management Software for Attractions",
+     "href": "https://www.roller.software",
+     "display": "roller.software",
      "numbers": [
       {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "All-in-One Venue Management Software for Attractions",
+     "href": "https://www.roller.software/competitor/booknow-software",
+     "display": "roller.software/competitor/booknow-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Alvarado Integration Partner | Guest Experience Platform",
+     "href": "https://www.roller.software/partners/alvarado",
+     "display": "roller.software/partners/alvarado",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Amusement Connect Integration Partner - Enhance Your Arcade Management",
+     "href": "https://www.roller.software/partners/amusement-connect",
+     "display": "roller.software/partners/amusement-connect",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Attractions CRM Software | Personalize Marketing & Drive Loyalty",
+     "href": "https://www.roller.software/features/crm-experience",
+     "display": "roller.software/features/crm-experience",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Boost Revenue with Curated Product Bundles",
+     "href": "https://www.roller.software/features/packages",
+     "display": "roller.software/features/packages",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
@@ -2508,7 +2633,117 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "revenue",
-       "value": "$5B",
+       "value": "$5B transaction processed in the last 12 months",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Campaign Monitor Integration Partner | Guest Experience Platform",
+     "href": "https://www.roller.software/partners/campaign-monitor",
+     "display": "roller.software/partners/campaign-monitor",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Capacity Management Software | Control Guest Numbers in Real Time",
+     "href": "https://www.roller.software/features/capacity-management",
+     "display": "roller.software/features/capacity-management",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Cashless Payment System | RFID Wristbands & Digital Wallets",
+     "href": "https://www.roller.software/features/cashless-wallets",
+     "display": "roller.software/features/cashless-wallets",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Channel Management Software | Distribute & Sell More Attraction Tickets",
+     "href": "https://www.roller.software/features/channel-management",
+     "display": "roller.software/features/channel-management",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Digital Waiver Software | Contactless, Fast & Compliant",
+     "href": "https://www.roller.software/features/digital-waiver-software",
+     "display": "roller.software/features/digital-waiver-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
@@ -2522,8 +2757,30 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/solutions/enterprise",
      "numbers": [
       {
+       "kind": "context",
+       "value": "99.99% platform uptime. · 35% decrease in additional location set-up time with HQ. · 50% increase in basket size. · 70% reduction in booking management time.",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
+      }
+     ],
+     "status": "context"
+    },
+    {
+     "title": "Fresh KDS Integration Partner - Streamline Food & Beverage Operations",
+     "href": "https://www.roller.software/partners/fresh-kds",
+     "display": "roller.software/partners/fresh-kds",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed annually",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
@@ -2537,29 +2794,374 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/get-started",
      "numbers": [
       {
+       "kind": "context",
+       "value": "1.5x larger Basket size · 50% Reduction in admin time · 27% higher Guest experience · -40% Admin labour costs",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
+      }
+     ],
+     "status": "context"
+    },
+    {
+     "title": "Gift Card Software | Sell & Manage Digital Cards for Attractions",
+     "href": "https://www.roller.software/features/giftcard",
+     "display": "roller.software/features/giftcard",
+     "numbers": [
+      {
        "kind": "venue",
-       "value": "3,000+",
+       "value": "3,000 customers",
        "status": "ok",
        "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
        "action": ""
       }
      ],
      "status": "ok"
     },
     {
-     "title": "Integration Partner Program",
-     "href": "https://www.roller.software/partners/integration",
-     "display": "roller.software/partners/integration",
+     "title": "Groupon Integration Partner",
+     "href": "https://www.roller.software/partners/groupon",
+     "display": "roller.software/partners/groupon",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
       }
      ],
-     "status": "unverified"
+     "status": "ok"
+    },
+    {
+     "title": "Guest Tab Software | Keep Tabs Open, Boost Guest Spending",
+     "href": "https://www.roller.software/features/guest-tabs",
+     "display": "roller.software/features/guest-tabs",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Intercard Integration Partner",
+     "href": "https://www.roller.software/partners/intercard",
+     "display": "roller.software/partners/intercard",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Inventory Control Software | Track Stock in Real Time with ROLLER",
+     "href": "https://www.roller.software/features/stock-and-inventory-control",
+     "display": "roller.software/features/stock-and-inventory-control",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Logiciel tout-en-un de gestion pour sites de loisirs",
+     "href": "https://www.roller.software/fr/commencer",
+     "display": "roller.software/fr/commencer",
+     "numbers": [
+      {
+       "kind": "context",
+       "value": "+ 50 % de panier moyen · – 50 % de temps administratif · + 27 % de satisfaction visiteurs · – 40 % de coûts liés aux tâches administratives · 300 collaborate…",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
+      }
+     ],
+     "status": "context"
+    },
+    {
+     "title": "Loyalty matters",
+     "href": "https://www.roller.software/loyalty-matters",
+     "display": "roller.software/loyalty-matters",
+     "numbers": [
+      {
+       "kind": "context",
+       "value": "1.5x larger Basket size · 50% Reduction in admin time · 27% higher Guest experience · -40% Admin labour costs",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
+      }
+     ],
+     "status": "context"
+    },
+    {
+     "title": "Membership Management Software for Attractions Venues",
+     "href": "https://www.roller.software/features/membership-management-software",
+     "display": "roller.software/features/membership-management-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Mobile Check-In App | Faster Entry & Waiver Management",
+     "href": "https://www.roller.software/features/mobile-check-in",
+     "display": "roller.software/features/mobile-check-in",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Mobile F&B Ordering System | Self-Service Food & Drink for Attractions",
+     "href": "https://www.roller.software/features/mobile-food-and-beverage-ordering",
+     "display": "roller.software/features/mobile-food-and-beverage-ordering",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Multi-Venue Management Software | Centralized Control for All Locations",
+     "href": "https://www.roller.software/features/multi-venue-management",
+     "display": "roller.software/features/multi-venue-management",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Online Ticketing System for Attractions | Sell More, Reduce Queues",
+     "href": "https://www.roller.software/features/online-ticket-system",
+     "display": "roller.software/features/online-ticket-system",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Party Booking Software | Online Reservations, Payments & Packages",
+     "href": "https://www.roller.software/features/party-booking-software",
+     "display": "roller.software/features/party-booking-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Payment Processing Software for Venues",
+     "href": "https://www.roller.software/features/payment-processing-software",
+     "display": "roller.software/features/payment-processing-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Playcenter POS System | Fast, Integrated Sales for Indoor Playgrounds",
+     "href": "https://www.roller.software/industries/playground-software/play-center-point-of-sale-system",
+     "display": "roller.software/industries/playground-software/play-center-point-of-sale-system",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "POS Reporting Software | Real-Time Sales Insights & Dashboards",
+     "href": "https://www.roller.software/features/point-of-sale-reports",
+     "display": "roller.software/features/point-of-sale-reports",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "POS System for Attractions | Fast, Integrated Ticketing & Sales",
+     "href": "https://www.roller.software/features/pos",
+     "display": "roller.software/features/pos",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
     },
     {
      "title": "Pricing",
@@ -2567,10 +3169,120 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/pricing",
      "numbers": [
       {
+       "kind": "context",
+       "value": "1.5x larger Basket size · 50% Reduction in admin time · 27% higher Guest experience · -40% Admin labour costs",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
+      }
+     ],
+     "status": "context"
+    },
+    {
+     "title": "Pricing Strategy Software for Attractions",
+     "href": "https://www.roller.software/features/pricing-strategy",
+     "display": "roller.software/features/pricing-strategy",
+     "numbers": [
+      {
        "kind": "venue",
-       "value": "3,000+",
+       "value": "3,000 customers",
        "status": "ok",
        "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Printer Management Software | Reliable Printing for POS & Orders",
+     "href": "https://www.roller.software/features/printer-management",
+     "display": "roller.software/features/printer-management",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER API & Integrations | Connect Your Apps & Custom Workflows",
+     "href": "https://www.roller.software/features/api-integrations",
+     "display": "roller.software/features/api-integrations",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER iQ: Your new AI-powered assistant, built specifically for attractions.",
+     "href": "https://www.roller.software/features/ai-assistant",
+     "display": "roller.software/features/ai-assistant",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER Software Features | POS, Ticketing & Venue Management Tools",
+     "href": "https://www.roller.software/features",
+     "display": "roller.software/features",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
        "action": ""
       }
      ],
@@ -2582,29 +3294,14 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/solutions/multi-venue",
      "numbers": [
       {
-       "kind": "revenue",
-       "value": "$5B transactions processed",
-       "status": "ok",
-       "reason": "Matches $5B",
-       "action": ""
+       "kind": "context",
+       "value": "99.99% platform uptime. · 35% decrease in additional location set-up time with HQ. · 50% increase in basket size. · 70% reduction in booking times.",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
       }
      ],
-     "status": "ok"
-    },
-    {
-     "title": "Service Partners",
-     "href": "https://www.roller.software/partners/service",
-     "display": "roller.software/partners/service",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
-      }
-     ],
-     "status": "unverified"
+     "status": "context"
     },
     {
      "title": "Solutions SBM",
@@ -2612,8 +3309,30 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/solutions/grow-your-business",
      "numbers": [
       {
+       "kind": "context",
+       "value": "30% reduction in party booking admin. · 30% increase in average online revenue. · 70% reduction in booking management time.",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
+      }
+     ],
+     "status": "context"
+    },
+    {
+     "title": "Staff Permissions Software | Control Access & Roles with ROLLER",
+     "href": "https://www.roller.software/features/staff-permissions",
+     "display": "roller.software/features/staff-permissions",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed annually",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
@@ -2627,29 +3346,190 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/support",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "context",
+       "value": "99.99% App uptime · 95% Customer satisfaction score · 60 seconds Average call response time",
+       "status": "context",
+       "reason": "Page-specific figure",
+       "action": "An event, customer or page-level number. Not a brand number."
       }
      ],
-     "status": "unverified"
+     "status": "context"
     },
     {
-     "title": "Technology Partners",
-     "href": "https://www.roller.software/partners/technology",
-     "display": "roller.software/partners/technology",
+     "title": "Tanda Integration Partner - Streamline staffing with actual sales data",
+     "href": "https://www.roller.software/partners/tanda",
+     "display": "roller.software/partners/tanda",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
       }
      ],
-     "status": "unverified"
+     "status": "ok"
+    },
+    {
+     "title": "Ticketing Kiosk Software | Self-Service Check-In & Ticket Printing",
+     "href": "https://www.roller.software/features/self-service-ticketing-kiosk",
+     "display": "roller.software/features/self-service-ticketing-kiosk",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Trampoline Park POS Software | Fast, Integrated Sales with ROLLER",
+     "href": "https://www.roller.software/industries/trampoline-parks-software/pos",
+     "display": "roller.software/industries/trampoline-parks-software/pos",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Trampoline Park Ticketing Software | Online Booking & Upsells with ROLLER",
+     "href": "https://www.roller.software/industries/trampoline-parks-software/ticketing-software",
+     "display": "roller.software/industries/trampoline-parks-software/ticketing-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Venue Management Software for Attractions & FECs",
+     "href": "https://www.roller.software/venue-management-software",
+     "display": "roller.software/venue-management-software",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Wake Park Ticketing Software | Sell Tickets Online & Manage Capacity",
+     "href": "https://www.roller.software/industries/wake-parks-management-software/ticketing-system",
+     "display": "roller.software/industries/wake-parks-management-software/ticketing-system",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Workforce.com Integration Partner - Streamline staffing with actual sales data",
+     "href": "https://www.roller.software/partners/workforce.com",
+     "display": "roller.software/partners/workforce.com",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Yellow Dog Integration Partner",
+     "href": "https://www.roller.software/partners/yellow-dog",
+     "display": "roller.software/partners/yellow-dog",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "3,000 customers",
+       "status": "ok",
+       "reason": "Matches 3,000+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "$5B transactions processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
     }
    ]
   },
@@ -2661,7 +3541,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "180893604893",
    "updateWhere": "HubSpot module fields per page",
    "updateEffort": "each",
-   "updateNote": "Overlaps with Stats-Set on the three Solutions pages — the same figure appears twice on those pages and both copies have to be changed.",
+   "updateNote": "Five pages show $5B in the stacked layout. The solutions pages no longer repeat that figure in Stats-Set — those rows are operational stats now.",
    "rebuild": "Sanity singleton — shares its values with Stats-Set.",
    "figma": [
     {
@@ -2677,15 +3557,15 @@ window.BRAND_NUMBERS = {
      "alt": "Global stats – mobile"
     }
    ],
-   "pageCount": 7,
+   "pageCount": 5,
    "statusCounts": {
-    "ok": 4,
+    "ok": 5,
     "context": 0,
-    "unverified": 3,
+    "unverified": 0,
     "review": 0,
     "drift": 0
    },
-   "attention": 3,
+   "attention": 0,
    "pages": [
     {
      "title": "Area 51",
@@ -2694,7 +3574,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed in the last 12 months",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
@@ -2709,28 +3589,13 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed in the last 12 months",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
       }
      ],
      "status": "ok"
-    },
-    {
-     "title": "Integration Partner Program",
-     "href": "https://www.roller.software/partners/integration",
-     "display": "roller.software/partners/integration",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
-      }
-     ],
-     "status": "unverified"
     },
     {
      "title": "Segmentation Groups",
@@ -2739,28 +3604,13 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed in the last 12 months",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
       }
      ],
      "status": "ok"
-    },
-    {
-     "title": "Service Partners",
-     "href": "https://www.roller.software/partners/service",
-     "display": "roller.software/partners/service",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
-      }
-     ],
-     "status": "unverified"
     },
     {
      "title": "Solutions SBM",
@@ -2769,7 +3619,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "revenue",
-       "value": "$5B transactions processed",
+       "value": "$5B transactions processed in the last 12 months",
        "status": "ok",
        "reason": "Matches $5B",
        "action": ""
@@ -2778,19 +3628,19 @@ window.BRAND_NUMBERS = {
      "status": "ok"
     },
     {
-     "title": "Technology Partners",
-     "href": "https://www.roller.software/partners/technology",
-     "display": "roller.software/partners/technology",
+     "title": "We Rock the Spectrum | Powered by ROLLER",
+     "href": "https://www.roller.software/customers/stories/we-rock-the-spectrum",
+     "display": "roller.software/customers/stories/we-rock-the-spectrum",
      "numbers": [
       {
-       "kind": "note",
-       "value": "not extracted",
-       "status": "unverified",
-       "reason": "Value not extracted",
-       "action": "The module is on the page but the scrape could not read its fields. Open the page and check the numbers by hand."
+       "kind": "revenue",
+       "value": "$5B transactions processed in the last 12 months",
+       "status": "ok",
+       "reason": "Matches $5B",
+       "action": ""
       }
      ],
-     "status": "unverified"
+     "status": "ok"
     }
    ]
   }
