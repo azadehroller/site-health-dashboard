@@ -1,9 +1,9 @@
 window.BRAND_NUMBERS = {
  "scrapeDate": "28 September 2026",
- "pagesAudited": 161,
- "pagesLiveChecked": 161,
- "pagesWithNumbers": 111,
- "instanceCount": 248,
+ "pagesAudited": 160,
+ "pagesLiveChecked": 160,
+ "pagesWithNumbers": 117,
+ "instanceCount": 256,
  "statusMeta": {
   "ok": {
    "label": "On brand",
@@ -37,9 +37,9 @@ window.BRAND_NUMBERS = {
   "unverified"
  ],
  "statusCounts": {
-  "ok": 186,
+  "ok": 195,
   "context": 24,
-  "unverified": 38,
+  "unverified": 37,
   "review": 0,
   "drift": 0
  },
@@ -47,17 +47,18 @@ window.BRAND_NUMBERS = {
   {
    "id": "venues",
    "label": "Venues worldwide",
-   "value": "3,000+",
-   "canonical": "Trusted by 3,000+ venues worldwide",
+   "value": "3,500+",
+   "canonical": "Trusted by 3,500+ venues worldwide",
    "retired": [
+    "3,000",
     "2,600",
     "2,300"
    ],
    "owner": "Brand / Marketing",
-   "controlled": "Logo-Set module default + per-page Heading-Composition copy",
-   "blurb": "The venue count. Appears more often than any other brand number and is the one most likely to be quoted back at us.",
-   "instances": 139,
-   "onBrand": 139,
+   "controlled": "Logo-Set module default + per-page Heading-Composition copy, including /fr/commencer",
+   "blurb": "The venue count. The current figure is 3,500+. Marketing pages and the five blog posts that cited it now match.",
+   "instances": 149,
+   "onBrand": 149,
    "offBrand": 0,
    "retiredFound": []
   },
@@ -88,7 +89,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "195231364891",
    "updateWhere": "HubSpot Design Manager → module default heading",
    "updateEffort": "one",
-   "updateNote": "One edit in the module default changes the heading on all 90 pages at once. This is the single highest-leverage field on the site.",
+   "updateNote": "One edit in the logo-set-global default changes the heading on the English pages. All 90 logo headings now read a 3,500 figure, including the French heading on /fr/commencer. /competitor/booknow-software redirects to the homepage.",
    "rebuild": "Becomes one Customer logo carousel component; heading moves to a Sanity global.",
    "figma": [
     {
@@ -121,9 +122,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -136,9 +137,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -151,9 +152,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -166,9 +167,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -181,9 +182,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -196,9 +197,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -211,9 +212,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -226,9 +227,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -241,9 +242,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -256,24 +257,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "BookNow Software",
-     "href": "https://www.roller.software/competitor/booknow-software",
-     "display": "roller.software/competitor/booknow-software",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
-       "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -286,9 +272,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -301,9 +287,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -316,9 +302,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -331,9 +317,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -346,9 +332,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -361,9 +347,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -376,9 +362,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -391,9 +377,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -406,9 +392,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -421,9 +407,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -436,9 +422,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -451,9 +437,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -466,9 +452,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -481,9 +467,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -496,9 +482,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -511,9 +497,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -526,9 +512,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -541,9 +527,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -556,9 +542,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -571,9 +557,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -586,9 +572,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -601,9 +587,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -616,9 +602,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -631,9 +617,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -646,9 +632,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -661,9 +647,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -676,9 +662,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -691,9 +677,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -706,9 +692,24 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Logiciel tout-en-un de gestion pour sites de loisirs",
+     "href": "https://www.roller.software/fr/commencer",
+     "display": "roller.software/fr/commencer",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Utilisé par plus de 3 500 sites dans le monde entier",
+       "status": "ok",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -721,9 +722,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -736,9 +737,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -751,9 +752,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -766,9 +767,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -781,9 +782,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -796,9 +797,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -811,9 +812,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -826,9 +827,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -841,9 +842,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -856,9 +857,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -871,9 +872,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -886,9 +887,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -901,9 +902,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -916,9 +917,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -931,9 +932,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -946,9 +947,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -961,9 +962,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -976,9 +977,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -991,9 +992,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1006,9 +1007,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1021,9 +1022,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1036,9 +1037,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1051,9 +1052,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1066,9 +1067,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1081,9 +1082,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1096,9 +1097,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1111,9 +1112,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1126,9 +1127,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1141,9 +1142,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1156,9 +1157,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1171,9 +1172,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1186,9 +1187,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1201,9 +1202,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1216,9 +1217,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1231,9 +1232,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1246,9 +1247,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1261,9 +1262,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1276,9 +1277,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1291,9 +1292,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1306,9 +1307,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1321,9 +1322,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1336,9 +1337,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1351,9 +1352,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1366,9 +1367,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1381,9 +1382,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1396,9 +1397,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1411,9 +1412,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1426,9 +1427,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1441,9 +1442,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1456,9 +1457,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1474,7 +1475,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "118787874184",
    "updateWhere": "HubSpot page editor, one page at a time",
    "updateEffort": "each",
-   "updateNote": "Every instance is hand-written page copy. There is no shared default — each of the 20 pages has to be opened and edited individually.",
+   "updateNote": "Every instance is hand-written page copy. There is no shared default — each of the 23 pages has to be opened and edited individually.",
    "rebuild": "Becomes the Text block heading composition; numbers stay as page copy.",
    "figma": [
     {
@@ -1490,9 +1491,9 @@ window.BRAND_NUMBERS = {
      "alt": "Heading composition – mobile"
     }
    ],
-   "pageCount": 20,
+   "pageCount": 23,
    "statusCounts": {
-    "ok": 8,
+    "ok": 13,
     "context": 13,
     "unverified": 0,
     "review": 0,
@@ -1522,9 +1523,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "The platform powering 3,000+ thriving attractions",
+       "value": "The platform powering 3,500+ thriving attractions",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1561,21 +1562,6 @@ window.BRAND_NUMBERS = {
      "status": "context"
     },
     {
-     "title": "BookNow Software",
-     "href": "https://www.roller.software/competitor/booknow-software",
-     "display": "roller.software/competitor/booknow-software",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "The platform powering 3,000+ thriving attractions",
-       "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "Bowling Trends 2026",
      "href": "https://www.roller.software/2026-bowling-trends",
      "display": "roller.software/2026-bowling-trends",
@@ -1597,9 +1583,24 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Helping a community of 3,000+ venues thrive",
+       "value": "Helping a community of 3,500+ venues thrive",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Company facts",
+     "href": "https://www.roller.software/company-facts",
+     "display": "roller.software/company-facts",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "employees globally Customers: 3,500+ venues worldwide Markets served: The Am",
+       "status": "ok",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1627,9 +1628,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500 venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1679,9 +1680,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1694,9 +1695,38 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by 3,000+ attractions worldwide",
+       "value": "Trusted by 3,500+ attractions worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Logiciel tout-en-un de gestion pour sites de loisirs",
+     "href": "https://www.roller.software/fr/commencer",
+     "display": "roller.software/fr/commencer",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "ROLLER : la plateforme qui accompagne plus de 3 500 sites de loisirs performants",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      },
+      {
+       "kind": "venue",
+       "value": "Plus de 3 500 sites nous font confiance dans le monde",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      },
+      {
+       "kind": "venue",
+       "value": "FAQ: ROLLER équipe aujourd’hui plus de 3 500 sites dans plus de 30 pays",
+       "status": "ok",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1709,9 +1739,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "Trusted by over 3,000 venues worldwide",
+       "value": "Trusted by over 3,500+ venues worldwide",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1739,9 +1769,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "We partner with over 3,000 attractions venues",
+       "value": "We partner with over 3,500+ attractions venues",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],
@@ -1778,6 +1808,21 @@ window.BRAND_NUMBERS = {
      "status": "context"
     },
     {
+     "title": "QubicaAMF",
+     "href": "https://www.roller.software/partners/qubicaamf",
+     "display": "roller.software/partners/qubicaamf",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "years ago, ROLLER now powers 3,500+ venues across 30+ countries — from sing",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
      "title": "Roller Skating Trends 2026",
      "href": "https://www.roller.software/2025-roller-skating-trends-report",
      "display": "roller.software/2025-roller-skating-trends-report",
@@ -1791,6 +1836,21 @@ window.BRAND_NUMBERS = {
       }
      ],
      "status": "context"
+    },
+    {
+     "title": "Venue Sumo",
+     "href": "https://www.roller.software/competitor/venue-sumo",
+     "display": "roller.software/competitor/venue-sumo",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Grow with us Trusted by over 3,500+ venues worldwide ROLLER VS. VENUE SUMO:",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
     },
     {
      "title": "Water Park Trends 2026",
@@ -1833,15 +1893,15 @@ window.BRAND_NUMBERS = {
      "alt": "User review widget badge strip"
     }
    ],
-   "pageCount": 38,
+   "pageCount": 37,
    "statusCounts": {
     "ok": 0,
     "context": 0,
-    "unverified": 38,
+    "unverified": 37,
     "review": 0,
     "drift": 0
    },
-   "attention": 38,
+   "attention": 37,
    "pages": [
     {
      "title": "Adventure Parks",
@@ -1862,21 +1922,6 @@ window.BRAND_NUMBERS = {
      "title": "All-in-One Venue Management Software for Attractions",
      "href": "https://www.roller.software",
      "display": "roller.software",
-     "numbers": [
-      {
-       "kind": "note",
-       "value": "review scores",
-       "status": "unverified",
-       "reason": "Third-party figures",
-       "action": "Star ratings and review counts come from G2 / Capterra / GetApp and change on their own. Re-check when those platforms update."
-      }
-     ],
-     "status": "unverified"
-    },
-    {
-     "title": "All-in-One Venue Management Software for Attractions",
-     "href": "https://www.roller.software/competitor/booknow-software",
-     "display": "roller.software/competitor/booknow-software",
      "numbers": [
       {
        "kind": "note",
@@ -2423,7 +2468,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "138558821728",
    "updateWhere": "HubSpot module fields per page",
    "updateEffort": "mixed",
-   "updateNote": "41 pages share the company-stats block: 3,000 customers and $5B transactions processed annually. The other Stats-Set modules are edited per page and currently carry operational or page-level figures.",
+   "updateNote": "41 pages share the company-stats block: 3,500+ customers and $5B transactions processed annually. /fr/commencer has its own tile, 3 500+ clients. The other Stats-Set modules are edited per page and currently carry operational or page-level figures.",
    "rebuild": "Sanity singleton — one set of values, used by every page.",
    "figma": [
     {
@@ -2439,9 +2484,9 @@ window.BRAND_NUMBERS = {
      "alt": "Company stats widget – mobile"
     }
    ],
-   "pageCount": 53,
+   "pageCount": 52,
    "statusCounts": {
-    "ok": 83,
+    "ok": 82,
     "context": 11,
     "unverified": 0,
     "review": 0,
@@ -2501,31 +2546,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
-       "action": ""
-      },
-      {
-       "kind": "revenue",
-       "value": "$5B transactions processed annually",
-       "status": "ok",
-       "reason": "Matches $5B",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
-     "title": "All-in-One Venue Management Software for Attractions",
-     "href": "https://www.roller.software/competitor/booknow-software",
-     "display": "roller.software/competitor/booknow-software",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "3,000 customers",
-       "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2545,9 +2568,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2567,9 +2590,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2589,9 +2612,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2611,9 +2634,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2648,9 +2671,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2670,9 +2693,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2692,9 +2715,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2714,9 +2737,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2736,9 +2759,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2773,9 +2796,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2810,9 +2833,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2832,9 +2855,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2854,9 +2877,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2876,9 +2899,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2898,9 +2921,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2919,8 +2942,15 @@ window.BRAND_NUMBERS = {
      "display": "roller.software/fr/commencer",
      "numbers": [
       {
+       "kind": "venue",
+       "value": "3 500+ clients",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      },
+      {
        "kind": "context",
-       "value": "+ 50 % de panier moyen · – 50 % de temps administratif · + 27 % de satisfaction visiteurs · – 40 % de coûts liés aux tâches administratives · 300 collaborate…",
+       "value": "+ 50 % de panier moyen · – 50 % de temps administratif · + 27 % de satisfaction visiteurs · – 40 % de coûts liés aux tâches administratives · 300 collaborateurs",
        "status": "context",
        "reason": "Page-specific figure",
        "action": "An event, customer or page-level number. Not a brand number."
@@ -2950,9 +2980,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2972,9 +3002,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -2994,9 +3024,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3016,9 +3046,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3038,9 +3068,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3060,9 +3090,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3082,9 +3112,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3104,9 +3134,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3126,9 +3156,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3148,9 +3178,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3185,9 +3215,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3207,9 +3237,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3229,9 +3259,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3251,9 +3281,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3273,9 +3303,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3325,9 +3355,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3362,9 +3392,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3384,9 +3414,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3406,9 +3436,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3428,9 +3458,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3450,9 +3480,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3472,9 +3502,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3494,9 +3524,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3516,9 +3546,9 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "3,000 customers",
+       "value": "3,500+ customers",
        "status": "ok",
-       "reason": "Matches 3,000+",
+       "reason": "Matches 3,500+",
        "action": ""
       },
       {
@@ -3637,6 +3667,104 @@ window.BRAND_NUMBERS = {
        "value": "$5B transactions processed in the last 12 months",
        "status": "ok",
        "reason": "Matches $5B",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    }
+   ]
+  },
+  {
+   "id": "blog",
+   "name": "Blog",
+   "tagline": "Posts that state a venue count in the article copy",
+   "module": "HubSpot blog posts",
+   "moduleId": null,
+   "updateWhere": "Each post in the HubSpot blog editor",
+   "updateEffort": "each",
+   "updateNote": "744 posts were checked. The five that cited the venue count now read 3,500+. Two other hits were $13,000 in revenue and were left out.",
+   "rebuild": "Blog copy stays in HubSpot until the site moves. Each post is its own edit.",
+   "figma": [],
+   "pageCount": 5,
+   "statusCounts": {
+    "ok": 5,
+    "context": 0,
+    "unverified": 0,
+    "review": 0,
+    "drift": 0
+   },
+   "attention": 0,
+   "pages": [
+    {
+     "title": "ROLLER secures US$50M to accelerate innovation and customer growth",
+     "href": "https://www.roller.software/blog/2025-funding-round",
+     "display": "roller.software/blog/2025-funding-round",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Today, with over 3,500+ venues across 30 countries",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "5 Key Online Checkout Insights from the 2026 Benchmark Report",
+     "href": "https://www.roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
+     "display": "roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "more than 3,500+ venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Membership Insights from the 2026 Benchmark Report",
+     "href": "https://www.roller.software/blog/membership-insights-2026-benchmark-report",
+     "display": "roller.software/blog/membership-insights-2026-benchmark-report",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "more than 3,500+ venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Party Insights from the 2026 Attractions Industry Benchmark Report",
+     "href": "https://www.roller.software/blog/party-insights-2026-benchmark-report",
+     "display": "roller.software/blog/party-insights-2026-benchmark-report",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "more than 3,500+ venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "Payment Insights from the 2026 Benchmark Report",
+     "href": "https://www.roller.software/blog/payment-insights-2026-benchmark-report",
+     "display": "roller.software/blog/payment-insights-2026-benchmark-report",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "more than 3,500+ venues worldwide",
+       "status": "ok",
+       "reason": "Matches 3,500+",
        "action": ""
       }
      ],

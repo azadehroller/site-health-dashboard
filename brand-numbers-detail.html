@@ -868,7 +868,7 @@
 
   // Live mock-ups. Each renders the current source-of-truth wording so the
   // preview always shows what the page is supposed to say.
-  var VENUES = D.sourceOfTruth[0].value;      // "3,000+"
+  var VENUES = D.sourceOfTruth[0].value;      // "3,500+"
   var REVENUE = D.sourceOfTruth[1].value;     // "$5B"
 
   var MOCKS = {
@@ -921,6 +921,12 @@
           '<div class="mk-score">' + c[1] + "</div>" +
           '<div class="mk-rcount">' + esc(c[2]) + "</div></div>";
       }).join("") + "</div></div>";
+    },
+    blog: function () {
+      return '<div class="mk mk-hc">' +
+        '<span class="mk-eyebrow">Blog</span>' +
+        '<p class="mk-h1">Today, with over <mark>3,500+</mark> venues across 30 countries</p>' +
+        '<p class="mk-body">Article copy. Each post is edited on its own.</p></div>';
     }
   };
 
@@ -929,7 +935,8 @@
     hc: "The number sits inside hand-written headline copy, so the wording differs page to page.",
     ss: "Two of the four tiles carry brand numbers; the rest are page-level detail.",
     sss: "The stacked layout carries $5B. Solutions pages no longer repeat that figure in Stats-Set.",
-    ur: "Scores and counts come from the review platforms, not from us."
+    ur: "Scores and counts come from the review platforms, not from us.",
+    blog: "The five posts that cited the venue count now read 3,500+."
   };
 
   var EFFORT_LABEL = { one: "One edit, all pages", each: "One edit per page", mixed: "Mixed" };

@@ -1,21 +1,21 @@
 {
-  "auditedAt": "2026-09-28T11:42:02",
-  "method": "Full live re-audit of sitemap marketing pages plus the prior brand-number inventory, scored against 3,000+ venues and $5B transactions processed.",
-  "pagesRequested": 161,
-  "pagesFetchedOk": 161,
+  "auditedAt": "2026-09-28T15:40:00+10:00",
+  "method": "Live re-check of sitemap marketing pages, all 744 blog posts, and linked files, scored against 3,500+ venues and $5B transactions processed. Asset files were read only.",
+  "pagesRequested": 160,
+  "pagesFetchedOk": 160,
   "fetchErrors": [],
-  "elapsedSec": 107.8,
-  "statusBefore": {
-    "ok": 110,
-    "context": 13,
-    "unverified": 47,
-    "review": 0,
-    "drift": 0
+  "pageCopy": {
+    "pagesWith3500": 98,
+    "pagesWith3000": 0,
+    "venueInstances": 144,
+    "venueOnBrand": 144,
+    "venueOffBrand": 0,
+    "note": "/competitor/booknow-software returns 301 to the homepage, so it is not scored as its own page. /fr/commencer uses 3 500 and is on brand. Every “plus de” line now reads “plus de 3 500” without a second plus, including the FAQ. The stats tile “3 500+ clients” keeps the plus because it does not say “plus de”."
   },
   "statusAfter": {
-    "ok": 186,
+    "ok": 190,
     "context": 24,
-    "unverified": 38,
+    "unverified": 37,
     "review": 0,
     "drift": 0
   },
@@ -23,122 +23,123 @@
     {
       "id": "venues",
       "label": "Venues worldwide",
-      "value": "3,000+",
-      "canonical": "Trusted by 3,000+ venues worldwide",
-      "retired": [
-        "2,600",
-        "2,300"
-      ],
-      "owner": "Brand / Marketing",
-      "controlled": "Logo-Set module default + per-page Heading-Composition copy",
-      "blurb": "The venue count. Appears more often than any other brand number and is the one most likely to be quoted back at us.",
-      "instances": 139,
-      "onBrand": 139,
-      "offBrand": 0,
-      "retiredFound": []
+      "value": "3,500+",
+      "canonical": "Trusted by 3,500+ venues worldwide",
+      "retired": ["3,000", "2,600", "2,300"],
+      "retiredFound": [],
+      "instances": 149,
+      "onBrand": 149,
+      "offBrand": 0
     },
     {
       "id": "revenue",
       "label": "Transactions processed",
       "value": "$5B",
       "canonical": "$5B transactions processed",
-      "retired": [
-        "$4B",
-        "$3B"
-      ],
-      "owner": "Finance / Brand",
-      "controlled": "Stats-Set and Stats-Set-Stacked module fields",
-      "blurb": "The headline money figure. Live site copy now uses “transactions processed” (formerly “guest revenue processed”). Year-in-Review pages may still carry frozen annual numbers on purpose.",
+      "retired": ["$4B", "$3B"],
+      "retiredFound": [],
       "instances": 47,
       "onBrand": 47,
-      "offBrand": 0,
-      "retiredFound": []
+      "offBrand": 0
     }
   ],
-  "components": [
-    {
-      "id": "ls",
-      "name": "Logo-Set",
-      "pageCount": 90,
-      "attention": 0,
-      "statusCounts": {
-        "ok": 90,
-        "context": 0,
-        "unverified": 0,
-        "review": 0,
-        "drift": 0
-      }
-    },
-    {
-      "id": "hc",
-      "name": "Heading-Composition",
-      "pageCount": 20,
-      "attention": 0,
-      "statusCounts": {
-        "ok": 8,
-        "context": 13,
-        "unverified": 0,
-        "review": 0,
-        "drift": 0
-      }
-    },
-    {
-      "id": "ur",
-      "name": "User-Reviews",
-      "pageCount": 38,
-      "attention": 38,
-      "statusCounts": {
-        "ok": 0,
-        "context": 0,
-        "unverified": 38,
-        "review": 0,
-        "drift": 0
-      }
-    },
-    {
-      "id": "ss",
-      "name": "Stats-Set",
-      "pageCount": 53,
-      "attention": 0,
-      "statusCounts": {
-        "ok": 83,
-        "context": 11,
-        "unverified": 0,
-        "review": 0,
-        "drift": 0
-      }
-    },
-    {
-      "id": "sss",
-      "name": "Stats-Set-Stacked",
-      "pageCount": 5,
-      "attention": 0,
-      "statusCounts": {
-        "ok": 5,
-        "context": 0,
-        "unverified": 0,
-        "review": 0,
-        "drift": 0
-      }
-    }
-  ],
-  "guestRevenuePages": [],
-  "retiredHits": [],
   "blogSweep": {
     "pagesChecked": 744,
-    "brandMentions": 5,
-    "incidental": 9,
-    "drift": []
+    "recheckedAt": "2026-09-28T16:24:00+10:00",
+    "still3000": [],
+    "now3500": [
+      {
+        "url": "https://www.roller.software/blog/2025-funding-round",
+        "snippet": "Today, with over 3,500+ venues across 30 countries"
+      },
+      {
+        "url": "https://www.roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
+        "snippet": "more than 3,500+ venues worldwide"
+      },
+      {
+        "url": "https://www.roller.software/blog/membership-insights-2026-benchmark-report",
+        "snippet": "more than 3,500+ venues worldwide"
+      },
+      {
+        "url": "https://www.roller.software/blog/party-insights-2026-benchmark-report",
+        "snippet": "more than 3,500+ venues worldwide"
+      },
+      {
+        "url": "https://www.roller.software/blog/payment-insights-2026-benchmark-report",
+        "snippet": "more than 3,500+ venues worldwide"
+      }
+    ],
+    "ignored": [
+      {
+        "url": "https://www.roller.software/blog/case-study-whoazone",
+        "snippet": "generating over $13,000 in revenue"
+      },
+      {
+        "url": "https://www.roller.software/blog/proven-attractions-marketing-ideas",
+        "snippet": "generating over $13,000 in revenue"
+      }
+    ]
   },
-  "attnTotal": 38,
+  "assets": {
+    "note": "Files were read and OCR'd. None were edited.",
+    "pdfs": [
+      {
+        "url": "https://www.roller.software/hubfs/eBook/ROLLER_2026%20Attractions%20Industry%20Benchmark%20Report.pdf",
+        "pages": 81,
+        "method": "text layer plus OCR of every page",
+        "found3000": false,
+        "found3500": false,
+        "note": "Talks about venues and “hundreds of thousands of data points”. It never states 3,000 or 3,500."
+      },
+      {
+        "url": "https://www.roller.software/hubfs/Marketing/ROLLER%20Pulse%20Report%202026.pdf",
+        "pages": 66,
+        "method": "text layer plus OCR of every page",
+        "found3000": false,
+        "found3500": false,
+        "note": "Says “thousands of venues” with no customer count."
+      },
+      {
+        "url": "https://www.roller.software/hubfs/Six%20questions%20to%20ask.pdf",
+        "pages": null,
+        "method": "text layer",
+        "found3000": false,
+        "found3500": false,
+        "note": "No venue count in the text."
+      }
+    ],
+    "imagesChecked": [
+      {
+        "url": "https://www.roller.software/hubfs/Playcenters%20Industry%20Stats.png",
+        "found": "50% increase in basket size",
+        "venueCount": false
+      },
+      {
+        "url": "https://www.roller.software/hubfs/qubicaamf_roller_partnership_%20announcement.webp",
+        "found": "partnership lockup, no count",
+        "venueCount": false
+      },
+      {
+        "url": "https://www.roller.software/hubfs/ROLLER%2050M%20raise_v2.webp",
+        "found": "product screenshot, no count",
+        "venueCount": false
+      },
+      {
+        "url": "https://www.roller.software/hubfs/raw_assets/public/rolls-theme/images/og.png",
+        "found": "logo only",
+        "venueCount": false
+      }
+    ],
+    "linkedOnMarketingPages": 83,
+    "filenamesContainingTheCount": 0,
+    "resizeFalsePositive": "homepage dashboard-2.png is requested with width=3000. That is an image resize, not the customer count."
+  },
   "findings": [
-    "No retired venue figures (2,600 / 2,300) on marketing pages or in blog copy.",
-    "No retired revenue figures ($4B / $3B) on marketing pages or in blog copy.",
-    "Guest-revenue phrasing is gone. Live copy uses transactions processed.",
-    "A shared company-stats block now puts 3,000 customers and $5B on 41 pages. All of those match the source of truth.",
-    "Logo-set is on 90 pages, every one reading Trusted by over 3,000 venues worldwide.",
-    "Previously unreadable Stats-Set modules now resolve to page-level figures (support uptime, year-in-review results, pricing proof points).",
-    "Business Solutions says “$5B transaction processed” — the figure is $5B, the word transaction is missing an s.",
-    "Review badges are still images, so 38 User-Reviews pages stay unverified."
+    "Marketing page copy is on 3,500+. 160 pages checked, 98 mention 3,500, none mention 3,000.",
+    "144 tracked venue instances on marketing pages match 3,500+, including /fr/commencer.",
+    "The five blog posts that cited 3,000 venues were rechecked and now read 3,500+.",
+    "The three linked PDFs do not state 3,000 or 3,500. The images checked do not either.",
+    "$5B transactions processed is unchanged, 47 of 47 on brand.",
+    "Review badges are still images, so 37 User-Reviews pages stay unverified."
   ]
 }
