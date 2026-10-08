@@ -1,19 +1,19 @@
 {
-  "auditedAt": "2026-09-28T15:40:00+10:00",
-  "method": "Live re-check of sitemap marketing pages, all 744 blog posts, and linked files, scored against 3,500+ venues and $5B transactions processed. Asset files were read only.",
-  "pagesRequested": 160,
-  "pagesFetchedOk": 160,
+  "auditedAt": "2026-10-08T14:30:00+11:00",
+  "method": "Live re-check of sitemap marketing pages, published pages that have left the sitemap, and all blog posts, scored against 3,500+ venues and $5B transactions processed. Linked PDFs were not re-OCR'd on this pass.",
+  "pagesRequested": 158,
+  "pagesFetchedOk": 158,
   "fetchErrors": [],
   "pageCopy": {
     "pagesWith3500": 98,
     "pagesWith3000": 0,
-    "venueInstances": 144,
-    "venueOnBrand": 144,
+    "venueInstances": 150,
+    "venueOnBrand": 150,
     "venueOffBrand": 0,
-    "note": "/competitor/booknow-software returns 301 to the homepage, so it is not scored as its own page. /fr/commencer uses 3 500 and is on brand. Every “plus de” line now reads “plus de 3 500” without a second plus, including the FAQ. The stats tile “3 500+ clients” keeps the plus because it does not say “plus de”."
+    "note": "/competitor/tickettailor now headlines “Trusted by 3,500+ attractions worldwide”, matching its logo carousel. /fr/commencer still uses 3 500 and is on brand."
   },
   "statusAfter": {
-    "ok": 190,
+    "ok": 197,
     "context": 24,
     "unverified": 37,
     "review": 0,
@@ -27,8 +27,8 @@
       "canonical": "Trusted by 3,500+ venues worldwide",
       "retired": ["3,000", "2,600", "2,300"],
       "retiredFound": [],
-      "instances": 149,
-      "onBrand": 149,
+      "instances": 150,
+      "onBrand": 150,
       "offBrand": 0
     },
     {
@@ -44,8 +44,8 @@
     }
   ],
   "blogSweep": {
-    "pagesChecked": 744,
-    "recheckedAt": "2026-09-28T16:24:00+10:00",
+    "pagesChecked": 747,
+    "recheckedAt": "2026-10-08T14:30:00+11:00",
     "still3000": [],
     "now3500": [
       {
@@ -135,11 +135,10 @@
     "resizeFalsePositive": "homepage dashboard-2.png is requested with width=3000. That is an image resize, not the customer count."
   },
   "findings": [
-    "Marketing page copy is on 3,500+. 160 pages checked, 98 mention 3,500, none mention 3,000.",
-    "144 tracked venue instances on marketing pages match 3,500+, including /fr/commencer.",
-    "The five blog posts that cited 3,000 venues were rechecked and now read 3,500+.",
-    "The three linked PDFs do not state 3,000 or 3,500. The images checked do not either.",
-    "$5B transactions processed is unchanged, 47 of 47 on brand.",
-    "Review badges are still images, so 37 User-Reviews pages stay unverified."
+    "158 marketing URLs checked on 8 October 2026, including 5 pages that are still published but no longer in the sitemap.",
+    "/competitor/tickettailor now headlines 3,500+ attractions, matching its logo carousel.",
+    "150 venue instances match 3,500+, including /fr/commencer and the five blog posts.",
+    "Company facts now counts toward the $5B tally: “Annual transaction volume: $5B processed annually”. 47 of 47 revenue instances are on brand.",
+    "747 blog posts checked. No retired venue count. Review badges are still images, so 37 User-Reviews pages stay unverified."
   ]
 }

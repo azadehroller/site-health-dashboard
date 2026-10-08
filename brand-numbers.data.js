@@ -1,9 +1,9 @@
 window.BRAND_NUMBERS = {
- "scrapeDate": "28 September 2026",
- "pagesAudited": 160,
- "pagesLiveChecked": 160,
+ "scrapeDate": "8 October 2026",
+ "pagesAudited": 158,
+ "pagesLiveChecked": 158,
  "pagesWithNumbers": 117,
- "instanceCount": 256,
+ "instanceCount": 258,
  "statusMeta": {
   "ok": {
    "label": "On brand",
@@ -37,7 +37,7 @@ window.BRAND_NUMBERS = {
   "unverified"
  ],
  "statusCounts": {
-  "ok": 195,
+  "ok": 197,
   "context": 24,
   "unverified": 37,
   "review": 0,
@@ -56,9 +56,9 @@ window.BRAND_NUMBERS = {
    ],
    "owner": "Brand / Marketing",
    "controlled": "Logo-Set module default + per-page Heading-Composition copy, including /fr/commencer",
-   "blurb": "The venue count. The current figure is 3,500+. Marketing pages and the five blog posts that cited it now match.",
-   "instances": 149,
-   "onBrand": 149,
+   "blurb": "The venue count. The current figure is 3,500+. Marketing pages and the five blog posts that cited it match, including the Ticket Tailor headline.",
+   "instances": 150,
+   "onBrand": 150,
    "offBrand": 0,
    "retiredFound": []
   },
@@ -73,7 +73,7 @@ window.BRAND_NUMBERS = {
    ],
    "owner": "Finance / Brand",
    "controlled": "Stats-Set and Stats-Set-Stacked module fields",
-   "blurb": "The headline money figure. Live site copy now uses “transactions processed” (formerly “guest revenue processed”). Year-in-Review pages may still carry frozen annual numbers on purpose.",
+   "blurb": "The headline money figure. Live site copy uses “transactions processed”, and company facts says “$5B processed annually”. Year-in-Review pages may still carry frozen annual numbers on purpose.",
    "instances": 47,
    "onBrand": 47,
    "offBrand": 0,
@@ -89,7 +89,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "195231364891",
    "updateWhere": "HubSpot Design Manager → module default heading",
    "updateEffort": "one",
-   "updateNote": "One edit in the logo-set-global default changes the heading on the English pages. All 90 logo headings now read a 3,500 figure, including the French heading on /fr/commencer. /competitor/booknow-software redirects to the homepage.",
+   "updateNote": "One edit in the logo-set-global default changes the heading on the English pages. All 90 logo headings now read a 3,500 figure, including the French heading on /fr/commencer. /iaapa-europe-2026 and /2026-wwa use the module for a partner heading and do not carry the venue count. /competitor/booknow-software redirects to the homepage.",
    "rebuild": "Becomes one Customer logo carousel component; heading moves to a Sanity global.",
    "figma": [
     {
@@ -1475,7 +1475,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "118787874184",
    "updateWhere": "HubSpot page editor, one page at a time",
    "updateEffort": "each",
-   "updateNote": "Every instance is hand-written page copy. There is no shared default — each of the 23 pages has to be opened and edited individually.",
+   "updateNote": "Every instance is hand-written page copy. There is no shared default — each of the 24 pages has to be opened and edited individually.",
    "rebuild": "Becomes the Text block heading composition; numbers stay as page copy.",
    "figma": [
     {
@@ -1491,9 +1491,9 @@ window.BRAND_NUMBERS = {
      "alt": "Heading composition – mobile"
     }
    ],
-   "pageCount": 23,
+   "pageCount": 24,
    "statusCounts": {
-    "ok": 13,
+    "ok": 15,
     "context": 13,
     "unverified": 0,
     "review": 0,
@@ -1601,6 +1601,13 @@ window.BRAND_NUMBERS = {
        "value": "employees globally Customers: 3,500+ venues worldwide Markets served: The Am",
        "status": "ok",
        "reason": "Matches 3,500+",
+       "action": ""
+      },
+      {
+       "kind": "revenue",
+       "value": "Annual transaction volume: $5B processed annually",
+       "status": "ok",
+       "reason": "Matches $5B",
        "action": ""
       }
      ],
@@ -1866,6 +1873,21 @@ window.BRAND_NUMBERS = {
       }
      ],
      "status": "context"
+    },
+    {
+     "title": "Ticket Tailor",
+     "href": "https://www.roller.software/competitor/tickettailor",
+     "display": "roller.software/competitor/tickettailor",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "Trusted by 3,500+ attractions worldwide",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
     }
    ]
   },
@@ -3682,7 +3704,7 @@ window.BRAND_NUMBERS = {
    "moduleId": null,
    "updateWhere": "Each post in the HubSpot blog editor",
    "updateEffort": "each",
-   "updateNote": "744 posts were checked. The five that cited the venue count now read 3,500+. Two other hits were $13,000 in revenue and were left out.",
+   "updateNote": "747 posts were checked. The five that cited the venue count now read 3,500+. Two other hits were $13,000 in revenue and were left out.",
    "rebuild": "Blog copy stays in HubSpot until the site moves. Each post is its own edit.",
    "figma": [],
    "pageCount": 5,
