@@ -1,0 +1,75 @@
+name: Daily site audits
+
+# 7:00 AM Sydney time. GitHub schedules are UTC and do not follow daylight saving,
+# so the workflow is queued at both 20:00 UTC (7:00 AEDT) and 21:00 UTC (7:00 AEST).
+# The first step continues only when it is 07:00 in Australia/Sydney, or when
+# someone runs the workflow by hand.
+on:
+  schedule:
+    - cron: "0 20 * * *"
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-site-audits
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Sydney 7am gate
+        id: gate
+        run: |
+          hour=$(TZ=Australia/Sydney date +%H)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$hour" = "07" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Running daily audits (Sydney hour $hour)."
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping. It is $hour:00 in Sydney, not 07:00."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          node-version: "22"
+
+      - name: Brand Signal
+        if: steps.gate.outputs.run == 'true'
+        id: brand
+        run: node scripts/brand-signal-audit.js
+
+      - name: Form Health
+        if: steps.gate.outputs.run == 'true'
+        id: form
+        continue-on-error: true
+        env:
+          HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
+        run: node scripts/form-health-audit.js
+
+      - name: Publish the day's report
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add form-audit.data.js brand-numbers.data.js brand-numbers-audit-report.json
+          if git diff --staged --quiet; then
+            echo "No changes to publish."
+            exit 0
+          fi
+          git commit -m "Update daily brand signal and form health"
+          git push origin HEAD:main
+
+      - name: Report a HubSpot failure
+        if: steps.gate.outputs.run == 'true' && steps.form.outcome == 'failure'
+        run: exit 1
