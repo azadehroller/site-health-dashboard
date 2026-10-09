@@ -4,10 +4,12 @@ name: Daily site audits
 # so the workflow is queued at both 20:00 UTC (7:00 AEDT) and 21:00 UTC (7:00 AEST).
 # The first step continues only when it is 07:00 in Australia/Sydney, or when
 # someone runs the workflow by hand.
+# 9 October 2026 only: also run at 4:00 PM Sydney (05:00 UTC) as a one-time test.
 on:
   schedule:
     - cron: "0 20 * * *"
     - cron: "0 21 * * *"
+    - cron: "0 5 9 10 *"
   workflow_dispatch:
 
 permissions:
@@ -26,12 +28,17 @@ jobs:
         id: gate
         run: |
           hour=$(TZ=Australia/Sydney date +%H)
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$hour" = "07" ]; then
+          day=$(TZ=Australia/Sydney date +%F)
+          test_today=false
+          if [ "$day" = "2026-10-09" ] && [ "$hour" = "16" ]; then
+            test_today=true
+          fi
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$hour" = "07" ] || [ "$test_today" = "true" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "Running daily audits (Sydney hour $hour)."
+            echo "Running daily audits (Sydney $day $hour:00)."
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping. It is $hour:00 in Sydney, not 07:00."
+            echo "Skipping. It is $hour:00 in Sydney on $day."
           fi
 
       - uses: actions/checkout@v4
