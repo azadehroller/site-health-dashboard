@@ -626,10 +626,26 @@
     return [];
   }
 
+  /* A muted or switched-off check keeps its last result. Do not treat that as a live failure. */
+  function activeCheckly(ck){
+    const checks = Array.isArray(ck.checks) ? ck.checks : [];
+    const off = new Set(checks.filter(c => c.muted || c.activated === false).map(c => String(c.name||"").trim()));
+    const statuses = Array.isArray(ck.statuses) ? ck.statuses : [];
+    const live = statuses.filter(s => !off.has(String(s.name||"").trim()));
+    if(live.length){
+      const pass = live.filter(s => s.status === "passing").length;
+      const failing = live.filter(s => s.status === "failed" || s.status === "failing").length;
+      return { pass, total: live.length, failing };
+    }
+    const summary = ck.summary || {};
+    return { pass: summary.passing, total: summary.total, failing: summary.failing };
+  }
+
   /* ---------- Map the JSON daily report to the dashboard shape ---------- */
   function mapJson(j){
     const s=j.sentry||{}, wv=s.webVitals||{}, perf=s.performance||{}, jr=s.journeys||{};
     const ck=j.checkly||{}, grp={}; (ck.journeyGroups||[]).forEach(g=>{ grp[g.id]=g; });
+    const checkly = activeCheckly(ck);
     const ah=j.ahrefs||{};
     const projects=uniqueAhrefsProjects(ah.siteAuditProjects||[]);
     const primary = projects.find(p=>/primary/i.test(p.name||"")) || projects.find(p=>/www\.roller\.software/.test(p.targetUrl||"")) || projects[0] || null;
@@ -643,7 +659,7 @@
       revenue:{n:grp.revenueJourney&&grp.revenueJourney.itemCount, healthy:!!(grp.revenueJourney&&grp.revenueJourney.allHealthy), sessions:jr.revenueSessions24h},
       formsPoints:grp.forms&&grp.forms.monitorPoints, formsChecks:grp.forms&&grp.forms.activeChecks,
       paidPoints:grp.paidLp&&grp.paidLp.monitorPoints, paidChecks:grp.paidLp&&grp.paidLp.activeChecks,
-      checkly:{pass:ck.summary&&ck.summary.passing, total:ck.summary&&ck.summary.total, failing:ck.summary&&ck.summary.failing},
+      checkly,
       cwv:{ LCP:wv.lcpMs, FCP:wv.fcpMs, CLS:wv.cls, INP:wv.inpMs, TTFB:wv.ttfbMs,
             apdex:rnd2(perf.siteApdex), failRate:pct1(perf.siteFailureRate), samples:perf.siteSamples },
       perPage:(s.cwvByPage||[]).slice(0,6).map(p=>({path:p.page,lcp:p.lcpMs,fcp:p.fcpMs,cls:p.cls,views:p.views})),
