@@ -1,5 +1,5 @@
 window.BRAND_NUMBERS = {
- "scrapeDate": "8 October 2026",
+ "scrapeDate": "9 October 2026",
  "pagesAudited": 158,
  "pagesLiveChecked": 158,
  "pagesWithNumbers": 117,
@@ -56,7 +56,7 @@ window.BRAND_NUMBERS = {
    ],
    "owner": "Brand / Marketing",
    "controlled": "Logo-Set module default + per-page Heading-Composition copy, including /fr/commencer",
-   "blurb": "The venue count. The current figure is 3,500+. Marketing pages and the five blog posts that cited it match, including the Ticket Tailor headline.",
+   "blurb": "The current figure is 3,500+. Marketing pages and blog posts that cite the venue count match.",
    "instances": 150,
    "onBrand": 150,
    "offBrand": 0,
@@ -73,7 +73,7 @@ window.BRAND_NUMBERS = {
    ],
    "owner": "Finance / Brand",
    "controlled": "Stats-Set and Stats-Set-Stacked module fields",
-   "blurb": "The headline money figure. Live site copy uses “transactions processed”, and company facts says “$5B processed annually”. Year-in-Review pages may still carry frozen annual numbers on purpose.",
+   "blurb": "The headline money figure is $5B transactions processed. Live brand claims match. Year-in-Review pages may still carry frozen annual numbers on purpose.",
    "instances": 47,
    "onBrand": 47,
    "offBrand": 0,
@@ -89,7 +89,7 @@ window.BRAND_NUMBERS = {
    "moduleId": "195231364891",
    "updateWhere": "HubSpot Design Manager → module default heading",
    "updateEffort": "one",
-   "updateNote": "One edit in the logo-set-global default changes the heading on the English pages. All 90 logo headings now read a 3,500 figure, including the French heading on /fr/commencer. /iaapa-europe-2026 and /2026-wwa use the module for a partner heading and do not carry the venue count. /competitor/booknow-software redirects to the homepage.",
+   "updateNote": "One edit in the logo-set-global default changes the heading on the English pages. All 90 logo headings that state a venue count match 3,500+, including the French heading on /fr/commencer. /iaapa-europe-2026 and /2026-wwa use the module for a partner heading and do not carry the venue count. /competitor/booknow-software redirects to the homepage.",
    "rebuild": "Becomes one Customer logo carousel component; heading moves to a Sanity global.",
    "figma": [
     {
@@ -3699,12 +3699,12 @@ window.BRAND_NUMBERS = {
   {
    "id": "blog",
    "name": "Blog",
-   "tagline": "Posts that state a venue count in the article copy",
+   "tagline": "Every blog post is checked. These are the ones that state a venue count or the transactions figure.",
    "module": "HubSpot blog posts",
    "moduleId": null,
    "updateWhere": "Each post in the HubSpot blog editor",
    "updateEffort": "each",
-   "updateNote": "747 posts were checked. The five that cited the venue count now read 3,500+. Two other hits were $13,000 in revenue and were left out.",
+   "updateNote": "741 blog posts were checked. 5 state a brand figure, and they match 3,500+ or $5B. Amounts that are not the venue count or the transactions figure were left out.",
    "rebuild": "Blog copy stays in HubSpot until the site moves. Each post is its own edit.",
    "figma": [],
    "pageCount": 5,
@@ -3718,28 +3718,13 @@ window.BRAND_NUMBERS = {
    "attention": 0,
    "pages": [
     {
-     "title": "ROLLER secures US$50M to accelerate innovation and customer growth",
-     "href": "https://www.roller.software/blog/2025-funding-round",
-     "display": "roller.software/blog/2025-funding-round",
-     "numbers": [
-      {
-       "kind": "venue",
-       "value": "Today, with over 3,500+ venues across 30 countries",
-       "status": "ok",
-       "reason": "Matches 3,500+",
-       "action": ""
-      }
-     ],
-     "status": "ok"
-    },
-    {
      "title": "5 Key Online Checkout Insights from the 2026 Benchmark Report",
      "href": "https://www.roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
      "display": "roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
      "numbers": [
       {
        "kind": "venue",
-       "value": "more than 3,500+ venues worldwide",
+       "value": "thousands of data points across more than 3,500+ venues worldwide, is full of trends and takeaways that show",
        "status": "ok",
        "reason": "Matches 3,500+",
        "action": ""
@@ -3754,7 +3739,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "more than 3,500+ venues worldwide",
+       "value": "thousands of data points across more than 3,500+ venues worldwide, reveals clear trends around membership",
        "status": "ok",
        "reason": "Matches 3,500+",
        "action": ""
@@ -3769,7 +3754,7 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "more than 3,500+ venues worldwide",
+       "value": "thousands of data points across more than 3,500+ venues worldwide, reveals several clear trends around party",
        "status": "ok",
        "reason": "Matches 3,500+",
        "action": ""
@@ -3784,7 +3769,22 @@ window.BRAND_NUMBERS = {
      "numbers": [
       {
        "kind": "venue",
-       "value": "more than 3,500+ venues worldwide",
+       "value": "thousands of data points from more than 3,500+ venues worldwide. The report reveals major shifts in how",
+       "status": "ok",
+       "reason": "Matches 3,500+",
+       "action": ""
+      }
+     ],
+     "status": "ok"
+    },
+    {
+     "title": "ROLLER secures US$50M to accelerate innovation and customer growth",
+     "href": "https://www.roller.software/blog/2025-funding-round",
+     "display": "roller.software/blog/2025-funding-round",
+     "numbers": [
+      {
+       "kind": "venue",
+       "value": "experiences. Today, with over 3,500+ venues across 30 countries, that purpose feels more alive",
        "status": "ok",
        "reason": "Matches 3,500+",
        "action": ""

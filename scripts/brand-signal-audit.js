@@ -29,6 +29,22 @@ const RETIRED = /(?<![\d$])(3[\s,.]?000|2[\s,.]?600|2[\s,.]?300)\+?(?![\d,])/gi;
 const VENUE_WORD = /venues?|attractions?|clients?|customers?|sites?|parcs?|worldwide|monde/i;
 const MONEY = /(?<![\d])\$\s*([3-5])\s*(?:B|bn|billion)\b/gi;
 
+function phraseAt(text, index, length) {
+  let start = Math.max(0, index - 50);
+  let end = Math.min(text.length, index + length + 60);
+  if (start > 0 && text[start] !== " ") {
+    const space = text.indexOf(" ", start);
+    if (space !== -1 && space < index) start = space + 1;
+  }
+  if (end < text.length && text[end] !== " ") {
+    const space = text.lastIndexOf(" ", end);
+    if (space > index + length) end = space;
+  }
+  let phrase = text.slice(start, end).replace(/\s+/g, " ").trim();
+  if (/^[a-zà-ÿ]/.test(phrase)) phrase = phrase.replace(/^\S+\s+/, "");
+  return phrase;
+}
+
 function retiredMentions(text) {
   const out = [];
   const re = new RegExp(RETIRED.source, "gi");
@@ -40,7 +56,21 @@ function retiredMentions(text) {
     if (/\$\s*$/.test(before)) continue;
     if (/sq\.?\s*ft|buyers|width|lane|sku/i.test(around)) continue;
     if (!VENUE_WORD.test(around)) continue;
-    out.push(around);
+    out.push(phraseAt(text, m.index, m[0].length));
+  }
+  return out;
+}
+
+function onBrandVenueMentions(text) {
+  const out = [];
+  const re = /(?<![\d$])3[\s,.]?500\+?(?![\d,])/gi;
+  let m;
+  while ((m = re.exec(text))) {
+    const before = text.slice(Math.max(0, m.index - 60), m.index);
+    const after = text.slice(m.index + m[0].length, m.index + m[0].length + 80);
+    const around = `${before}${m[0]}${after}`.replace(/\s+/g, " ").trim();
+    if (!VENUE_WORD.test(around)) continue;
+    out.push(phraseAt(text, m.index, m[0].length));
   }
   return out;
 }
@@ -257,6 +287,57 @@ function trackedPaths(data) {
   return paths;
 }
 
+function blogFigures(text) {
+  const numbers = [];
+  const retired = retiredMentions(text);
+  const onBrand = onBrandVenueMentions(text);
+  if (retired.length) {
+    numbers.push({
+      kind: "venue",
+      value: retired[0].slice(0, 180),
+      status: "drift",
+      reason: "Shows a retired venue count",
+      action: "Change it to 3,500+"
+    });
+  }
+  if (onBrand.length) {
+    numbers.push({
+      kind: "venue",
+      value: onBrand[0].slice(0, 180),
+      status: "ok",
+      reason: "Matches 3,500+",
+      action: ""
+    });
+  }
+  const money = moneyHits(text);
+  const current = money.filter((h) => h.billions === "5");
+  const old = money.filter((h) => h.billions !== "5" && /transactions processed|processed annually/i.test(h.around));
+  if (old.length) {
+    numbers.push({
+      kind: "revenue",
+      value: old[0].around.slice(0, 180),
+      status: "drift",
+      reason: "Shows a retired transactions figure",
+      action: "Change it to $5B"
+    });
+  }
+  if (current.length) {
+    numbers.push({
+      kind: "revenue",
+      value: current[0].around.slice(0, 180),
+      status: "ok",
+      reason: "Matches $5B",
+      action: ""
+    });
+  }
+  return numbers;
+}
+
+function isBlogPost(pathname) {
+  if (!isBlogPath(pathname) || pathname === "/blog") return false;
+  return !/\/blog\/(tag|author|page)\b/.test(pathname);
+}
+
 function addDriftPage(comp, url, title, phrase, kind, reason, action) {
   const href = new URL(url, ORIGIN).toString();
   comp.pages.push({
@@ -345,7 +426,7 @@ async function main() {
   const ss = component(data, "ss");
   let added = 0;
   for (const page of fetched) {
-    if (!page.sig || page.redirected) continue;
+    if (!page.sig || page.redirected || page.blog) continue;
     const retired = retiredMentions(`${page.sig.headings} \n ${page.sig.text}`);
     const covered = data.components.some((comp) => comp.pages.some((p) => {
       if (normPath(p.href) !== page.path) return false;
@@ -375,10 +456,25 @@ async function main() {
     }
   }
 
-  const blogChecked = fetched.filter((p) => p.blog && p.ok && !p.redirected).length;
+  const blogPosts = fetched.filter((p) => p.ok && !p.redirected && isBlogPost(p.path));
+  const blogChecked = blogPosts.length;
+  const kept = new Map(blog.pages.map((p) => [normPath(p.href), p]));
+  blog.pages = blogPosts.flatMap((page) => {
+    const numbers = blogFigures(page.sig.text);
+    if (!numbers.length) return [];
+    const prev = kept.get(page.path);
+    return [{
+      title: page.title || (prev && prev.title) || displayOf(page.url),
+      href: page.url,
+      display: displayOf(page.url),
+      numbers,
+      status: "ok"
+    }];
+  }).sort((a, b) => a.title.localeCompare(b.title));
+  blog.tagline = "Every blog post is checked. These are the ones that state a venue count or the transactions figure.";
   const citing = blog.pages.length;
   const blogOff = blog.pages.filter((p) => (p.numbers || []).some((n) => n.status === "drift")).length;
-  blog.updateNote = `${blogChecked} posts were checked. ${citing} cite the venue count${blogOff ? `, and ${blogOff} are off brand` : ", and they match 3,500+"}. Dollar amounts that are not the brand figure were left out.`;
+  blog.updateNote = `${blogChecked} blog posts were checked. ${citing} state a brand figure${blogOff ? `, and ${blogOff} are off brand` : ", and they match 3,500+ or $5B"}. Amounts that are not the venue count or the transactions figure were left out.`;
 
   const ls = component(data, "ls");
   recompute(data, marketingOk.length);
@@ -421,7 +517,10 @@ async function main() {
     }))
   };
 
-  console.log(`${todayLong}: ${marketingOk.length} marketing pages, ${blogChecked} posts, venues ${venues.onBrand}/${venues.instances}, revenue ${revenue.onBrand}/${revenue.instances}, off brand ${data.statusCounts.drift}, logo headings read ${logosRead}`);
+  console.log(`${todayLong}: ${marketingOk.length} marketing pages, ${blogChecked} posts, ${citing} with a brand figure, venues ${venues.onBrand}/${venues.instances}, revenue ${revenue.onBrand}/${revenue.instances}, off brand ${data.statusCounts.drift}, logo headings read ${logosRead}`);
+  for (const page of blog.pages) {
+    console.log(`BLOG ${page.numbers.map((n) => n.status).join(",")} | ${page.title} | ${page.numbers.map((n) => n.value).join(" || ")}`);
+  }
   if (!logosRead) console.error("Warning: no logo headings were read. Logo-Set rows were left as they were.");
   if (dryRun) {
     console.log(JSON.stringify(report, null, 2));

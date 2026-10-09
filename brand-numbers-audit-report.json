@@ -1,17 +1,14 @@
 {
-  "auditedAt": "2026-10-08T14:30:00+11:00",
-  "method": "Live re-check of sitemap marketing pages, published pages that have left the sitemap, and all blog posts, scored against 3,500+ venues and $5B transactions processed. Linked PDFs were not re-OCR'd on this pass.",
-  "pagesRequested": 158,
-  "pagesFetchedOk": 158,
+  "auditedAt": "2026-10-09T03:37:18.832Z",
+  "method": "Live re-check of sitemap marketing pages, published pages already tracked by Brand Signal, and all blog posts, scored against 3,500+ venues and $5B transactions processed. Linked PDFs were not re-read.",
+  "pagesRequested": 906,
+  "marketingPages": 158,
+  "blogPagesChecked": 741,
   "fetchErrors": [],
-  "pageCopy": {
-    "pagesWith3500": 98,
-    "pagesWith3000": 0,
-    "venueInstances": 150,
-    "venueOnBrand": 150,
-    "venueOffBrand": 0,
-    "note": "/competitor/tickettailor now headlines “Trusted by 3,500+ attractions worldwide”, matching its logo carousel. /fr/commencer still uses 3 500 and is on brand."
-  },
+  "flippedToOffBrand": 0,
+  "restoredToOnBrand": 0,
+  "newOffBrandPages": 0,
+  "logoHeadingsRead": 90,
   "statusAfter": {
     "ok": 197,
     "context": 24,
@@ -22,123 +19,19 @@
   "sourceOfTruth": [
     {
       "id": "venues",
-      "label": "Venues worldwide",
       "value": "3,500+",
-      "canonical": "Trusted by 3,500+ venues worldwide",
-      "retired": ["3,000", "2,600", "2,300"],
-      "retiredFound": [],
       "instances": 150,
       "onBrand": 150,
-      "offBrand": 0
+      "offBrand": 0,
+      "retiredFound": []
     },
     {
       "id": "revenue",
-      "label": "Transactions processed",
       "value": "$5B",
-      "canonical": "$5B transactions processed",
-      "retired": ["$4B", "$3B"],
-      "retiredFound": [],
       "instances": 47,
       "onBrand": 47,
-      "offBrand": 0
+      "offBrand": 0,
+      "retiredFound": []
     }
-  ],
-  "blogSweep": {
-    "pagesChecked": 747,
-    "recheckedAt": "2026-10-08T14:30:00+11:00",
-    "still3000": [],
-    "now3500": [
-      {
-        "url": "https://www.roller.software/blog/2025-funding-round",
-        "snippet": "Today, with over 3,500+ venues across 30 countries"
-      },
-      {
-        "url": "https://www.roller.software/blog/5-key-online-checkout-insights-2026-benchmark-report",
-        "snippet": "more than 3,500+ venues worldwide"
-      },
-      {
-        "url": "https://www.roller.software/blog/membership-insights-2026-benchmark-report",
-        "snippet": "more than 3,500+ venues worldwide"
-      },
-      {
-        "url": "https://www.roller.software/blog/party-insights-2026-benchmark-report",
-        "snippet": "more than 3,500+ venues worldwide"
-      },
-      {
-        "url": "https://www.roller.software/blog/payment-insights-2026-benchmark-report",
-        "snippet": "more than 3,500+ venues worldwide"
-      }
-    ],
-    "ignored": [
-      {
-        "url": "https://www.roller.software/blog/case-study-whoazone",
-        "snippet": "generating over $13,000 in revenue"
-      },
-      {
-        "url": "https://www.roller.software/blog/proven-attractions-marketing-ideas",
-        "snippet": "generating over $13,000 in revenue"
-      }
-    ]
-  },
-  "assets": {
-    "note": "Files were read and OCR'd. None were edited.",
-    "pdfs": [
-      {
-        "url": "https://www.roller.software/hubfs/eBook/ROLLER_2026%20Attractions%20Industry%20Benchmark%20Report.pdf",
-        "pages": 81,
-        "method": "text layer plus OCR of every page",
-        "found3000": false,
-        "found3500": false,
-        "note": "Talks about venues and “hundreds of thousands of data points”. It never states 3,000 or 3,500."
-      },
-      {
-        "url": "https://www.roller.software/hubfs/Marketing/ROLLER%20Pulse%20Report%202026.pdf",
-        "pages": 66,
-        "method": "text layer plus OCR of every page",
-        "found3000": false,
-        "found3500": false,
-        "note": "Says “thousands of venues” with no customer count."
-      },
-      {
-        "url": "https://www.roller.software/hubfs/Six%20questions%20to%20ask.pdf",
-        "pages": null,
-        "method": "text layer",
-        "found3000": false,
-        "found3500": false,
-        "note": "No venue count in the text."
-      }
-    ],
-    "imagesChecked": [
-      {
-        "url": "https://www.roller.software/hubfs/Playcenters%20Industry%20Stats.png",
-        "found": "50% increase in basket size",
-        "venueCount": false
-      },
-      {
-        "url": "https://www.roller.software/hubfs/qubicaamf_roller_partnership_%20announcement.webp",
-        "found": "partnership lockup, no count",
-        "venueCount": false
-      },
-      {
-        "url": "https://www.roller.software/hubfs/ROLLER%2050M%20raise_v2.webp",
-        "found": "product screenshot, no count",
-        "venueCount": false
-      },
-      {
-        "url": "https://www.roller.software/hubfs/raw_assets/public/rolls-theme/images/og.png",
-        "found": "logo only",
-        "venueCount": false
-      }
-    ],
-    "linkedOnMarketingPages": 83,
-    "filenamesContainingTheCount": 0,
-    "resizeFalsePositive": "homepage dashboard-2.png is requested with width=3000. That is an image resize, not the customer count."
-  },
-  "findings": [
-    "158 marketing URLs checked on 8 October 2026, including 5 pages that are still published but no longer in the sitemap.",
-    "/competitor/tickettailor now headlines 3,500+ attractions, matching its logo carousel.",
-    "150 venue instances match 3,500+, including /fr/commencer and the five blog posts.",
-    "Company facts now counts toward the $5B tally: “Annual transaction volume: $5B processed annually”. 47 of 47 revenue instances are on brand.",
-    "747 blog posts checked. No retired venue count. Review badges are still images, so 37 User-Reviews pages stay unverified."
   ]
 }
