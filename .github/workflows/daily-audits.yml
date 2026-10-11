@@ -2,15 +2,12 @@ name: Daily site audits
 
 # 7:00 AM Sydney time. GitHub schedules are UTC and do not follow daylight saving,
 # so the workflow is queued at both 20:00 UTC (7:00 AEDT) and 21:00 UTC (7:00 AEST).
-# The first step continues only when it is 07:00 in Australia/Sydney, or when
-# someone runs the workflow by hand.
-# 9 October 2026 only: 8:00 PM and 9:00 PM Sydney (09:00 and 10:00 UTC).
+# GitHub often starts these late. The job still publishes one report for the
+# Sydney day, and a second start the same day does not crawl again.
 on:
   schedule:
     - cron: "0 20 * * *"
     - cron: "0 21 * * *"
-    - cron: "0 9 9 10 *"
-    - cron: "0 10 9 10 *"
   workflow_dispatch:
 
 permissions:
@@ -25,24 +22,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - name: Sydney 7am gate
-        id: gate
-        run: |
-          hour=$(TZ=Australia/Sydney date +%H)
-          day=$(TZ=Australia/Sydney date +%F)
-          schedule="${{ github.event.schedule }}"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$hour" = "07" ] || [ "$schedule" = "0 9 9 10 *" ] || [ "$schedule" = "0 10 9 10 *" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "Running daily audits (Sydney $day $hour:00, schedule $schedule)."
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping. It is $hour:00 in Sydney on $day."
-          fi
-
       - uses: actions/checkout@v4
-        if: steps.gate.outputs.run == 'true'
         with:
           ref: main
+
+      - name: Sydney daily gate
+        id: gate
+        run: |
+          day=$(TZ=Australia/Sydney date +%F)
+          hour=$(TZ=Australia/Sydney date +%H)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Running because it was started by hand (Sydney $day $hour:00)."
+            exit 0
+          fi
+          published=$(sed -n 's/.*"auditedOnIso": "\([^"]*\)".*/\1/p' form-audit.data.js | head -1)
+          if [ "$published" = "$day" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping. The report is already dated $day."
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Running the $day audit. The published report is still dated ${published:-unknown}. Sydney time is $hour:00."
+          fi
 
       - uses: actions/setup-node@v4
         if: steps.gate.outputs.run == 'true'
