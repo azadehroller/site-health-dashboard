@@ -112,11 +112,11 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
+    <a class="brand" href="/"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
-      <a href="./">Site Health</a>
-      <a href="brand-numbers.html" class="active" aria-current="page">Brand Signal</a>
-      <a href="form-health.html">Form Health</a>
+      <a href="/">Site Health</a>
+      <a href="/brand-signal" class="active" aria-current="page">Brand Signal</a>
+      <a href="/form-health">Form Health</a>
     </nav>
     <!-- <button class="btn-print" onclick="window.print()">Print / PDF</button> -->
   </div>
@@ -142,14 +142,14 @@
     <p class="sec-desc">Scored from a sitewide scrape against the figures ROLLER is supposed to publish. Click a card to see the detail behind the number.</p>
 
     <div class="grid g2" id="snapshot-grid">
-      <a class="card reveal" href="brand-numbers-detail.html#audit-health">
+      <a class="card reveal" href="/brand-signal-detail#audit-health">
         <div class="c-top"><h4>On brand</h4><span class="pill ok" id="p-ok"><span class="dot"></span>Live</span></div>
         <div class="metric-row"><span class="metric-num" id="n-ok">—</span><span class="metric-unit">figures match</span></div>
         <div class="substat" id="s-ok">&nbsp;</div>
         <p class="c-desc">Numbers found on the site that already match the current source of truth.</p>
         <div class="c-link">View audit health →</div>
       </a>
-      <a class="card reveal" href="brand-numbers-detail.html#audit-health">
+      <a class="card reveal" href="/brand-signal-detail#audit-health">
         <div class="c-top"><h4>Coverage</h4><span class="pill info" id="p-cov"><span class="dot"></span>Scraped</span></div>
         <div class="metric-row"><span class="metric-num" id="n-cov">—</span><span class="metric-unit">pages audited</span></div>
         <div class="substat" id="s-cov">&nbsp;</div>
@@ -184,7 +184,7 @@
     <h2>Needs attention</h2>
     <p class="sec-desc">Figures that still need a human look — kept at the end so the healthy signal leads.</p>
     <div class="grid g2" style="max-width:560px">
-      <a class="card reveal" href="brand-numbers-detail.html#needs-attention">
+      <a class="card reveal" href="/brand-signal-detail#needs-attention">
         <div class="c-top"><h4>Needs attention</h4><span class="pill info" id="p-attn"><span class="dot"></span>Loading…</span></div>
         <div class="metric-row"><span class="metric-num" id="n-attn">—</span><span class="metric-unit" id="u-attn">figures to check</span></div>
         <div class="substat" id="s-attn">&nbsp;</div>
@@ -224,9 +224,12 @@
     el.innerHTML = '<span class="dot"></span>' + label;
   }
 
-  var attn = (D.attentionStatuses || []).reduce(function (n, s) { return n + (D.statusCounts[s] || 0); }, 0);
+  var reviews = (D.components || []).filter(function (c) { return c.id === "ur"; })[0];
+  var reviewCount = reviews ? (reviews.attention || 0) : 0;
+  var attn = (D.attentionStatuses || []).reduce(function (n, s) { return n + (D.statusCounts[s] || 0); }, 0) - reviewCount;
   var drift = D.statusCounts.drift || 0;
   var ok = D.statusCounts.ok || 0;
+  var unverified = (D.statusCounts.unverified || 0) - (reviews ? (reviews.statusCounts.unverified || 0) : 0);
   var rating = drift > 0 ? "bad" : attn > 0 ? "warn" : "ok";
   var label = drift > 0 ? "Off brand" : attn > 0 ? "Needs review" : "On brand";
 
@@ -239,12 +242,12 @@
   document.getElementById("u-attn").textContent = attn === 1 ? "figure to check" : "figures to check";
   pill(document.getElementById("p-attn"), rating, label);
   document.getElementById("s-attn").innerHTML =
-    "<b>" + (D.statusCounts.unverified || 0) + "</b> unverified · <b>" +
+    "<b>" + unverified + "</b> unverified · <b>" +
     (D.statusCounts.review || 0) + "</b> need a call · <b>" + drift + "</b> off brand";
 
   document.getElementById("n-ok").textContent = ok;
   document.getElementById("s-ok").innerHTML =
-    "<b>" + ok + "</b> of <b>" + D.instanceCount + "</b> figures match · scraped " + esc(D.scrapeDate);
+    "<b>" + ok + "</b> of <b>" + (D.instanceCount - reviewCount) + "</b> brand figures match · scraped " + esc(D.scrapeDate);
   pill(document.getElementById("p-ok"), "ok", "On brand");
 
   document.getElementById("n-cov").textContent = D.pagesAudited;
@@ -260,7 +263,7 @@
     var clean = t.offBrand === 0 && (!t.retiredFound || !t.retiredFound.length);
     var pr = clean ? "ok" : "bad";
     var pl = clean ? "On brand" : "Off brand";
-    return '<a class="card reveal" href="brand-numbers-detail.html#sot-' + esc(t.id) + '">' +
+    return '<a class="card reveal" href="/brand-signal-detail#sot-' + esc(t.id) + '">' +
       '<div class="c-top"><h4>' + esc(t.label) + '</h4><span class="pill ' + pr + '"><span class="dot"></span>' + pl + "</span></div>" +
       '<div class="metric-row"><span class="metric-num">' + esc(t.value) + '</span><span class="metric-unit">source of truth</span></div>' +
       '<div class="substat"><b>' + t.onBrand + "</b> of <b>" + t.instances + "</b> live instances correct</div>" +
@@ -271,12 +274,17 @@
   }).join("");
 
   document.getElementById("comp-grid").innerHTML = (D.components || []).slice().sort(function (a, b) {
-    return (a.attention || 0) - (b.attention || 0) || (b.pageCount - a.pageCount);
+    var aAttn = a.id === "ur" ? 0 : (a.attention || 0);
+    var bAttn = b.id === "ur" ? 0 : (b.attention || 0);
+    return aAttn - bAttn || (b.pageCount - a.pageCount);
   }).map(function (c) {
-    var pr = c.attention ? (c.statusCounts.drift ? "bad" : "warn") : "ok";
-    var pl = c.attention ? (c.attention + " to check") : "All on brand";
-    return '<a class="card reveal" href="brand-numbers-detail.html#comp-' + esc(c.id) + '">' +
-      '<div class="c-top"><h4>' + esc(c.name) + '</h4><span class="pill ' + pr + '"><span class="dot"></span>' + esc(pl) + "</span></div>" +
+    var badges = c.id === "ur";
+    var name = badges ? "Global review badges" : c.name;
+    var attention = badges ? 0 : (c.attention || 0);
+    var pr = badges ? "info" : (attention ? (c.statusCounts.drift ? "bad" : "warn") : "ok");
+    var pl = badges ? "Third-party" : (attention ? (attention + " to check") : "All on brand");
+    return '<a class="card reveal" href="/brand-signal-detail#comp-' + esc(c.id) + '">' +
+      '<div class="c-top"><h4>' + esc(name) + '</h4><span class="pill ' + pr + '"><span class="dot"></span>' + esc(pl) + "</span></div>" +
       '<div class="metric-row"><span class="metric-num">' + c.pageCount + '</span><span class="metric-unit">pages</span></div>' +
       '<div class="substat">' + esc(c.tagline) + "</div>" +
       '<p class="c-desc">' + esc(c.updateNote || c.rebuild || "") + "</p>" +

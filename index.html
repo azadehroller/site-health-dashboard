@@ -206,11 +206,11 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
+    <a class="brand" href="/"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
-      <a href="./" class="active" aria-current="page">Site Health</a>
-      <a href="brand-numbers.html">Brand Signal</a>
-      <a href="form-health.html">Form Health</a>
+      <a href="/" class="active" aria-current="page">Site Health</a>
+      <a href="/brand-signal">Brand Signal</a>
+      <a href="/form-health">Form Health</a>
     </nav>
     <nav class="section-nav" aria-label="On this page">
       <a href="#daily">Daily</a><a href="#weekly">Weekly</a><a href="#performance">Performance</a>
@@ -271,7 +271,7 @@
           <div class="substat" id="s-forms">&nbsp;</div>
           <p class="c-desc">We check that every lead form still submits, the lead reaches the CRM, and tracking fires correctly (including cookie consent).</p>
           <div class="tools">
-            <a class="tool" href="form-health.html" style="text-decoration:none">Open Form Health →</a>
+            <a class="tool" href="/form-health" style="text-decoration:none">Open Form Health →</a>
             <span class="tool">Checkly</span>
             <span class="tool">Sentry</span>
           </div>
@@ -320,7 +320,7 @@
           <div class="substat" id="s-brand">Brand numbers audit — loading…</div>
           <p class="c-desc">Whether the headline figures on roller.software match the business source of truth — venues, revenue, and related stats.</p>
           <div class="tools">
-            <a class="tool" href="brand-numbers.html" style="text-decoration:none">Open overview →</a>
+            <a class="tool" href="/brand-signal" style="text-decoration:none">Open overview →</a>
             <span class="tool">Site scrape audit</span>
           </div>
         </div>
@@ -931,18 +931,21 @@
     const pil = document.getElementById('pil-brand');
     if(!D){
       if(pill){ pill.className='pill warn'; pill.innerHTML='<span class="dot"></span>Unavailable'; }
-      if(sub) sub.innerHTML='Brand numbers data file missing — open <a href="brand-numbers.html">Brand &amp; Business Signal</a> after regenerating the audit.';
+      if(sub) sub.innerHTML='Brand numbers data file missing — open <a href="/brand-signal">Brand &amp; Business Signal</a> after regenerating the audit.';
       return;
     }
-    const attn = (D.attentionStatuses||[]).reduce((n,s)=>n+(D.statusCounts[s]||0),0);
+    const reviews = (D.components||[]).find(c => c.id === 'ur');
+    const reviewCount = reviews ? (reviews.attention||0) : 0;
+    const attn = (D.attentionStatuses||[]).reduce((n,s)=>n+(D.statusCounts[s]||0),0) - reviewCount;
     const drift = D.statusCounts.drift||0;
     const ok = D.statusCounts.ok||0;
+    const brandTotal = D.instanceCount - reviewCount;
     const rating = drift>0 ? 'bad' : attn>0 ? 'warn' : 'ok';
     const label = drift>0 ? 'Off brand' : attn>0 ? 'Needs review' : 'On brand';
     if(num) num.textContent = attn;
     if(unit) unit.textContent = attn===1 ? 'number needs attention' : 'numbers need attention';
     if(pill){ pill.className='pill '+rating; pill.innerHTML='<span class="dot"></span>'+label; }
-    if(sub) sub.innerHTML = `<b>${ok}</b> of <b>${D.instanceCount}</b> figures match the source of truth · scraped ${D.scrapeDate} · ${D.pagesAudited} pages`;
+    if(sub) sub.innerHTML = `<b>${ok}</b> of <b>${brandTotal}</b> brand figures match the source of truth · scraped ${D.scrapeDate} · ${D.pagesAudited} pages`;
     if(pil){
       const color = drift>0 ? 'var(--bad-line)' : attn>0 ? 'var(--warn-line)' : 'var(--good-line)';
       const text = drift>0

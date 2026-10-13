@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/api/daily-report",
@@ -10,6 +11,12 @@
         { "key": "Expires", "value": "0" }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/brand-numbers", "destination": "/brand-signal", "permanent": true },
+    { "source": "/brand-numbers.html", "destination": "/brand-signal", "permanent": true },
+    { "source": "/brand-numbers-detail", "destination": "/brand-signal-detail", "permanent": true },
+    { "source": "/brand-numbers-detail.html", "destination": "/brand-signal-detail", "permanent": true }
   ],
   "rewrites": [
     {

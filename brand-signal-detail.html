@@ -386,6 +386,7 @@
     border: 1px solid var(--border); border-left: 3px solid var(--coral);
     border-radius: 7px; padding: 9px 11px; margin-top: 12px; color: var(--text);
   }
+  .comp-warn.is-note { border-left-color: var(--blue-50); }
 
   /* per-component status strip */
   .mini-stack { margin-top: 14px; }
@@ -535,11 +536,11 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="./"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
+    <a class="brand" href="/"><span class="mark">R</span><span>ROLLER <small>· Website Ops</small></span></a>
     <nav class="view-tabs" aria-label="Dashboard views">
-      <a href="./">Site Health</a>
-      <a href="brand-numbers.html" class="active" aria-current="page">Brand Signal</a>
-      <a href="form-health.html">Form Health</a>
+      <a href="/">Site Health</a>
+      <a href="/brand-signal" class="active" aria-current="page">Brand Signal</a>
+      <a href="/form-health">Form Health</a>
     </nav>
     <div class="hdr-right">
       <span class="hdr-chip" id="chip-scrape">—</span>
@@ -550,7 +551,7 @@
 </header>
 
 <div class="wrap" style="padding-top:18px">
-  <a href="brand-numbers.html" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--blue-40);text-decoration:none">
+  <a href="/brand-signal" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--blue-40);text-decoration:none">
     ← Back to Brand &amp; Business Signal
   </a>
 </div>
@@ -683,6 +684,10 @@
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
   function plural(n, one, many) { return n + " " + (n === 1 ? one : (many || one + "s")); }
+  function isReviewBadges(c) { return c.id === "ur"; }
+  function compName(c) { return isReviewBadges(c) ? "Global review badges" : c.name; }
+  var reviewComp = D.components.filter(isReviewBadges)[0];
+  var reviewCount = reviewComp ? (reviewComp.attention || 0) : 0;
 
   function badge(status, label) {
     var m = D.statusMeta[status];
@@ -734,8 +739,10 @@
   })();
 
   /* ── 2 · Tiles + charts ───────────────────────────────────── */
-  var attnTotal = ATTN.reduce(function (n, s) { return n + D.statusCounts[s]; }, 0);
+  var attnTotal = ATTN.reduce(function (n, s) { return n + D.statusCounts[s]; }, 0) - reviewCount;
   var driftTotal = D.statusCounts.drift;
+  var unverifiedTotal = (D.statusCounts.unverified || 0) - (reviewComp ? (reviewComp.statusCounts.unverified || 0) : 0);
+  var brandFigureCount = D.instanceCount - reviewCount;
 
   document.getElementById("chip-scrape").innerHTML = "Scraped <b>" + esc(D.scrapeDate) + "</b>";
   document.getElementById("chip-pages").innerHTML = "<b>" + D.pagesAudited + "</b> pages audited";
@@ -744,16 +751,16 @@
   document.getElementById("hero-pages").innerHTML = "<b>" + D.pagesAudited + "</b> pages audited";
   document.getElementById("hero-attn").innerHTML = "<b>" + attnTotal + "</b> need attention";
   document.getElementById("hero-attn").classList.toggle("attn", attnTotal > 0);
-  document.getElementById("chart-total").textContent = D.instanceCount;
+  document.getElementById("chart-total").textContent = brandFigureCount;
 
   (function () {
     var tiles = [
       { n: D.pagesWithNumbers, l: "pages carry a brand number", cls: "" },
-      { n: D.instanceCount, l: "numbers found in total", cls: "" },
+      { n: brandFigureCount, l: "brand numbers found", cls: "" },
       { n: D.statusCounts.ok, l: "match the source of truth", cls: "t-ok" },
       { n: driftTotal, l: "wrong on the live site", cls: driftTotal ? "t-drift" : "t-ok" },
       { n: D.statusCounts.review, l: "need a decision", cls: "t-attn" },
-      { n: D.statusCounts.unverified, l: "need a manual check", cls: "" }
+      { n: unverifiedTotal, l: "need a manual check", cls: "" }
     ];
     document.getElementById("tiles").innerHTML = tiles.map(function (t) {
       return '<div class="tile ' + t.cls + '"><span class="tile-n">' + t.n + '</span>' +
@@ -784,10 +791,13 @@
   }
 
   (function () {
-    document.getElementById("status-bar").appendChild(stackbar(D.statusCounts, D.instanceCount));
+    var brandCounts = {};
+    STATUS_ORDER.forEach(function (s) { brandCounts[s] = D.statusCounts[s] || 0; });
+    if (reviewComp) brandCounts.unverified = Math.max(0, brandCounts.unverified - (reviewComp.statusCounts.unverified || 0));
+    document.getElementById("status-bar").appendChild(stackbar(brandCounts, brandFigureCount));
 
     document.getElementById("status-legend").innerHTML = STATUS_ORDER.map(function (s) {
-      var m = D.statusMeta[s], n = D.statusCounts[s] || 0;
+      var m = D.statusMeta[s], n = brandCounts[s] || 0;
       return '<span class="legend-item"><i class="legend-swatch" style="background:' + COLOR[s] + '"></i>' +
         '<span><b>' + n + "</b> " + esc(m.label) +
         '<span class="lg-blurb">' + esc(m.blurb) + "</span></span></span>";
@@ -795,7 +805,7 @@
 
     // Text equivalent of the bar, for screen readers and the print view.
     document.getElementById("status-bar-table").textContent = STATUS_ORDER.map(function (s) {
-      return D.statusMeta[s].label + ": " + (D.statusCounts[s] || 0);
+      return D.statusMeta[s].label + ": " + (brandCounts[s] || 0);
     }).join(", ");
   })();
 
@@ -806,7 +816,7 @@
       var edits = c.updateEffort === "one" ? "1 edit"
         : c.updateEffort === "each" ? c.pageCount + " edits" : "varies";
       return '<div class="hbar-row">' +
-        '<span class="hbar-name">' + esc(c.name) + "</span>" +
+        '<span class="hbar-name">' + esc(compName(c)) + "</span>" +
         '<div class="hbar-track" data-reach="' + c.id + '">' +
           '<div class="hbar-fill" style="width:' + (c.pageCount / max * 100) + '%"></div>' +
           '<span class="hbar-val">' + c.pageCount + " <small>pages · " + esc(edits) + "</small></span>" +
@@ -814,8 +824,8 @@
     }).join("");
     comps.forEach(function (c) {
       var t = document.querySelector('[data-reach="' + c.id + '"]');
-      if (t) bindTip(t, "<b>" + esc(c.name) + "</b><br>" + plural(c.pageCount, "page") + " · " +
-        plural(c.attention, "page") + " needing attention");
+      if (t) bindTip(t, "<b>" + esc(compName(c)) + "</b><br>" + plural(c.pageCount, "page") +
+        (isReviewBadges(c) ? " · third-party review badges" : " · " + plural(c.attention, "page") + " needing attention"));
     });
   })();
 
@@ -823,6 +833,7 @@
   (function () {
     var buckets = {};
     D.components.forEach(function (c) {
+      if (isReviewBadges(c)) return;
       c.pages.forEach(function (p) {
         p.numbers.forEach(function (n) {
           if (ATTN.indexOf(n.status) === -1) return;
@@ -942,6 +953,8 @@
   var EFFORT_LABEL = { one: "One edit, all pages", each: "One edit per page", mixed: "Mixed" };
 
   function compCard(c) {
+    var badges = isReviewBadges(c);
+    var name = compName(c);
     var numTotal = STATUS_ORDER.reduce(function (n, s) { return n + (c.statusCounts[s] || 0); }, 0);
 
     var figs = c.figma.map(function (f) {
@@ -965,15 +978,15 @@
     el.innerHTML =
       '<div class="comp-head">' +
         '<div class="comp-titlerow">' +
-          '<h3 class="comp-name">' + esc(c.name) + "</h3>" +
+          '<h3 class="comp-name">' + esc(name) + "</h3>" +
           '<span class="comp-reach">' + plural(c.pageCount, "page") + "</span>" +
-          // Badge reflects the most urgent state present, so an all-unverified
-          // component doesn't read as urgently as one that is actually wrong.
-          (c.attention
-            ? badge(STATUS_ORDER.filter(function (s) {
-                return ATTN.indexOf(s) !== -1 && c.statusCounts[s];
-              }).pop(), plural(c.attention, "page") + " to check")
-            : badge("ok", "All on brand")) +
+          (badges
+            ? badge("context", "Third-party")
+            : (c.attention
+              ? badge(STATUS_ORDER.filter(function (s) {
+                  return ATTN.indexOf(s) !== -1 && c.statusCounts[s];
+                }).pop(), plural(c.attention, "page") + " to check")
+              : badge("ok", "All on brand"))) +
         "</div>" +
         '<p class="comp-tagline">' + esc(c.tagline) + "</p>" +
       "</div>" +
@@ -1000,7 +1013,7 @@
               esc(EFFORT_LABEL[c.updateEffort]) + "</span></dd>" +
             "<dt>After the rebuild</dt><dd>" + esc(c.rebuild) + "</dd>" +
           "</dl>" +
-          '<div class="comp-warn">' + esc(c.updateNote) + "</div>" +
+          '<div class="comp-warn' + (badges ? " is-note" : "") + '">' + esc(c.updateNote) + "</div>" +
           '<div class="mini-stack">' +
             '<p class="prev-label" style="margin-bottom:6px">' + plural(numTotal, "number") + " found here</p>" +
             '<div class="mini-stack-bar"></div>' +
@@ -1011,15 +1024,16 @@
 
       '<details class="pages-acc">' +
         "<summary>" + '<span class="chev">' + icon("chev", 12) + "</span>" +
-          "Show all " + plural(c.pageCount, "page") + " using " + esc(c.name) +
+          "Show all " + plural(c.pageCount, "page") + " using " + esc(name) +
         "</summary>" +
         '<div class="pages-body">' +
           '<div class="pages-tools">' +
             '<span class="pfilter-label">Show</span>' +
             '<button type="button" class="pfilter" data-f="all" aria-pressed="true">All ' + c.pageCount + "</button>" +
-            '<button type="button" class="pfilter" data-f="attn" aria-pressed="false">Needs attention ' + c.attention + "</button>" +
-            '<button type="button" class="pfilter" data-f="ok" aria-pressed="false">On brand ' +
-              c.pages.filter(function (p) { return p.status === "ok"; }).length + "</button>" +
+            (badges ? "" :
+              '<button type="button" class="pfilter" data-f="attn" aria-pressed="false">Needs attention ' + c.attention + "</button>" +
+              '<button type="button" class="pfilter" data-f="ok" aria-pressed="false">On brand ' +
+                c.pages.filter(function (p) { return p.status === "ok"; }).length + "</button>") +
           "</div>" +
           '<div class="pages-rows">' + c.pages.map(function (p) {
             return '<div class="prow" data-status="' + p.status + '">' +
@@ -1029,7 +1043,7 @@
               '<span class="prow-nums">' + p.numbers.map(function (n) {
                 return '<span class="numpill n-' + n.status + '" title="' + esc(n.reason) + '">' +
                   esc(n.value) + "</span>";
-              }).join("") + badge(p.status) + "</span></div>";
+              }).join("") + (badges ? "" : badge(p.status)) + "</span></div>";
           }).join("") + "</div>" +
           '<p class="pages-empty" hidden>No pages in this view.</p>' +
         "</div>" +
@@ -1064,7 +1078,9 @@
     var host = document.getElementById("comp-list");
     // Most pages needing attention first, then widest reach.
     D.components.slice().sort(function (a, b) {
-      return (b.attention - a.attention) || (b.pageCount - a.pageCount);
+      var aAttn = isReviewBadges(a) ? 0 : a.attention;
+      var bAttn = isReviewBadges(b) ? 0 : b.attention;
+      return (bAttn - aAttn) || (b.pageCount - a.pageCount);
     }).forEach(function (c) { host.appendChild(compCard(c)); });
   })();
 
