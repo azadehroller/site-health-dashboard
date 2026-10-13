@@ -360,7 +360,7 @@
         </summary>
         <div class="subhead">How top pages feel for visitors (live)</div>
         <div class="pagelist" id="perpage"></div>
-        <div class="subhead">Slowest pages · time for most visitors to finish loading (live)</div>
+        <div class="subhead">Slowest pages · time for the main content to appear (live)</div>
         <div class="pagelist" id="slowest"></div>
       </details>
     </div>
@@ -390,9 +390,9 @@
       </div>
       <div class="card reveal">
         <div class="c-top"><h4>Slowest Page</h4><span class="pill info" id="p-slowest"><span class="dot"></span>Live</span></div>
-        <div class="metric-row"><span class="metric-num" id="n-slowest">—</span><span class="metric-unit">to load for most visitors</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-slowest">—</span><span class="metric-unit">for the main content to appear</span></div>
         <div class="substat" id="s-slowest">&nbsp;</div>
-        <p class="c-desc">The slowest page right now — time for nearly all visitors (95%) to finish loading. A good place to start if speed needs work.</p>
+        <p class="c-desc">The page with the slowest main content (LCP, typical visitor) among pages with enough visits in the last 24h. Under 2.5s is good. Worth checking if it is above 4s.</p>
         <div class="tools"><span class="tool">Sentry</span></div>
       </div>
       <div class="card reveal">
@@ -527,6 +527,7 @@
   const NAME={LCP:"Largest Contentful Paint",INP:"Interaction to Next Paint",CLS:"Cumulative Layout Shift",FCP:"First Contentful Paint",TTFB:"Time to First Byte"};
   const BND ={LCP:[2500,4000],INP:[200,500],CLS:[0.1,0.25],FCP:[1800,3000],TTFB:[800,1800]};
 
+  const MIN_PAGE_VIEWS = 30;   // ignore pages with too few visits to rank fairly
   function rate(k,v){ if(v==null) return "nodata"; const b=BND[k]; return v<=b[0]?"good":v<=b[1]?"warn":"bad"; }
   function pctOf(k,v){ if(v==null) return null; const s=SEG[k],b=BND[k];
     if(v<=b[0]) return v/b[0]*s[0];
@@ -574,8 +575,8 @@
     }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
     const sl=document.getElementById('slowest');
     sl.innerHTML=(slowest||[]).map(p=>{
-      const sec=p.p95/1000, r= sec<=3?"good":sec<=8?"warn":"bad";
-      return `<div class="pagerow"><span class="pp" title="${p.path}">${p.path}</span><span class="mv ${r}">${sec.toFixed(1)}s <small>for most visitors</small></span></div>`;
+      const r=rate("LCP",p.lcp);
+      return `<div class="pagerow"><span class="pp" title="${p.path}">${p.path}</span><span class="mv ${r}">${(p.lcp/1000).toFixed(1)}s <small>LCP</small></span><span class="mv"><small>${p.views.toLocaleString()} visits</small></span></div>`;
     }).join('') || '<div class="pagerow"><span class="pp">No page data</span></div>';
   }
 
@@ -663,7 +664,8 @@
       cwv:{ LCP:wv.lcpMs, FCP:wv.fcpMs, CLS:wv.cls, INP:wv.inpMs, TTFB:wv.ttfbMs,
             apdex:rnd2(perf.siteApdex), failRate:pct1(perf.siteFailureRate), samples:perf.siteSamples },
       perPage:(s.cwvByPage||[]).slice(0,6).map(p=>({path:p.page,lcp:p.lcpMs,fcp:p.fcpMs,cls:p.cls,views:p.views})),
-      slowest:(s.slowestPages||[]).slice(0,5).map(p=>({path:p.page,p95:p.p95DurationMs})),
+      slowest:(s.cwvByPage||[]).filter(p=>p.lcpMs!=null&&(p.views||0)>=MIN_PAGE_VIEWS)
+        .sort((a,b)=>b.lcpMs-a.lcpMs).slice(0,5).map(p=>({path:p.page,lcp:p.lcpMs,views:p.views})),
       ahrefs: (ah.dataAvailable && primary) ? { domainRating:ah.domainRating, rank:ah.ahrefsRank,
             health:primary.healthScore, errors:primary.urlsWithErrors, warnings:primary.urlsWithWarnings,
             crawled:primary.total, projectName:primary.name, status:primary.status,
@@ -861,9 +863,10 @@
       setRatingPill('p-slow', c.failRate<5?'ok':c.failRate<15?'warn':'bad', 'Live');
       setText('s-slow','From real visitor traffic in the last 24h'); }
     if(d.slowest&&d.slowest.length){ const w=d.slowest[0];
-      setText('n-slowest', (w.p95/1000).toFixed(1)+'s');
-      setRatingPill('p-slowest', (w.p95/1000)<=3?'ok':(w.p95/1000)<=8?'warn':'bad', 'Live');
-      setText('s-slowest', 'Slowest page: '+w.path); }
+      const rt=rate("LCP",w.lcp);
+      setText('n-slowest', (w.lcp/1000).toFixed(1)+'s');
+      setRatingPill('p-slowest', rt==="good"?'ok':rt, 'Live');
+      setText('s-slowest', w.path+' · '+w.views.toLocaleString()+' visits in the last 24h'); }
 
     // Ahrefs — SEO Health + Link Integrity + Accessibility / technical SEO
     if(d.ahrefs){
