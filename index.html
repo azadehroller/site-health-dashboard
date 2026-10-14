@@ -302,9 +302,9 @@
       <div class="grid g3">
         <div class="card reveal">
           <div class="c-top"><h4>Link Integrity</h4><span class="pill info" id="p-links"><span class="dot"></span>Live</span></div>
-          <div class="metric-row"><span class="metric-num" id="n-links">—</span><span class="metric-unit">of pages error-free</span></div>
+          <div class="metric-row"><span class="metric-num" id="n-links">—</span><span class="metric-unit">of crawled URLs error-free</span></div>
           <div class="substat" id="s-links">&nbsp;</div>
-          <p class="c-desc">Share of crawled pages with no technical SEO errors — broken links, redirect loops, 404s, or missing images — from the latest site crawl.</p>
+          <p class="c-desc">Share of crawled URLs with no Site Audit errors. Errors cover every error type Ahrefs reports (broken links, redirect loops, 404s, titles, duplicates, indexability), not broken links alone. Ahrefs crawls every URL it finds (pages, images, scripts, redirects), so this is larger than the ~900-page sitemap.</p>
           <div class="tools"><span class="tool">Ahrefs</span></div>
         </div>
         <div class="card reveal">
@@ -399,7 +399,7 @@
         <div class="c-top"><h4>SEO Health</h4><span class="pill info" id="p-seo"><span class="dot"></span>Live</span></div>
         <div class="metric-row"><span class="metric-num" id="n-seo">—</span><span class="metric-unit">out of 100</span></div>
         <div class="substat" id="s-seo">&nbsp;</div>
-        <p class="c-desc">Overall SEO health of the main website from the latest crawl — higher is healthier for search visibility. Issue counts live in Accessibility &amp; technical SEO.</p>
+        <p class="c-desc">Ahrefs Site Audit health score for the main website from the latest finished crawl — higher is healthier for search visibility. Issue counts live in Accessibility &amp; technical SEO.</p>
         <div class="tools"><span class="tool">Ahrefs</span></div>
       </div>
       <div class="card reveal awaiting">
@@ -436,9 +436,9 @@
       </div>
       <div class="card reveal in">
         <div class="c-top"><h4>Technical SEO</h4><span class="pill info" id="p-techseo"><span class="dot"></span>Live</span></div>
-        <div class="metric-row"><span class="metric-num" id="n-techseo">—</span><span class="metric-unit" id="u-techseo">pages with SEO errors</span></div>
+        <div class="metric-row"><span class="metric-num" id="n-techseo">—</span><span class="metric-unit" id="u-techseo">URLs with SEO errors</span></div>
         <div class="substat" id="s-techseo">&nbsp;</div>
-        <p class="c-desc">Indexability, broken links, redirects, titles, duplicates, and sitemap issues from the latest crawl of the primary domain.</p>
+        <p class="c-desc">Indexability, broken links, redirects, titles, duplicates, and sitemap issues from the latest crawl of the primary domain. Counts are crawled URLs (including images, scripts and redirects), not unique pages.</p>
         <div class="issue-list" id="list-seo" hidden></div>
         <div class="tools"><span class="tool">Ahrefs Site Audit</span></div>
       </div>
@@ -587,7 +587,8 @@
     return host==="www.roller.software";
   }
   function uniqueAhrefsProjects(projects){
-    const rank = (p) => /primary/i.test(p.name||"") ? 0 : 1;
+    // A crawl still in progress has partial counts, so a finished crawl of the same host outranks it.
+    const rank = (p) => (/in_progress/i.test(p.status||"") ? 2 : 0) + (/primary/i.test(p.name||"") ? 0 : 1);
     const byHost = {};
     [...(projects||[])].sort((a,b)=>rank(a)-rank(b)).forEach(p=>{
       const host = hostKey(p.targetUrl);
@@ -763,26 +764,29 @@
       setText('n-techseo', iss.seoFlags);
       setText('u-techseo', 'technical SEO flags');
       setRatingPill('p-techseo', iss.seoFlags===0?'ok':iss.seoFlags<200?'warn':'bad', 'Live');
-      setText('s-techseo', (a.errors!=null?Number(a.errors).toLocaleString()+' pages with errors':'') +
+      setText('s-techseo', (a.errors!=null?Number(a.errors).toLocaleString()+' URLs with errors':'') +
         (a.warnings!=null?' · '+Number(a.warnings).toLocaleString()+' with warnings':''));
       renderIssueRows(document.getElementById('list-seo'), iss.topSeo);
     } else if(a){
-      setText('n-a11y', a.warnings);
-      setText('u-a11y', 'pages with quality warnings');
-      setRatingPill('p-a11y', a.warnings===0?'ok':a.warnings<200?'warn':'bad', 'Live');
-      setText('s-a11y', a.crawled!=null
-        ? Number(a.crawled).toLocaleString()+' pages crawled on '+ (a.projectName||'primary')
+      // The feed has no per-issue breakdown, so accessibility cannot be separated out of Ahrefs' warnings total.
+      // Showing that total here (it mixes redirects, titles, canonicals, etc.) would overstate accessibility problems.
+      setText('n-a11y', '—');
+      setText('u-a11y', 'awaiting issue-level feed');
+      setRatingPill('p-a11y', 'info', 'Awaiting feed');
+      setText('s-a11y', a.warnings!=null
+        ? 'Ahrefs reports '+Number(a.warnings).toLocaleString()+' URLs with warnings of all types — not accessibility-only'
         : 'From the latest Site Audit');
       const da=document.getElementById('d-a11y');
-      if(da) da.textContent = 'Ahrefs warning set includes missing alt text, viewport, and tap-target issues — the accessibility coverage this program can read from Site Audit. Per-issue counts appear when the feed includes Site Audit issues.';
+      if(da) da.textContent = 'Accessibility-adjacent flags (image alt, viewport, tap targets) need Ahrefs per-issue data, which the feed does not include yet. The warning total covers every warning type, so it is not shown here as an accessibility count. Not a full WCAG audit.';
       renderIssueRows(document.getElementById('list-a11y'), []);
 
       setText('n-techseo', a.errors);
-      setText('u-techseo', 'pages with SEO errors');
-      setRatingPill('p-techseo', a.errors===0?'ok':a.errors<100?'warn':'bad', 'Attention');
-      setText('s-techseo', a.health!=null
-        ? 'Health '+a.health+'/100 · '+Number(a.warnings||0).toLocaleString()+' warnings'
-        : Number(a.warnings||0).toLocaleString()+' warnings');
+      setText('u-techseo', 'URLs with SEO errors');
+      setRatingPill('p-techseo', a.errors===0?'ok':a.errors<100?'warn':'bad', /in_progress/i.test(a.status||'')?'Crawling':'Attention');
+      const errPct = a.crawled ? ' ('+(Math.round(a.errors/a.crawled*1000)/10)+'%)' : '';
+      setText('s-techseo', (a.crawled!=null ? 'of '+Number(a.crawled).toLocaleString()+' crawled URLs'+errPct+' · ' : '') +
+        (a.health!=null ? 'Health '+a.health+'/100' : '') +
+        (/in_progress/i.test(a.status||'') ? ' · crawl still in progress' : ''));
       renderIssueRows(document.getElementById('list-seo'), []);
     }
 
@@ -878,7 +882,7 @@
         const cleanPct = Math.round(((a.crawled - a.errors) / a.crawled) * 1000) / 10; // e.g. 93.7
         setText('n-links', cleanPct + '%');
         setRatingPill('p-links', cleanPct>=95?'ok':cleanPct>=85?'warn':'bad', 'Live');
-        setText('s-links', `${Number(a.crawled).toLocaleString()} pages crawled · ${Number(a.errors).toLocaleString()} with errors`);
+        setText('s-links', `${Number(a.crawled).toLocaleString()} URLs crawled · ${Number(a.errors).toLocaleString()} with errors`);
       }
       renderAhrefsAudit(a);
     }
