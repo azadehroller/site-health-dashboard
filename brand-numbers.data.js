@@ -1,5 +1,5 @@
 window.BRAND_NUMBERS = {
- "scrapeDate": "14 October 2026",
+ "scrapeDate": "15 October 2026",
  "pagesAudited": 158,
  "pagesLiveChecked": 158,
  "pagesWithNumbers": 117,
@@ -3704,7 +3704,7 @@ window.BRAND_NUMBERS = {
    "moduleId": null,
    "updateWhere": "Each post in the HubSpot blog editor",
    "updateEffort": "each",
-   "updateNote": "741 blog posts were checked. 5 state a brand figure, and they match 3,500+ or $5B. Amounts that are not the venue count or the transactions figure were left out.",
+   "updateNote": "742 blog posts were checked. 5 state a brand figure, and they match 3,500+ or $5B. Amounts that are not the venue count or the transactions figure were left out.",
    "rebuild": "Blog copy stays in HubSpot until the site moves. Each post is its own edit.",
    "figma": [],
    "pageCount": 5,
