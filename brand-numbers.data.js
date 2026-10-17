@@ -1,5 +1,5 @@
 window.BRAND_NUMBERS = {
- "scrapeDate": "17 October 2026",
+ "scrapeDate": "18 October 2026",
  "pagesAudited": 158,
  "pagesLiveChecked": 158,
  "pagesWithNumbers": 117,
