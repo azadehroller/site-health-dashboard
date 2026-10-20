@@ -1,14 +1,14 @@
 {
-  "auditedAt": "2026-10-19T23:12:46.040Z",
+  "auditedAt": "2026-10-20T22:48:18.907Z",
   "method": "Live re-check of sitemap marketing pages, published pages already tracked by Brand Signal, and all blog posts, scored against 3,500+ venues and $5B transactions processed. Linked PDFs were not re-read.",
   "pagesRequested": 907,
   "marketingPages": 158,
-  "blogPagesChecked": 742,
+  "blogPagesChecked": 741,
   "fetchErrors": [],
   "flippedToOffBrand": 0,
   "restoredToOnBrand": 0,
   "newOffBrandPages": 0,
-  "logoHeadingsRead": 90,
+  "logoHeadingsRead": 89,
   "statusAfter": {
     "ok": 197,
     "context": 24,
