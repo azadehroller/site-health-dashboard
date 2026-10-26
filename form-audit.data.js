@@ -1,7 +1,7 @@
 window.FORM_AUDIT = {
-  "auditedOn": "26 October 2026",
-  "auditedOnIso": "2026-10-26",
-  "source": "Site crawl of non-blog pages on 26 October 2026. Submission counts, views and last-submit dates are from HubSpot on 26 October 2026.",
+  "auditedOn": "27 October 2026",
+  "auditedOnIso": "2026-10-27",
+  "source": "Site crawl of non-blog pages on 27 October 2026. Submission counts, views and last-submit dates are from HubSpot on 27 October 2026.",
   "scope": "All non-blog pages. Forms outside the site footer. Footer subscribe form excluded except where it is separately embedded in the body.",
   "hubspotPortal": "3375779",
   "hubspotFormsTotal": 137,
@@ -9,7 +9,7 @@ window.FORM_AUDIT = {
     "formsInUse": 25,
     "pagesCrawled": 156,
     "placements": 33,
-    "lifetimeSubmissions": 18575,
+    "lifetimeSubmissions": 18668,
     "idleSixMonths": 7,
     "sharedForms": 6
   },
@@ -52,19 +52,19 @@ window.FORM_AUDIT = {
       "id": "calendly-conversion",
       "title": "Calendly conversion figures are meaningless",
       "severity": "warn",
-      "body": "The Calendly form shows 4 page views against 395 submissions because it never renders. Treat the submissions as completed bookings."
+      "body": "The Calendly form shows 4 page views against 399 submissions because it never renders. Treat the submissions as completed bookings."
     },
     {
       "id": "lets-chat-shared",
       "title": "Let’s chat v2 is on 4 pages",
       "severity": "warn",
-      "body": "Its 9,228 submissions cannot be split by page. Pages: /get-started/, /iaapa-europe-2026, /iaapa-expo-orlando-2026, /2026-wwa. It is embedded more than once on /2026-wwa, /iaapa-europe-2026, /iaapa-expo-orlando-2026."
+      "body": "Its 9,237 submissions cannot be split by page. Pages: /get-started/, /iaapa-europe-2026, /iaapa-expo-orlando-2026, /2026-wwa. It is embedded more than once on /2026-wwa, /iaapa-europe-2026, /iaapa-expo-orlando-2026."
     },
     {
       "id": "spam-leads-naming",
       "title": "Get Started naming is tangled",
       "severity": "warn",
-      "body": "“2023 - Get Started (Spam Leads)” is live on 2 pages with 37 submissions, last one 2026-09-26."
+      "body": "“2023 - Get Started (Spam Leads)” is live on 2 pages with 38 submissions, last one 2026-10-27."
     },
     {
       "id": "idle-forms",
@@ -76,21 +76,21 @@ window.FORM_AUDIT = {
       "id": "shared-attribution",
       "title": "6 forms sit on more than one page",
       "severity": "info",
-      "body": "Their submissions pool and cannot be attributed by form ID. 2023 - Let's chat v2 (4); Subscribe to Blog Notifications (2); 2025 - Partnerships (2); 2026 Pulse Report  (2); 2023 - Get Started (Spam Leads) (2); Refresh2025 (2)."
+      "body": "Their submissions pool and cannot be attributed by form ID. English Get started Form (4); Subscribe to Blog Notifications (2); 2025 - Partnerships (2); 2026 Pulse Report  (2); 2023 - Get Started (Spam Leads) (2); Refresh2025 (2)."
     }
   ],
-  "notes": "No reliance on literal <form> tags (0 found in the served HTML). Detection covered the module options block, inline hbspt.forms.create() calls, and direct POSTs to api.hsforms.com. The global footer subscribe form is excluded except where that same form is embedded in the page body. 156 non-blog pages crawled, 25 forms, 33 placements. Freshness is counted to 26 October 2026: active is a submission in the last 30 days, slowing is under six months, stale is six to about sixteen months, dormant is longer.",
+  "notes": "No reliance on literal <form> tags (0 found in the served HTML). Detection covered the module options block, inline hbspt.forms.create() calls, and direct POSTs to api.hsforms.com. The global footer subscribe form is excluded except where that same form is embedded in the page body. 156 non-blog pages crawled, 25 forms, 33 placements. Freshness is counted to 27 October 2026: active is a submission in the last 30 days, slowing is under six months, stale is six to about sixteen months, dormant is longer.",
   "forms": [
     {
-      "name": "2023 - Let's chat v2",
+      "name": "English Get started Form",
       "id": "20a46e0f-ec52-4e8d-ad13-a1c6bae4c8f0",
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/20a46e0f-ec52-4e8d-ad13-a1c6bae4c8f0/edit/form",
       "band": "fresh",
       "pageCount": 4,
-      "submissions": 9228,
-      "views": 243236,
-      "conversion": 3.79,
-      "lastSubmitted": "2026-10-26",
+      "submissions": 9237,
+      "views": 243396,
+      "conversion": 3.8,
+      "lastSubmitted": "2026-10-27",
       "daysAgoLabel": "0d ago",
       "pages": [
         {
@@ -123,10 +123,10 @@ window.FORM_AUDIT = {
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/efa7bd0a-929a-4ea4-8480-1c6f77843cf2/edit/form",
       "band": "fresh",
       "pageCount": 2,
-      "submissions": 6106,
-      "views": 4501488,
+      "submissions": 6175,
+      "views": 4505297,
       "conversion": 0.14,
-      "lastSubmitted": "2026-10-26",
+      "lastSubmitted": "2026-10-27",
       "daysAgoLabel": "0d ago",
       "pages": [
         {
@@ -153,7 +153,7 @@ window.FORM_AUDIT = {
       "views": 5111,
       "conversion": 16.24,
       "lastSubmitted": "2026-10-06",
-      "daysAgoLabel": "20d ago",
+      "daysAgoLabel": "21d ago",
       "pages": [
         {
           "url": "https://www.roller.software/2025-benchmark-report",
@@ -171,10 +171,10 @@ window.FORM_AUDIT = {
       "band": "warm",
       "pageCount": 1,
       "submissions": 770,
-      "views": 9111,
+      "views": 9112,
       "conversion": 8.45,
       "lastSubmitted": "2026-07-01",
-      "daysAgoLabel": "117d ago",
+      "daysAgoLabel": "118d ago",
       "pages": [
         {
           "url": "https://www.roller.software/solutions/enterprise",
@@ -191,11 +191,11 @@ window.FORM_AUDIT = {
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/5cbf1aa8-f1de-4df8-8695-20efc5de8a6f/edit/form",
       "band": "fresh",
       "pageCount": 1,
-      "submissions": 479,
-      "views": 13021,
+      "submissions": 480,
+      "views": 13033,
       "conversion": 3.68,
-      "lastSubmitted": "2026-10-24",
-      "daysAgoLabel": "2d ago",
+      "lastSubmitted": "2026-10-26",
+      "daysAgoLabel": "1d ago",
       "pages": [
         {
           "url": "https://www.roller.software/2026-benchmark-report",
@@ -212,10 +212,10 @@ window.FORM_AUDIT = {
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/48a28f64-ceaf-4249-90c7-fbfd7a10aec3/edit/form",
       "band": "fresh",
       "pageCount": 1,
-      "submissions": 395,
+      "submissions": 399,
       "views": 4,
       "conversion": null,
-      "lastSubmitted": "2026-10-26",
+      "lastSubmitted": "2026-10-27",
       "daysAgoLabel": "0d ago",
       "pages": [
         {
@@ -234,10 +234,10 @@ window.FORM_AUDIT = {
       "band": "fresh",
       "pageCount": 2,
       "submissions": 153,
-      "views": 1063,
-      "conversion": 14.39,
+      "views": 1064,
+      "conversion": 14.38,
       "lastSubmitted": "2026-10-21",
-      "daysAgoLabel": "5d ago",
+      "daysAgoLabel": "6d ago",
       "pages": [
         {
           "url": "https://www.roller.software/partners/integration",
@@ -260,10 +260,10 @@ window.FORM_AUDIT = {
       "band": "fresh",
       "pageCount": 1,
       "submissions": 123,
-      "views": 507,
-      "conversion": 24.26,
+      "views": 508,
+      "conversion": 24.21,
       "lastSubmitted": "2026-10-20",
-      "daysAgoLabel": "6d ago",
+      "daysAgoLabel": "7d ago",
       "pages": [
         {
           "url": "https://www.roller.software/party-parent-report",
@@ -281,10 +281,10 @@ window.FORM_AUDIT = {
       "band": "fresh",
       "pageCount": 2,
       "submissions": 96,
-      "views": 8801,
+      "views": 8821,
       "conversion": 1.09,
       "lastSubmitted": "2026-10-20",
-      "daysAgoLabel": "6d ago",
+      "daysAgoLabel": "7d ago",
       "pages": [
         {
           "url": "https://www.roller.software/2026-pulse-report",
@@ -310,7 +310,7 @@ window.FORM_AUDIT = {
       "views": 17186,
       "conversion": 0.38,
       "lastSubmitted": "2026-08-11",
-      "daysAgoLabel": "76d ago",
+      "daysAgoLabel": "77d ago",
       "pages": [
         {
           "url": "https://www.roller.software/mystery-shopper-report/",
@@ -331,7 +331,7 @@ window.FORM_AUDIT = {
       "views": 7391,
       "conversion": 0.8,
       "lastSubmitted": "2025-09-16",
-      "daysAgoLabel": "405d ago",
+      "daysAgoLabel": "406d ago",
       "pages": [
         {
           "url": "https://www.roller.software/membership-ebook",
@@ -352,7 +352,7 @@ window.FORM_AUDIT = {
       "views": 152,
       "conversion": 34.21,
       "lastSubmitted": "2026-10-01",
-      "daysAgoLabel": "25d ago",
+      "daysAgoLabel": "26d ago",
       "pages": [
         {
           "url": "https://www.roller.software/venue-launch-checklist",
@@ -370,10 +370,10 @@ window.FORM_AUDIT = {
       "band": "fresh",
       "pageCount": 1,
       "submissions": 45,
-      "views": 307,
-      "conversion": 14.66,
+      "views": 310,
+      "conversion": 14.52,
       "lastSubmitted": "2026-10-25",
-      "daysAgoLabel": "1d ago",
+      "daysAgoLabel": "2d ago",
       "pages": [
         {
           "url": "https://www.roller.software/2025-roller-skating-trends-report",
@@ -394,7 +394,7 @@ window.FORM_AUDIT = {
       "views": 178,
       "conversion": 24.16,
       "lastSubmitted": "2026-09-10",
-      "daysAgoLabel": "46d ago",
+      "daysAgoLabel": "47d ago",
       "pages": [
         {
           "url": "https://www.roller.software/analytics-ebook",
@@ -411,11 +411,11 @@ window.FORM_AUDIT = {
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/08f35b46-27fe-45e2-bd33-c5519cbc5302/edit/form",
       "band": "fresh",
       "pageCount": 2,
-      "submissions": 37,
-      "views": 8685,
-      "conversion": 0.43,
-      "lastSubmitted": "2026-09-26",
-      "daysAgoLabel": "30d ago",
+      "submissions": 38,
+      "views": 8689,
+      "conversion": 0.44,
+      "lastSubmitted": "2026-10-27",
+      "daysAgoLabel": "0d ago",
       "pages": [
         {
           "url": "https://www.roller.software/solutions/grow-your-business",
@@ -441,7 +441,7 @@ window.FORM_AUDIT = {
       "views": 469,
       "conversion": 5.97,
       "lastSubmitted": "2024-04-10",
-      "daysAgoLabel": "929d ago",
+      "daysAgoLabel": "930d ago",
       "pages": [
         {
           "url": "https://www.roller.software/gx-show-ebook",
@@ -453,6 +453,27 @@ window.FORM_AUDIT = {
       "pill": "bad"
     },
     {
+      "name": "2026 - ROLLER Nikito Qubica French webinar ",
+      "id": "f9839ffd-be56-46f1-9389-d1f04464481d",
+      "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/f9839ffd-be56-46f1-9389-d1f04464481d/edit/form",
+      "band": "fresh",
+      "pageCount": 1,
+      "submissions": 18,
+      "views": 95,
+      "conversion": 18.95,
+      "lastSubmitted": "2026-10-27",
+      "daysAgoLabel": "0d ago",
+      "pages": [
+        {
+          "url": "https://www.roller.software/fr/webinar-bowling-first-nikito-multi-activites",
+          "path": "/fr/webinar-bowling-first-nikito-multi-activites",
+          "role": "Comment NIKITO a construit un complexe multi-activités"
+        }
+      ],
+      "status": "Active",
+      "pill": "ok"
+    },
+    {
       "name": "Refresh2025",
       "id": "6c317a40-231d-4117-a450-174892a5397a",
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/6c317a40-231d-4117-a450-174892a5397a/edit/form",
@@ -462,7 +483,7 @@ window.FORM_AUDIT = {
       "views": 1605,
       "conversion": 1.06,
       "lastSubmitted": "2026-07-01",
-      "daysAgoLabel": "117d ago",
+      "daysAgoLabel": "118d ago",
       "pages": [
         {
           "url": "https://www.roller.software/industries/family-entertainment-centers",
@@ -488,7 +509,7 @@ window.FORM_AUDIT = {
       "views": 95,
       "conversion": 14.74,
       "lastSubmitted": "2022-09-08",
-      "daysAgoLabel": "1509d ago",
+      "daysAgoLabel": "1510d ago",
       "pages": [
         {
           "url": "https://www.roller.software/guest-experience-playbook",
@@ -509,7 +530,7 @@ window.FORM_AUDIT = {
       "views": 44,
       "conversion": 22.73,
       "lastSubmitted": "2025-10-27",
-      "daysAgoLabel": "364d ago",
+      "daysAgoLabel": "365d ago",
       "pages": [
         {
           "url": "https://www.roller.software/opening-your-first-attraction-playbook",
@@ -521,37 +542,16 @@ window.FORM_AUDIT = {
       "pill": "warn"
     },
     {
-      "name": "2026 - ROLLER Nikito Qubica French webinar ",
-      "id": "f9839ffd-be56-46f1-9389-d1f04464481d",
-      "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/f9839ffd-be56-46f1-9389-d1f04464481d/edit/form",
-      "band": "fresh",
-      "pageCount": 1,
-      "submissions": 9,
-      "views": 83,
-      "conversion": 10.84,
-      "lastSubmitted": "2026-10-24",
-      "daysAgoLabel": "2d ago",
-      "pages": [
-        {
-          "url": "https://www.roller.software/fr/webinar-bowling-first-nikito-multi-activites",
-          "path": "/fr/webinar-bowling-first-nikito-multi-activites",
-          "role": "Comment NIKITO a construit un complexe multi-activités"
-        }
-      ],
-      "status": "Active",
-      "pill": "ok"
-    },
-    {
       "name": "French version get started",
       "id": "bd568951-5b7d-4042-8742-a934edbb0622",
       "hubspotUrl": "https://app.hubspot.com/forms/3375779/editor/bd568951-5b7d-4042-8742-a934edbb0622/edit/form",
       "band": "fresh",
       "pageCount": 1,
       "submissions": 8,
-      "views": 1161,
+      "views": 1167,
       "conversion": 0.69,
       "lastSubmitted": "2026-10-21",
-      "daysAgoLabel": "5d ago",
+      "daysAgoLabel": "6d ago",
       "pages": [
         {
           "url": "https://www.roller.software/fr/commencer",
@@ -572,7 +572,7 @@ window.FORM_AUDIT = {
       "views": 33,
       "conversion": 12.12,
       "lastSubmitted": "2025-03-21",
-      "daysAgoLabel": "584d ago",
+      "daysAgoLabel": "585d ago",
       "pages": [
         {
           "url": "https://www.roller.software/expanding-your-business-playbook",
@@ -593,7 +593,7 @@ window.FORM_AUDIT = {
       "views": 40,
       "conversion": 5,
       "lastSubmitted": "2026-07-10",
-      "daysAgoLabel": "108d ago",
+      "daysAgoLabel": "109d ago",
       "pages": [
         {
           "url": "https://www.roller.software/2026-bowling-trends",
@@ -614,7 +614,7 @@ window.FORM_AUDIT = {
       "views": 30,
       "conversion": 3.33,
       "lastSubmitted": "2025-03-31",
-      "daysAgoLabel": "574d ago",
+      "daysAgoLabel": "575d ago",
       "pages": [
         {
           "url": "https://www.roller.software/school-vacation-optimization-guide",
@@ -635,7 +635,7 @@ window.FORM_AUDIT = {
       "views": 22,
       "conversion": 4.55,
       "lastSubmitted": "2025-10-07",
-      "daysAgoLabel": "384d ago",
+      "daysAgoLabel": "385d ago",
       "pages": [
         {
           "url": "https://www.roller.software/2025-water-park-trends-report",
@@ -647,6 +647,6 @@ window.FORM_AUDIT = {
       "pill": "warn"
     }
   ],
-  "hubspotAsOf": "26 October 2026",
+  "hubspotAsOf": "27 October 2026",
   "idleNote": "Pages are still published. “2022 - Guest Experience Playbook” last submitted on 2022-09-08."
 };
