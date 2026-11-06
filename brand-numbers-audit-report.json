@@ -1,10 +1,14 @@
 {
-  "auditedAt": "2026-11-06T00:37:52.401Z",
+  "auditedAt": "2026-11-06T23:52:23.109Z",
   "method": "Live re-check of sitemap marketing pages, published pages already tracked by Brand Signal, and all blog posts, scored against 3,500+ venues and $5B transactions processed. Linked PDFs were not re-read.",
   "pagesRequested": 914,
-  "marketingPages": 148,
-  "blogPagesChecked": 688,
+  "marketingPages": 147,
+  "blogPagesChecked": 685,
   "fetchErrors": [
+    "https://www.roller.software/blog/amusement-360-2024-recap",
+    "https://www.roller.software/blog/rsa-2025-recap",
+    "https://www.roller.software/blog/cost-guide-play-center-attraction-ideas",
+    "https://www.roller.software/blog/repeat-visitors",
     "https://www.roller.software/features/guest-feedback-software",
     "https://www.roller.software/blog/go-kart-safety-guide",
     "https://www.roller.software/fr/webinar-bowling-first-nikito-multi-activites",
@@ -20,16 +24,12 @@
     "https://www.roller.software/blog/conifox-adventure-park",
     "https://www.roller.software/blog/sustainability-insights-from-the-2025-pulse-report",
     "https://www.roller.software/blog/halloween-themed-attractions-a-scarily-good-growth-opportunity",
-    "https://www.roller.software/blog/september-product-update-video",
-    "https://www.roller.software/blog/adapting-to-trends-for-long-term-success",
-    "https://www.roller.software/blog/common-business-challenges-and-solutions",
-    "https://www.roller.software/blog/iaapa-expo-europe-2024-recap",
-    "https://www.roller.software/blog/maximize-revenue-with-smart-upselling"
+    "https://www.roller.software/blog/september-product-update-video"
   ],
   "flippedToOffBrand": 0,
   "restoredToOnBrand": 0,
   "newOffBrandPages": 0,
-  "logoHeadingsRead": 83,
+  "logoHeadingsRead": 82,
   "statusAfter": {
     "ok": 197,
     "context": 24,
