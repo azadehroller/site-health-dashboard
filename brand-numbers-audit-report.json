@@ -1,13 +1,10 @@
 {
-  "auditedAt": "2026-11-13T00:48:02.229Z",
+  "auditedAt": "2026-11-14T00:32:47.986Z",
   "method": "Live re-check of sitemap marketing pages, published pages already tracked by Brand Signal, and all blog posts, scored against 3,500+ venues and $5B transactions processed. Linked PDFs were not re-read.",
   "pagesRequested": 916,
-  "marketingPages": 148,
-  "blogPagesChecked": 689,
+  "marketingPages": 150,
+  "blogPagesChecked": 692,
   "fetchErrors": [
-    "https://www.roller.software/features/point-of-sale-reports",
-    "https://www.roller.software/blog/the-state-of-ticketing-in-the-attractions-sector",
-    "https://www.roller.software/blog/customer-story-arthurs-seat-eagle-2000-daily-guests-ticketing",
     "https://www.roller.software/blog/emailing-invoice-enhancements",
     "https://www.roller.software/blog/augmented-reality-at-your-venue",
     "https://www.roller.software/blog/cost-guide-play-center-attraction-ideas",
@@ -24,12 +21,15 @@
     "https://www.roller.software/blog/april-2021-product-updates",
     "https://www.roller.software/blog/keep-the-energy-high-7-ways-to-create-a-culture-of-enthusiasm",
     "https://www.roller.software/blog/roller-investment-luke-finn",
-    "https://www.roller.software/product-launch/november-2026"
+    "https://www.roller.software/blog/how-can-trampoline-parks-drive-revenue-and-improve-the-customer-experience",
+    "https://www.roller.software/blog/turning-guest-feedback-into-action-with-roller-iq",
+    "https://www.roller.software/blog/product-launch-november-2025",
+    "https://www.roller.software/blog/rsa-2025-recap"
   ],
   "flippedToOffBrand": 0,
   "restoredToOnBrand": 0,
   "newOffBrandPages": 0,
-  "logoHeadingsRead": 83,
+  "logoHeadingsRead": 84,
   "statusAfter": {
     "ok": 197,
     "context": 24,
